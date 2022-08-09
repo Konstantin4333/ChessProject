@@ -9,7 +9,7 @@ namespace Chess.Models
     public abstract class Piece
     {
         private bool killed = false;
-        private bool white = false;
+        private bool white;
 
         public Piece (bool white)
         {
