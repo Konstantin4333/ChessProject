@@ -15,7 +15,17 @@ namespace Chess.Models
 
         public override bool canMove(Board board, Square start, Square end)
         {
-            throw new NotImplementedException();
+            if (end.Piece.White == start.Piece.White)
+            {
+                return false;
+            }
+            int x = Math.Abs(start.X - end.X);
+            int y = Math.Abs(start.Y - end.Y);
+            if (x == y)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
