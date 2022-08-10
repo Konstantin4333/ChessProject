@@ -36,10 +36,10 @@
 
 
     <Grid MouseDown="Grid_MouseDown" >
-        
+
         <Border BorderThickness="50" BorderBrush="#FF3A1707">
 
-           
+
 
             <Grid x:Name="grid">
                 <Grid.RowDefinitions>
@@ -66,13 +66,13 @@
                 <Grid Grid.Row="0" Grid.Column="0" Background="{StaticResource OddTile}"  >
                     <Canvas Style="{StaticResource OppositeCanvas}">
                         <StackPanel Margin="15 10">
-                            <Path Style="{StaticResource RookBody}" RenderTransformOrigin="0.5,0.5" Fill="Black" >
+                            <Path Style="{StaticResource RookBody}" RenderTransformOrigin="0.515,0.448" Fill="Black" >
                                 <Path.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform/>
                                         <SkewTransform/>
                                         <RotateTransform Angle="180"/>
-                                        <TranslateTransform/>
+                                        <TranslateTransform X="-1.5" Y="5.516"/>
                                     </TransformGroup>
                                 </Path.RenderTransform>
                             </Path>
@@ -436,9 +436,9 @@
                     </Canvas>
 
                 </Grid>
-                   
+
             </Grid>
-            
+
         </Border>
     </Grid>
 </Window>
