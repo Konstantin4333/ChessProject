@@ -1,0 +1,198 @@
+﻿<UserControl x:Class="Chess.View.PlankControlView"
+            
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Chess.View"
+             xmlns:v="clr-namespace:Chess"
+             xmlns:z="clr-namespace:Chess.Styles"
+         
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="800">
+
+   
+
+      
+    <Grid Width="700" Height="700">
+        <!--#region Grid Definition-->
+        <Grid x:Name="grid">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <!--#endregion-->
+            <!--#region Row 0-->
+            <Grid Grid.Row="0" Grid.Column="0" Background="{StaticResource OddTile}"  >
+
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1" Background="{StaticResource EvenTile}" RenderTransformOrigin="0.5,0.5">
+
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="2" Background="{StaticResource OddTile}">
+
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="4" Background="{DynamicResource OddTile}">
+
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="3" Background="{DynamicResource EvenTile}">
+
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="5" Background="{StaticResource EvenTile}">
+
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="6" Background="{StaticResource OddTile}">
+
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="7" Background="{StaticResource EvenTile}" RenderTransformOrigin="0.5,0.5">
+
+            </Grid>
+            <!--#endregion-->
+            <!--#region Row 1-->
+            <Grid Grid.Row="1" Grid.Column="0" Background="{StaticResource EvenTile}" RenderTransformOrigin="0.5,0.5">
+
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1" Background="{StaticResource OddTile}" RenderTransformOrigin="0.5,0.5" OpacityMask="Black">
+
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="2" Background="{StaticResource EvenTile}" RenderTransformOrigin="0.5,0.5" OpacityMask="Black">
+
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="3" Background="{StaticResource OddTile}">
+
+
+
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="4" Background="{StaticResource EvenTile}" OpacityMask="Black">
+
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="5" Background="{StaticResource OddTile}" OpacityMask="Black">
+
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="6" Background="{StaticResource EvenTile}" >
+
+
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="7" Background="{StaticResource OddTile}" RenderTransformOrigin="0.5,0.5">
+
+
+
+            </Grid>
+            <!--#endregion-->
+            <!--#region Row 2-->
+            <Grid Grid.Row="2" Grid.Column="0" Background="{StaticResource OddTile}"></Grid>
+            <Grid Grid.Row="2" Grid.Column="1" Background="{StaticResource EvenTile}"></Grid>
+            <Grid Grid.Row="2" Grid.Column="2" Background="{StaticResource OddTile}"></Grid>
+            <Grid Grid.Row="2" Grid.Column="3" Background="{StaticResource EvenTile}"></Grid>
+            <Grid Grid.Row="2" Grid.Column="4" Background="{StaticResource OddTile}"></Grid>
+            <Grid Grid.Row="2" Grid.Column="5" Background="{StaticResource EvenTile}"></Grid>
+            <Grid Grid.Row="2" Grid.Column="6" Background="{StaticResource OddTile}"></Grid>
+            <Grid Grid.Row="2" Grid.Column="7" Background="{StaticResource EvenTile}"></Grid>
+            <!--#endregion-->
+            <!--#region Row 3-->
+            <Grid Grid.Row="3" Grid.Column="0" Background="{StaticResource EvenTile}"></Grid>
+            <Grid Grid.Row="3" Grid.Column="1" Background="{StaticResource OddTile}"></Grid>
+            <Grid Grid.Row="3" Grid.Column="2" Background="{StaticResource EvenTile}"></Grid>
+            <Grid Grid.Row="3" Grid.Column="3" Background="{StaticResource OddTile}"></Grid>
+            <Grid Grid.Row="3" Grid.Column="4" Background="{StaticResource EvenTile}"></Grid>
+            <Grid Grid.Row="3" Grid.Column="5" Background="{StaticResource OddTile}"></Grid>
+            <Grid Grid.Row="3" Grid.Column="6" Background="{StaticResource EvenTile}"></Grid>
+            <Grid Grid.Row="3" Grid.Column="7" Background="{StaticResource OddTile}"></Grid>
+            <!--#endregion-->
+            <!--#region Row 4 -->
+            <Grid Grid.Row="4" Grid.Column="0" Background="{StaticResource OddTile}"></Grid>
+            <Grid Grid.Row="4" Grid.Column="1" Background="{StaticResource EvenTile}"></Grid>
+            <Grid Grid.Row="4" Grid.Column="2" Background="{StaticResource OddTile}"></Grid>
+            <Grid Grid.Row="4" Grid.Column="3" Background="{StaticResource EvenTile}"></Grid>
+            <Grid Grid.Row="4" Grid.Column="4" Background="{StaticResource OddTile}"></Grid>
+            <Grid Grid.Row="4" Grid.Column="5" Background="{StaticResource EvenTile}"></Grid>
+            <Grid Grid.Row="4" Grid.Column="6" Background="{StaticResource OddTile}"></Grid>
+            <Grid Grid.Row="4" Grid.Column="7" Background="{StaticResource EvenTile}"></Grid>
+            <!--#endregion-->
+            <!--#region Row 5-->
+            <Grid Grid.Row="5" Grid.Column="0" Background="{StaticResource EvenTile}"></Grid>
+            <Grid Grid.Row="5" Grid.Column="1" Background="{StaticResource OddTile}"></Grid>
+            <Grid Grid.Row="5" Grid.Column="2" Background="{StaticResource EvenTile}"></Grid>
+            <Grid Grid.Row="5" Grid.Column="3" Background="{StaticResource OddTile}"></Grid>
+            <Grid Grid.Row="5" Grid.Column="4" Background="{StaticResource EvenTile}"></Grid>
+            <Grid Grid.Row="5" Grid.Column="5" Background="{StaticResource OddTile}"></Grid>
+            <Grid Grid.Row="5" Grid.Column="6" Background="{StaticResource EvenTile}"></Grid>
+            <Grid Grid.Row="5" Grid.Column="7" Background="{StaticResource OddTile}"></Grid>
+            <!--#endregion-->
+            <!--#region Row 6-->
+
+            <Grid Grid.Row="6" Grid.Column="0" Background="{StaticResource OddTile}">
+
+            </Grid>
+            <Grid Grid.Row="6" Grid.Column="1" Background="{StaticResource EvenTile}">
+
+            </Grid>
+            <Grid Grid.Row="6" Grid.Column="2" Background="{StaticResource OddTile}">
+
+            </Grid>
+            <Grid Grid.Row="6" Grid.Column="3" Background="{StaticResource EvenTile}">
+
+            </Grid>
+            <Grid Grid.Row="6" Grid.Column="4" Background="{StaticResource OddTile}">
+
+            </Grid>
+            <Grid Grid.Row="6" Grid.Column="5" Background="{StaticResource EvenTile}">
+
+            </Grid>
+            <Grid Grid.Row="6" Grid.Column="6" Background="{StaticResource OddTile}">
+
+            </Grid>
+            <Grid Grid.Row="6" Grid.Column="7" Background="{StaticResource EvenTile}">
+
+            </Grid>
+            <!--#endregion-->
+            <!--#region Row 7 -->
+
+            <Grid Grid.Row="7" Grid.Column="0" Background="{StaticResource EvenTile}">
+
+            </Grid>
+            <Grid Grid.Row="7" Grid.Column="1" Background="{StaticResource OddTile}">
+                
+
+            </Grid>
+            <Grid Grid.Row="7" Grid.Column="2" Background="{StaticResource EvenTile}">
+           
+            </Grid>
+            <Grid Grid.Row="7" Grid.Column="3" Background="{StaticResource OddTile}">
+
+            </Grid>
+            <Grid Grid.Row="7" Grid.Column="4" Background="{StaticResource EvenTile}">
+
+            </Grid>
+            <Grid Grid.Row="7" Grid.Column="5" Background="{StaticResource OddTile}">
+
+            </Grid>
+            <Grid Grid.Row="7" Grid.Column="6" Background="{StaticResource EvenTile}">
+
+            </Grid>
+            <Grid Grid.Row="7" Grid.Column="7" Background="{StaticResource OddTile}">
+
+            </Grid>
+            
+        </Grid>
+        <!--#endregion-->
+
+    </Grid>
+</UserControl>

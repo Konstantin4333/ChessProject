@@ -24,5 +24,10 @@ namespace Chess.View
         {
             InitializeComponent();
         }
+        /*public static Point GetMousePositionWindowsForms()
+        {
+            var point = Control.MousePosition;
+            return new Point(point.X, point.Y);
+        }*/
     }
 }
