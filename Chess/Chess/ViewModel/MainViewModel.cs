@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Chess.ViewModel
 {
-    internal class MainViewModel
+    public class MainViewModel : BaseViewModel
     {
+
     }
 }

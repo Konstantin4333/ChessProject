@@ -13,9 +13,9 @@ namespace Chess.Models
 
         public Board()
         {
-            this.resetBoard();
+            this.ResetBoard();
         }
-        public Square getSquare(int x, int y)
+        public Square GetSquare(int x, int y)
         {
             if(x < 0 || x > 7 || y < 0 || y > 7) {
                 throw new Exception("Index out of bounds");
@@ -23,7 +23,7 @@ namespace Chess.Models
 
             return Squares[x][y];
         }
-        public void resetBoard()
+        public void ResetBoard()
         {
             //Initialize white pieces 
             Squares[0][0] = new Square(0, 0, new Rook(false));
