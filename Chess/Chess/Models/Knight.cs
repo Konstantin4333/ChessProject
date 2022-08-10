@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Chess.Models
+{
+    public class Knight : Piece
+    {
+        public Knight(bool white) : base(white)
+        {
+
+        }
+
+        public override bool canMove(Board board, Square start, Square end)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
