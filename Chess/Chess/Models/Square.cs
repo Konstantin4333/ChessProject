@@ -11,13 +11,14 @@ namespace Chess.Models
         private Piece _piece;
         private int x;
         private int y;
-        
-        public Square(int x,int y, Piece piece)
+
+        public Square(int x, int y, Piece piece)
         {
             Piece = piece;
-            X=x;
-            Y=y;
+            X = x;
+            Y = y;
         }
+
         public Piece Piece
         {
             get { return _piece; }
@@ -28,12 +29,12 @@ namespace Chess.Models
             get { return x; }
             set { x = value; }
         }
-        public int Y 
+        public int Y
         {
             get { return y; }
             set { y = value; }
         }
-        
+
 
     }
 }

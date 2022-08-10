@@ -8,26 +8,15 @@ namespace Chess.Models
 {
     public abstract class Piece
     {
-        private bool killed;
-        private bool white;
 
-        public Piece (bool white)
+        public Piece(bool white)
         {
-            Killed = false;
             White = white;
-        }   
+        }
 
-        public bool Killed
-        {
-            get { return killed; }
-            set { killed = value; }
-        }
-        public bool White 
-        { 
-            get { return white; }
-            set { white = value; }
-        }
-        public abstract bool canMove(Board board, Square start, Square end);
+        public bool Killed { get; set; }
+        public bool White { get; set; }
+        public abstract bool CanMove(Board board, Square start, Square end);
 
     }
 }
