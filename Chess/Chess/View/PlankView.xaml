@@ -1,0 +1,412 @@
+﻿<Page x:Class="Chess.View.PlankView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Chess.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="800"
+      Title="PlankView">
+    
+    <Grid Width="700" Height="700">
+        <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!-- Red 0-->
+        <Grid Grid.Row="0" Grid.Column="0" Background="{StaticResource OddTile}"  >
+            <Canvas Style="{StaticResource OppositeCanvas}">
+                <StackPanel Margin="15 10">
+                    <Path Style="{StaticResource RookBody}" RenderTransformOrigin="0.515,0.448" Fill="Black" >
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="180"/>
+                                <TranslateTransform X="-1.5" Y="5.516"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                    <Path Style="{StaticResource RookHead}" RenderTransformOrigin="0.5,0.5" Fill="#FF0A0A0A" >
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="180.047"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </StackPanel>
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1" Background="{StaticResource EvenTile}" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Canvas>
+                <Path Style="{StaticResource Knight}" Fill="Black" />
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="2" Background="{StaticResource OddTile}">
+            <Canvas>
+                <Path Style="{StaticResource BishopHelmetFront}" Fill="#FF0A0A0A" />
+                <Path Style="{StaticResource BishopHelmet}" RenderTransformOrigin="0.5,0.5" Fill="Black" >
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="4" Background="{DynamicResource OddTile}">
+            <Canvas>
+                <Path Style="{StaticResource Queen}" RenderTransformOrigin="0.5,0.5" Fill="Black" >
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="3" Background="{DynamicResource EvenTile}">
+            <Canvas>
+                <Path Style="{StaticResource King}" RenderTransformOrigin="0.5,0.5" Fill="Black" >
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="5" Background="{StaticResource EvenTile}">
+            <Canvas>
+                <Path Style="{StaticResource BishopHelmetFront}" Fill="Black" />
+                <Path Style="{StaticResource BishopHelmet}" RenderTransformOrigin="0.5,0.5" Fill="Black" >
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="6" Background="{StaticResource OddTile}">
+            <Canvas>
+                <Path Style="{StaticResource Knight}" RenderTransformOrigin="0.5,0.5" Fill="Black" >
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="7" Background="{StaticResource EvenTile}" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Canvas Style="{StaticResource OppositeCanvas}">
+                <StackPanel Margin="15 10">
+                    <Path Style="{StaticResource RookHead}" Fill="Black" />
+                    <Path Style="{StaticResource RookBody}" Fill="Black" />
+                </StackPanel>
+            </Canvas>
+        </Grid>
+        <!-- Row 1 -->
+        <Grid Grid.Row="1" Grid.Column="0" Background="{StaticResource EvenTile}" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Canvas>
+                <Path Style="{StaticResource Pawn}" OpacityMask="Black" Fill="#FF0C0B0B" />
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1" Background="{StaticResource OddTile}" RenderTransformOrigin="0.5,0.5" OpacityMask="Black">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Canvas>
+                <Path Style="{StaticResource Pawn}" Fill="Black" />
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="2" Background="{StaticResource EvenTile}" RenderTransformOrigin="0.5,0.5" OpacityMask="Black">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Canvas>
+                <Path Style="{StaticResource Pawn}" Fill="Black" />
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="3">
+            <Canvas Background="#FFA29494">
+                <Path Style="{StaticResource Pawn}" RenderTransformOrigin="0.5,0.5" OpacityMask="Black" Fill="Black" >
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="4" Background="{StaticResource EvenTile}" OpacityMask="Black">
+            <Canvas>
+                <Path Style="{StaticResource Pawn}" RenderTransformOrigin="0.5,0.5" Fill="Black" >
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="5" Background="{StaticResource OddTile}" OpacityMask="Black">
+            <Canvas>
+                <Path Style="{StaticResource Pawn}" RenderTransformOrigin="0.5,0.5" Fill="Black" >
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="6" Background="{StaticResource EvenTile}" OpacityMask="Black">
+            <Canvas>
+                <Path Style="{StaticResource Pawn}" RenderTransformOrigin="0.5,0.5" Fill="Black" >
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="7" Background="{StaticResource OddTile}" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Canvas>
+                <Path Style="{StaticResource Pawn}" Fill="Black" />
+            </Canvas>
+        </Grid>
+
+        <!-- Row 2 -->
+        <Grid Grid.Row="2" Grid.Column="0" Background="{StaticResource OddTile}"></Grid>
+        <Grid Grid.Row="2" Grid.Column="1" Background="{StaticResource EvenTile}"></Grid>
+        <Grid Grid.Row="2" Grid.Column="2" Background="{StaticResource OddTile}"></Grid>
+        <Grid Grid.Row="2" Grid.Column="3" Background="{StaticResource EvenTile}"></Grid>
+        <Grid Grid.Row="2" Grid.Column="4" Background="{StaticResource OddTile}"></Grid>
+        <Grid Grid.Row="2" Grid.Column="5" Background="{StaticResource EvenTile}"></Grid>
+        <Grid Grid.Row="2" Grid.Column="6" Background="{StaticResource OddTile}"></Grid>
+        <Grid Grid.Row="2" Grid.Column="7" Background="{StaticResource EvenTile}"></Grid>
+
+        <!-- Row 3 -->
+        <Grid Grid.Row="3" Grid.Column="0" Background="{StaticResource EvenTile}"></Grid>
+        <Grid Grid.Row="3" Grid.Column="1" Background="{StaticResource OddTile}"></Grid>
+        <Grid Grid.Row="3" Grid.Column="2" Background="{StaticResource EvenTile}"></Grid>
+        <Grid Grid.Row="3" Grid.Column="3" Background="{StaticResource OddTile}"></Grid>
+        <Grid Grid.Row="3" Grid.Column="4" Background="{StaticResource EvenTile}"></Grid>
+        <Grid Grid.Row="3" Grid.Column="5" Background="{StaticResource OddTile}"></Grid>
+        <Grid Grid.Row="3" Grid.Column="6" Background="{StaticResource EvenTile}"></Grid>
+        <Grid Grid.Row="3" Grid.Column="7" Background="{StaticResource OddTile}"></Grid>
+
+        <!-- Row 4 -->
+        <Grid Grid.Row="4" Grid.Column="0" Background="{StaticResource OddTile}"></Grid>
+        <Grid Grid.Row="4" Grid.Column="1" Background="{StaticResource EvenTile}"></Grid>
+        <Grid Grid.Row="4" Grid.Column="2" Background="{StaticResource OddTile}"></Grid>
+        <Grid Grid.Row="4" Grid.Column="3" Background="{StaticResource EvenTile}"></Grid>
+        <Grid Grid.Row="4" Grid.Column="4" Background="{StaticResource OddTile}"></Grid>
+        <Grid Grid.Row="4" Grid.Column="5" Background="{StaticResource EvenTile}"></Grid>
+        <Grid Grid.Row="4" Grid.Column="6" Background="{StaticResource OddTile}"></Grid>
+        <Grid Grid.Row="4" Grid.Column="7" Background="{StaticResource EvenTile}"></Grid>
+
+        <!-- Row 5 -->
+        <Grid Grid.Row="5" Grid.Column="0" Background="{StaticResource EvenTile}"></Grid>
+        <Grid Grid.Row="5" Grid.Column="1" Background="{StaticResource OddTile}"></Grid>
+        <Grid Grid.Row="5" Grid.Column="2" Background="{StaticResource EvenTile}"></Grid>
+        <Grid Grid.Row="5" Grid.Column="3" Background="{StaticResource OddTile}"></Grid>
+        <Grid Grid.Row="5" Grid.Column="4" Background="{StaticResource EvenTile}"></Grid>
+        <Grid Grid.Row="5" Grid.Column="5" Background="{StaticResource OddTile}"></Grid>
+        <Grid Grid.Row="5" Grid.Column="6" Background="{StaticResource EvenTile}"></Grid>
+        <Grid Grid.Row="5" Grid.Column="7" Background="{StaticResource OddTile}"></Grid>
+
+        <!-- Row 6 -->
+        <Grid Grid.Row="6" Grid.Column="0" Background="{StaticResource OddTile}">
+            <Canvas Style="{StaticResource OppositeCanvas}">
+                <Path Style="{StaticResource Pawn}" />
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="6" Grid.Column="1" Background="{StaticResource EvenTile}">
+            <Canvas Style="{StaticResource OppositeCanvas}">
+                <Path Style="{StaticResource Pawn}" />
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="6" Grid.Column="2" Background="{StaticResource OddTile}">
+            <Canvas Style="{StaticResource OppositeCanvas}">
+                <Path Style="{StaticResource Pawn}" />
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="6" Grid.Column="3" Background="{StaticResource EvenTile}">
+            <Canvas Style="{StaticResource OppositeCanvas}">
+                <Path Style="{StaticResource Pawn}" />
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="6" Grid.Column="4" Background="{StaticResource OddTile}">
+            <Canvas Style="{StaticResource OppositeCanvas}">
+                <Path Style="{StaticResource Pawn}" />
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="6" Grid.Column="5" Background="{StaticResource EvenTile}">
+            <Canvas Style="{StaticResource OppositeCanvas}">
+                <Path Style="{StaticResource Pawn}" />
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="6" Grid.Column="6" Background="{StaticResource OddTile}">
+            <Canvas Style="{StaticResource OppositeCanvas}">
+                <Path Style="{StaticResource Pawn}" />
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="6" Grid.Column="7" Background="{StaticResource EvenTile}">
+            <Canvas Style="{StaticResource OppositeCanvas}">
+                <Path Style="{StaticResource Pawn}" />
+            </Canvas>
+        </Grid>
+
+        <!-- Row 7 -->
+        <Grid Grid.Row="7" Grid.Column="0" Background="{StaticResource EvenTile}">
+            <Canvas>
+                <StackPanel Margin="20 10">
+                    <Path Style="{StaticResource RookHead}" />
+                    <Path Style="{StaticResource RookBody}" />
+                </StackPanel>
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="7" Grid.Column="1" Background="{StaticResource OddTile}">
+            <Canvas Style="{StaticResource OppositeKnight}">
+                <StackPanel>
+                    <Path Style="{StaticResource Knight}" />
+                </StackPanel>
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="7" Grid.Column="2" Background="{StaticResource EvenTile}">
+            <Canvas Style="{StaticResource OppositeBishop}">
+                <Path Style="{StaticResource BishopHelmetFront}" />
+                <Path Style="{StaticResource BishopHelmet}" />
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="7" Grid.Column="3" Background="{StaticResource OddTile}">
+            <Canvas Style="{StaticResource OppositeQueen}">
+                <Path Style="{StaticResource Queen}" />
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="7" Grid.Column="4" Background="{StaticResource EvenTile}">
+            <Canvas Style="{StaticResource OppositeKing}">
+                <Path Style="{StaticResource King}" />
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="7" Grid.Column="5" Background="{StaticResource OddTile}">
+            <Canvas Style="{StaticResource OppositeBishop}">
+                <Path Style="{StaticResource BishopHelmetFront}" />
+                <Path Style="{StaticResource BishopHelmet}" />
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="7" Grid.Column="6" Background="{StaticResource EvenTile}">
+            <Canvas Style="{StaticResource OppositeKnight}">
+                <StackPanel>
+                    <Path Style="{StaticResource Knight}" />
+                </StackPanel>
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="7" Grid.Column="7" Background="{StaticResource OddTile}">
+            <Canvas>
+                <StackPanel Margin="20 10">
+                    <Path Style="{StaticResource RookHead}" />
+                    <Path Style="{StaticResource RookBody}" />
+                </StackPanel>
+            </Canvas>
+
+        </Grid>
+
+    </Grid>
+
+    
+    </Grid>
+</Page>
