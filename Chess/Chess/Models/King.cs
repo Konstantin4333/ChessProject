@@ -2,7 +2,7 @@
 {
     public class King : Piece
     {
-        public bool castlingDone { get; set };
+        public bool castlingDone { get; set; }
 
         public King(bool white) : base(white)
         {
