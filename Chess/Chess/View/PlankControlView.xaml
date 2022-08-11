@@ -12,14 +12,32 @@
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="800">
 
-   
 
-      
+
+
     <Grid Width="700" Height="700">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.125"/>
+            <RowDefinition Height="87.5"/>
+            <RowDefinition Height="87.5"/>
+            <RowDefinition Height="87.5"/>
+            <RowDefinition Height="87.5"/>
+            <RowDefinition Height="87.5"/>
+            <RowDefinition Height="87.5"/>
+            <RowDefinition Height="87.5"/>
+            <RowDefinition Height="87.5"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="87.5"/>
+            <ColumnDefinition Width="612"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
         <!--#region Grid Definition-->
-        <Grid x:Name="grid">
+        <Grid x:Name="grid" Grid.ColumnSpan="4" Grid.RowSpan="9">
             <Grid.RowDefinitions>
-                <RowDefinition/>
+                <RowDefinition Height="87.5"/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -40,10 +58,18 @@
             </Grid.ColumnDefinitions>
             <!--#endregion-->
             <!--#region Row 0-->
-            <Grid Grid.Row="0" Grid.Column="0" Background="{StaticResource OddTile}"  >
+            <Grid Grid.Row="0" Grid.Column="0" Background="{StaticResource OddTile}" Grid.ColumnSpan="2" Margin="0,0,87,87" Grid.RowSpan="2" Height="87.5" Width="87.5"  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="44"/>
+                    <ColumnDefinition Width="44"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="44"/>
+                    <RowDefinition Height="44"/>
+                </Grid.RowDefinitions>
 
             </Grid>
-            <Grid Grid.Row="0" Grid.Column="1" Background="{StaticResource EvenTile}" RenderTransformOrigin="0.5,0.5">
+            <Grid Grid.Row="0" Grid.Column="1" Background="{StaticResource EvenTile}">
 
             </Grid>
             <Grid Grid.Row="0" Grid.Column="2" Background="{StaticResource OddTile}">
@@ -61,18 +87,22 @@
             <Grid Grid.Row="0" Grid.Column="6" Background="{StaticResource OddTile}">
 
             </Grid>
-            <Grid Grid.Row="0" Grid.Column="7" Background="{StaticResource EvenTile}" RenderTransformOrigin="0.5,0.5">
+            <Grid Grid.Row="0" Grid.Column="7" Background="{StaticResource EvenTile}">
 
             </Grid>
             <!--#endregion-->
             <!--#region Row 1-->
-            <Grid Grid.Row="1" Grid.Column="0" Background="{StaticResource EvenTile}" RenderTransformOrigin="0.5,0.5">
+            <Grid Grid.Row="1" Grid.Column="0" Background="{StaticResource EvenTile}" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="57*"/>
+                    <ColumnDefinition Width="31*"/>
+                </Grid.ColumnDefinitions>
 
             </Grid>
-            <Grid Grid.Row="1" Grid.Column="1" Background="{StaticResource OddTile}" RenderTransformOrigin="0.5,0.5" OpacityMask="Black">
+            <Grid Grid.Row="1" Grid.Column="1" Background="{StaticResource OddTile}">
 
             </Grid>
-            <Grid Grid.Row="1" Grid.Column="2" Background="{StaticResource EvenTile}" RenderTransformOrigin="0.5,0.5" OpacityMask="Black">
+            <Grid Grid.Row="1" Grid.Column="2" Background="{StaticResource EvenTile}">
 
             </Grid>
             <Grid Grid.Row="1" Grid.Column="3" Background="{StaticResource OddTile}">
@@ -107,7 +137,7 @@
             <Grid Grid.Row="2" Grid.Column="7" Background="{StaticResource EvenTile}"></Grid>
             <!--#endregion-->
             <!--#region Row 3-->
-            <Grid Grid.Row="3" Grid.Column="0" Background="{StaticResource EvenTile}"></Grid>
+            <Grid Grid.Row="3" Grid.Column="0" Background="{StaticResource EvenTile}" Height="87"></Grid>
             <Grid Grid.Row="3" Grid.Column="1" Background="{StaticResource OddTile}"></Grid>
             <Grid Grid.Row="3" Grid.Column="2" Background="{StaticResource EvenTile}"></Grid>
             <Grid Grid.Row="3" Grid.Column="3" Background="{StaticResource OddTile}"></Grid>
@@ -169,11 +199,11 @@
 
             </Grid>
             <Grid Grid.Row="7" Grid.Column="1" Background="{StaticResource OddTile}">
-                
+
 
             </Grid>
             <Grid Grid.Row="7" Grid.Column="2" Background="{StaticResource EvenTile}">
-           
+
             </Grid>
             <Grid Grid.Row="7" Grid.Column="3" Background="{StaticResource OddTile}">
 
@@ -190,7 +220,7 @@
             <Grid Grid.Row="7" Grid.Column="7" Background="{StaticResource OddTile}">
 
             </Grid>
-            
+
         </Grid>
         <!--#endregion-->
 

@@ -10,22 +10,29 @@
 
     <Canvas Width="800" Height="800">
 
-        <!-- <Rectangle Width="700" Height="700"  HorizontalAlignment="Stretch" Margin="50,50,50,50" Stroke="Black" > 
-
-        </Rectangle>-->
+      
 
         <Rectangle Height="50"  StrokeDashArray="1 2" VerticalAlignment="Top" Width="800" HorizontalAlignment="Left" Fill="#FF3A1707" />
         <Rectangle Width="50" Height="800" Canvas.Left="0" Canvas.Top="0" HorizontalAlignment="Left" VerticalAlignment="Top" Fill="#FF3A1707" />
         <Rectangle Height="50"  StrokeDashArray="1 2" VerticalAlignment="Bottom" Width="800" HorizontalAlignment="Left" Fill="#FF3A1707" Canvas.Left="0" Canvas.Top="750" />
         <Rectangle Width="50" Height="800" Canvas.Left="750" Canvas.Top="0" HorizontalAlignment="Right" VerticalAlignment="Top" Fill="#FF3A1707" />
-        <TextBlock Text="8" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center" Foreground="White" FontSize="20" Width="20" Height="25" Canvas.Left="15" Canvas.Top="70"/>
-        <TextBlock Text="7" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"  Foreground="White" FontSize="20" Width="20" Height="25" Canvas.Left="15" Canvas.Top="170" />
-        <TextBlock Text="6" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"  Foreground="White" FontSize="20" Width="20" Height="25" Canvas.Left="15" Canvas.Top="250" />
-        <TextBlock Text="5" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"  Foreground="White" FontSize="20" Width="20" Height="25" Canvas.Left="15" Canvas.Top="340" />
-        <TextBlock Text="4" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"  Foreground="White" FontSize="20" Width="20" Height="25" Canvas.Left="15" Canvas.Top="430"/>
-        <TextBlock Text="3" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"  Foreground="White" FontSize="20" Width="20" Height="25" Canvas.Left="15" Canvas.Top="510"/>
-        <TextBlock Text="2" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"  Foreground="White" FontSize="20" Width="20" Height="25" Canvas.Left="15" Canvas.Top="600"/>
-        <TextBlock Text="1" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"  Foreground="White" FontSize="20" Width="20" Height="25" Canvas.Left="15" Canvas.Top="700"/>
+
+        <TextBlock Text="8" Style="{StaticResource TbStyle}" Canvas.Top="70"/>
+        <TextBlock Text="7"  Style="{StaticResource TbStyle}" Canvas.Top="170" />
+        <TextBlock Text="6"  Style="{StaticResource TbStyle}" Canvas.Top="250" />
+        <TextBlock Text="5"  Style="{StaticResource TbStyle}" Canvas.Top="340" />
+        <TextBlock Text="4"  Style="{StaticResource TbStyle}" Canvas.Top="430"/>
+        <TextBlock Text="3"  Style="{StaticResource TbStyle}" Canvas.Top="510"/>
+        <TextBlock Text="2"  Style="{StaticResource TbStyle}" Canvas.Top="600"/>
+        <TextBlock Text="1"  Style="{StaticResource TbStyle}" Canvas.Top="700"/>
+        <TextBlock Text="A"  Style="{StaticResource TbStyle2}" Canvas.Left="70"/>
+        <TextBlock Text="B"  Style="{StaticResource TbStyle2}" Canvas.Left="170" />
+        <TextBlock Text="E"  Style="{StaticResource TbStyle2}" Canvas.Left="250" />
+        <TextBlock Text="D"  Style="{StaticResource TbStyle2}" Canvas.Left="340" />
+        <TextBlock Text="E"  Style="{StaticResource TbStyle2}" Canvas.Left="430" />
+        <TextBlock Text="F"  Style="{StaticResource TbStyle2}" Canvas.Left="510" />
+        <TextBlock Text="G"  Style="{StaticResource TbStyle2}" Canvas.Left="600" />
+        <TextBlock Text="H"  Style="{StaticResource TbStyle2}" Canvas.Left="700" />
 
     </Canvas>
 </Page>

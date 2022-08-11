@@ -10,8 +10,8 @@
 
     <Grid>
 
-        <!--#Топ
-        <Canvas Style="{StaticResource OppositeCanvas}">
+
+        <!-- <Canvas Style="{StaticResource OppositeCanvas}">
             <StackPanel Margin="15 10">
                 <Path Style="{StaticResource RookBody}" RenderTransformOrigin="0.515,0.448" Fill="Black" >
                     <Path.RenderTransform>
@@ -101,5 +101,7 @@
                 <Path Style="{StaticResource Pawn}" OpacityMask="Black" Fill="#FF0C0B0B" />
             </Canvas>-->
 
+        
+        
     </Grid>
 </Page>
