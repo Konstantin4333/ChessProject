@@ -20,7 +20,7 @@
             <RowDefinition Height="0.125"/>
             <RowDefinition Height="87.5"/>
             <RowDefinition Height="87.5"/>
-            <RowDefinition Height="87.5"/>
+            <RowDefinition Height="87.5"/> 
             <RowDefinition Height="87.5"/>
             <RowDefinition Height="87.5"/>
             <RowDefinition Height="87.5"/>
