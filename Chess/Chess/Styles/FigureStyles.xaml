@@ -4,9 +4,7 @@
                     xmlns:local="clr-namespace:Chess"
                     xmlns:s="clr-namespace:Chess.View">
 
-    <DataTemplate>
-        
-    </DataTemplate>
+    
 
     <SolidColorBrush x:Key="BoardOutline" Color="#423936" />
     <SolidColorBrush x:Key="OddTile" Color="#FFA29494" />

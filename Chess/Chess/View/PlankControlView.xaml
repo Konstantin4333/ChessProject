@@ -6,7 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Chess.View"
              xmlns:v="clr-namespace:Chess"
-             xmlns:z="clr-namespace:Chess.Styles"
+             
          
              
              mc:Ignorable="d" 
