@@ -106,7 +106,30 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="TbStyle" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="TextBlock.TextAlignment" Value="center"/>
+        <Setter Property="TextBlock.Foreground" Value="White"/>
+        <Setter Property="TextBlock.FontSize" Value="20"/>
+        <Setter Property="TextBlock.Width" Value="20"/>
+        <Setter Property="TextBlock.Height" Value="25"/>
+        <Setter Property="Canvas.Left" Value="15"/>
+        
+       
+    </Style>
+    
+    <Style x:Key="TbStyle2" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextBlock.TextAlignment" Value="center"/>
+        <Setter Property="TextBlock.Foreground" Value="White"/>
+        <Setter Property="TextBlock.FontSize" Value="20"/>
+        <Setter Property="TextBlock.Width" Value="20"/>
+        <Setter Property="TextBlock.Height" Value="25"/>
+        <Setter Property="Canvas.Top" Value="762"/>
 
+    </Style>
 
 
 
