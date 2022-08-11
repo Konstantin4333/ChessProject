@@ -10,29 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Chess.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for FiguresView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class FiguresView : Page
     {
-        public MainWindow()
+        public FiguresView()
         {
             InitializeComponent();
-            Border.Content = new BorderView();
-            Plank.Content = new PlankView();
         }
-
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                DragMove();
-            }
-        }
-
     }
 }
