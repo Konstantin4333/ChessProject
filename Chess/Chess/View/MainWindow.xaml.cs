@@ -10,24 +10,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Interactivity;
+
 namespace Chess.View
 {
     /// <summary>
-    /// Interaction logic for PlankControlView.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class PlankControlView : UserControl
+    public partial class MainWindow : Window
     {
-        public PlankControlView()
+        public MainWindow()
         {
             InitializeComponent();
+            Border.Content = new BorderView();
+            Plank.Content = new PlankControlView();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
         }
+
     }
 }
