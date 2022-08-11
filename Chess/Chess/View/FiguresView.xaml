@@ -43,7 +43,7 @@
                 <RotateTransform Angle="180"/>
                 <TranslateTransform/>
             </TransformGroup>
-        </Grid.RenderTransform>
+        </Grid.RenderTransform> 
         <Canvas>
             <Path Style="{StaticResource Knight}" Fill="Black" />
         </Canvas> -->
