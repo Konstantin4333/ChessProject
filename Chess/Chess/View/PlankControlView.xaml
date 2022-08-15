@@ -12,9 +12,7 @@
             mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="800">
 
-    <UserControl.DataContext>
-        <vm:PiecesMoveViewModel></vm:PiecesMoveViewModel>
-    </UserControl.DataContext>
+    
 
 
     <Grid Width="700" Height="700">
@@ -197,23 +195,7 @@
             <!--#endregion-->
             <!--#region Row 7 -->
 
-            <Grid Grid.Row="7" Grid.Column="0" Background="{StaticResource EvenTile}">
-                <Canvas>
-                    <e:Interaction.Behaviors>
-                        
-                    </e:Interaction.Behaviors>
-                    <Path Style="{StaticResource Knight}" Fill="Black" RenderTransformOrigin="0.5,0.5" >
-                        <Path.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform Angle="179.548"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Path.RenderTransform>
-                    </Path>
-                </Canvas>
-            </Grid>
+            <Grid Grid.Row="7" Grid.Column="0" Background="{StaticResource EvenTile}"/>
             <Grid Grid.Row="7" Grid.Column="1" Background="{StaticResource OddTile}">
 
 

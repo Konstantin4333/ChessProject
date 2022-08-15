@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chess.View"
         xmlns:locals="clr-namespace:Chess"
-        
+        xmlns:vm="clr-namespace:Chess.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="800"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
-
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
     <Window.Resources>
 
         <DrawingBrush x:Key="Checkerboard" Stretch="None" TileMode="Tile" Viewport="0,0,2,2" ViewportUnits="Absolute">
