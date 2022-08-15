@@ -12,25 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Interactivity;
-using System.Numerics;
 
 namespace Chess.View
 {
     /// <summary>
-    /// Interaction logic for PlankControlView.xaml
+    /// Interaction logic for TestingView.xaml
     /// </summary>
-    public partial class PlankControlView : UserControl
+    public partial class TestingView : UserControl
     {
-        public PlankControlView()
+        public TestingView()
         {
             InitializeComponent();
-           
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

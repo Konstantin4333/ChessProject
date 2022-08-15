@@ -37,7 +37,9 @@
 
     <Grid>
         <Frame x:Name="Border"/>
-        <Frame x:Name="Plank"/>
-
+        <Frame x:Name="Plank"/> 
+        <Frame x:Name="TEST"/>
     </Grid>
+
+    
 </Window>

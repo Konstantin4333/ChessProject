@@ -38,6 +38,7 @@
         </Grid.ColumnDefinitions>
         <!--#region Grid Definition-->
         <Grid x:Name="grid" Grid.ColumnSpan="4" Grid.RowSpan="9">
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="87.5"/>
                 <RowDefinition/>
@@ -59,6 +60,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <!--#endregion-->
+            
             <!--#region Row 0-->
             <Grid Grid.Row="0" Grid.Column="0" Background="{StaticResource OddTile}" Grid.ColumnSpan="2" Margin="0,0,87,87" Grid.RowSpan="2" Height="87.5" Width="87.5"  >
                 <Grid.ColumnDefinitions>
@@ -200,24 +202,11 @@
             <Grid Grid.Row="7" Grid.Column="0" Background="{StaticResource EvenTile}">
                 <Canvas>
                     <e:Interaction.Behaviors>
-                        
+
                     </e:Interaction.Behaviors>
-                    <Path Style="{StaticResource Knight}" Fill="Black" RenderTransformOrigin="0.5,0.5" >
-                        <Path.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform Angle="179.548"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Path.RenderTransform>
-                    </Path>
                 </Canvas>
             </Grid>
-            <Grid Grid.Row="7" Grid.Column="1" Background="{StaticResource OddTile}">
-
-
-            </Grid>
+            <Grid Grid.Row="7" Grid.Column="1" Background="{StaticResource OddTile}"/>
             <Grid Grid.Row="7" Grid.Column="2" Background="{StaticResource EvenTile}">
 
             </Grid>
@@ -239,6 +228,7 @@
 
         </Grid>
         <!--#endregion-->
-
+        
+        
     </Grid>
 </UserControl>
