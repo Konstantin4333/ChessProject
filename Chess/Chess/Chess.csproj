@@ -17,8 +17,4 @@
     <PackageReference Include="Prism.Core" Version="8.1.97" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="Pictures\chess_piece_black_bishop.jpg" />
-  </ItemGroup>
-
 </Project>

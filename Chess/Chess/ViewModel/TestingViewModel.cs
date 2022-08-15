@@ -13,8 +13,8 @@ namespace Chess.ViewModel
         
        public TestingViewModel()
         {
-            TestingRow = 2;
-            TestingColumn = 3 ;
+            TestingRow = 5;
+            TestingColumn = 3;
         }
     }
     
