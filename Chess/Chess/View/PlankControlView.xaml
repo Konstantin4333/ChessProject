@@ -12,9 +12,7 @@
             mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="800">
 
-   <!-- <UserControl.DataContext>
-        <vm:PiecesMoveViewModel></vm:PiecesMoveViewModel>
-    </UserControl.DataContext> -->
+
 
 
     <Grid Width="700" Height="700">
@@ -198,15 +196,11 @@
             </Grid>
             <!--#endregion-->
             <!--#region Row 7 -->
-
             <Grid Grid.Row="7" Grid.Column="0" Background="{StaticResource EvenTile}">
-                <Canvas>
-                    <e:Interaction.Behaviors>
 
-                    </e:Interaction.Behaviors>
-                </Canvas>
             </Grid>
-            <Grid Grid.Row="7" Grid.Column="1" Background="{StaticResource OddTile}"/>
+            <Grid Grid.Row="7" Grid.Column="1" Background="{StaticResource OddTile}"></Grid>
+
             <Grid Grid.Row="7" Grid.Column="2" Background="{StaticResource EvenTile}">
 
             </Grid>
@@ -225,7 +219,6 @@
             <Grid Grid.Row="7" Grid.Column="7" Background="{StaticResource OddTile}">
 
             </Grid>
-
         </Grid>
         <!--#endregion-->
         

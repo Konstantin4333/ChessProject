@@ -9,7 +9,6 @@ namespace Chess.Models
 
         public King(bool white) : base(white)
         {
-            
             castlingDone = false;
         }
 

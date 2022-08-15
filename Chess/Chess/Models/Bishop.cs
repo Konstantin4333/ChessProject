@@ -25,6 +25,14 @@ namespace Chess.Models
             {
                 return true;
             }
+            for (int i = 0; i<x; i++)
+            {
+                if (board.GetSquare(i, i) != null)
+                {
+
+                }
+                 
+            }
             return false;
         }
     }

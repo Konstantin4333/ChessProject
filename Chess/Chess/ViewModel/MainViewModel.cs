@@ -16,6 +16,7 @@ namespace Chess.ViewModel
         private Board _board;
         private Player _whitePlayer;
         private Player _blackPlayer;
+        private Piece _selectedPiece;
         #endregion
        
         public MainViewModel()
@@ -50,6 +51,15 @@ namespace Chess.ViewModel
             {
                 _blackPlayer = value;
                 OnPropertyChanged(nameof(BlackPlayer));
+            }
+        }
+        public Piece SelectedPiece
+        {
+            get { return _selectedPiece; }
+            set
+            {
+                _selectedPiece = value;
+                OnPropertyChanged(nameof(SelectedPiece));
             }
         }
         #endregion
