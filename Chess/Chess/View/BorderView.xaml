@@ -33,6 +33,7 @@
         <TextBlock Text="F"  Style="{StaticResource TbStyle2}" Canvas.Left="510" />
         <TextBlock Text="G"  Style="{StaticResource TbStyle2}" Canvas.Left="600" />
         <TextBlock Text="H"  Style="{StaticResource TbStyle2}" Canvas.Left="700" />
+        <Button Content="X" Canvas.Left="758" Canvas.Top="14" Height="22" Width="34" HorizontalAlignment="Left" VerticalAlignment="Center" Click="Button_Click"/>
 
     </Canvas>
 </Page>
