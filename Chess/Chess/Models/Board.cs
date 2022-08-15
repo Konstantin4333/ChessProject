@@ -16,6 +16,14 @@ namespace Chess.Models
             
             this.ResetBoard();
         }
+        public Square GetSquare(int x)
+        {
+            if (x < 0 || x > 64)
+            {
+                throw new Exception("Index out of bounds");
+            }
+            return Squares[x];
+        }
         public Square GetSquare(int x, int y)
         {
             if(x < 0 || x > 7 || y < 0 || y > 7) {

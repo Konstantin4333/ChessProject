@@ -12,7 +12,23 @@ namespace Chess.Models
         {
 
         }
-
+        public Square[] getAvailableMoves(Board board, Square start)
+        {
+            Square[] squares= new Square[64];
+            for (int i = 0; i < 64; i++)
+            {
+               Square sq = board.GetSquare(i);
+                if (sq.Piece != null)
+                {
+                    if (sq.Piece.White == start.Piece.White)
+                    {
+                        squares[i] = sq;
+                    }
+                }
+            }
+            
+            return new Square[0];   
+        }
         public override bool CanMove(Board board, Square start, Square end)
         {
             if (end.Piece.White == start.Piece.White)
@@ -25,14 +41,7 @@ namespace Chess.Models
             {
                 return true;
             }
-            for (int i = 0; i<x; i++)
-            {
-                if (board.GetSquare(i, i) != null)
-                {
-
-                }
-                 
-            }
+           
             return false;
         }
     }
