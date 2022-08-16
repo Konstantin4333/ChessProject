@@ -18,9 +18,9 @@ namespace Chess.View
     /// <summary>
     /// Interaction logic for TestingView.xaml
     /// </summary>
-    public partial class TestingView : UserControl
+    public partial class RowsAndColumns : UserControl
     {
-        public TestingView()
+        public RowsAndColumns()
         {
             InitializeComponent();
         }

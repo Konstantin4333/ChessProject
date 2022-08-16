@@ -24,7 +24,7 @@ namespace Chess.View
             InitializeComponent();
            Border.Content = new BorderView();
           Plank.Content = new PlankControlView();
-          TEST.Content = new TestingView();
+          TEST.Content = new RowsAndColumns();
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
