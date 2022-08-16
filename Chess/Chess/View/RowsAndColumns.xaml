@@ -13,10 +13,10 @@
     </UserControl.DataContext>
 
     <Grid >
-        <ListView x:Name="Pieces" ItemsSource="{Binding Board.Squares}" Background="Transparent">
+        <ListView x:Name="Pieces" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}" Background="Transparent">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Image Source="{Binding Piece.ImageOfPiece}" Margin="15,0,15,0"></Image>
+                    <Image Source="{Binding Piece.ImageOfPiece}"  Margin="15,0,15,0"></Image>
                 </DataTemplate>
             </ListView.ItemTemplate>
             <ListView.ItemsPanel>

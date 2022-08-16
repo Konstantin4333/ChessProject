@@ -8,7 +8,7 @@ namespace Chess.Models
 {
     public class Square
     {
-        private Piece _piece;
+        private Piece? _piece;
         private int x;
         private int y;
 
