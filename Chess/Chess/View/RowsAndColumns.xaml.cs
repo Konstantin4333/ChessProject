@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace Chess.View
 {
     /// <summary>
-    /// Interaction logic for BorderView.xaml
+    /// Interaction logic for TestingView.xaml
     /// </summary>
-    public partial class BorderView : Page
+    public partial class RowsAndColumns : UserControl
     {
-        public BorderView()
+        public RowsAndColumns()
         {
             InitializeComponent();
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            /* Window window = new MainWindow();
-             window.Close();*/
-            System.Windows.Application.Current.Windows[0].Close();
         }
     }
 }

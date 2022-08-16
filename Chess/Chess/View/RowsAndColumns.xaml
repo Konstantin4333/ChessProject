@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Chess.View.RowsAndColumns"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Chess.View"
+             xmlns:vm="clr-namespace:Chess.ViewModel"
+            
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:RowsAndColumnsViewModel/>
+    </UserControl.DataContext>
+
+    <Grid >
+        <ListView x:Name="Pieces" ItemsSource="{Binding Board.Squares}" Background="Transparent">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Width="700" Height="700" ItemHeight="87.5" ItemWidth="87.5" Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
+   
+        
+    </Grid>
+
+</UserControl>

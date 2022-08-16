@@ -12,7 +12,7 @@
             mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="800">
 
-    
+
 
 
     <Grid Width="700" Height="700">
@@ -36,7 +36,7 @@
         </Grid.ColumnDefinitions>
         <!--#region Grid Definition-->
         <Grid x:Name="grid" Grid.ColumnSpan="4" Grid.RowSpan="9">
-
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="87.5"/>
                 <RowDefinition/>
@@ -58,7 +58,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <!--#endregion-->
-
+            
             <!--#region Row 0-->
             <Grid Grid.Row="0" Grid.Column="0" Background="{StaticResource OddTile}" Grid.ColumnSpan="2" Margin="0,0,87,87" Grid.RowSpan="2" Height="87.5" Width="87.5"  >
                 <Grid.ColumnDefinitions>
@@ -201,27 +201,27 @@
             </Grid>
             <Grid Grid.Row="7" Grid.Column="1" Background="{StaticResource OddTile}"></Grid>
 
-                <Grid Grid.Row="7" Grid.Column="2" Background="{StaticResource EvenTile}">
+            <Grid Grid.Row="7" Grid.Column="2" Background="{StaticResource EvenTile}">
 
-                </Grid>
-                <Grid Grid.Row="7" Grid.Column="3" Background="{StaticResource OddTile}">
+            </Grid>
+            <Grid Grid.Row="7" Grid.Column="3" Background="{StaticResource OddTile}">
 
-                </Grid>
-                <Grid Grid.Row="7" Grid.Column="4" Background="{StaticResource EvenTile}">
+            </Grid>
+            <Grid Grid.Row="7" Grid.Column="4" Background="{StaticResource EvenTile}">
 
-                </Grid>
-                <Grid Grid.Row="7" Grid.Column="5" Background="{StaticResource OddTile}">
+            </Grid>
+            <Grid Grid.Row="7" Grid.Column="5" Background="{StaticResource OddTile}">
 
-                </Grid>
-                <Grid Grid.Row="7" Grid.Column="6" Background="{StaticResource EvenTile}">
+            </Grid>
+            <Grid Grid.Row="7" Grid.Column="6" Background="{StaticResource EvenTile}">
 
-                </Grid>
-                <Grid Grid.Row="7" Grid.Column="7" Background="{StaticResource OddTile}">
+            </Grid>
+            <Grid Grid.Row="7" Grid.Column="7" Background="{StaticResource OddTile}">
 
-                </Grid>
+            </Grid>
         </Grid>
-            <!--#endregion-->
-
+        <!--#endregion-->
+        
         
     </Grid>
 </UserControl>
