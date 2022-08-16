@@ -64,5 +64,6 @@ namespace Chess.ViewModel
         }
         #endregion
 
+
     }
 }

@@ -10,7 +10,7 @@
     <UserControl.DataContext>
         <vm:RowsAndColumnsViewModel/>
     </UserControl.DataContext>
-    <Grid Width="700" Height="700" >
+    <Grid Width="700" Height="700">
         <Grid.RowDefinitions>
 
             <RowDefinition Height="87.5"/>
@@ -33,9 +33,9 @@
             <ColumnDefinition Width="87.5"/>
         </Grid.ColumnDefinitions>
 
-            <Image Grid.Row="{Binding TestingRow}" Grid.Column="{Binding TestingColumn}" Margin="20,20,20,20" Source="/Pictures/chess_piece_white_bishop.jpg" Stretch="Fill" />
+            <Image Grid.Row="{Binding TestingRow}" Grid.Column="{Binding TestingColumn}" Margin="20,20,20,20" Source="{Binding Path=pic}" Stretch="Fill" />
 
-        
+        <Canvas Height="400" HorizontalAlignment="Left" Margin="0" Name="canvas1" VerticalAlignment="Top" Width="400" />
             
         </Grid>
 </UserControl>
