@@ -1,62 +1,41 @@
-﻿using Chess.Commands;
+﻿using Chess.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
+using System.Windows.Controls;
 
 namespace Chess.ViewModel
 {
-    public class RowsAndColumnsViewModel:INotifyPropertyChanged
+    public class RowsAndColumnsViewModel : BaseViewModel
     {
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        public int TestingRow { get; set; }
+        public int TestingColumn { get; set; }
+        private Board _board;
+
+        public Board Board
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            get
+            {
+                return _board;
+            }
+            set
+            {
+                _board = value;
+                OnPropertyChanged(nameof(Board));
+            }
         }
-
-        private int _testingRow;
-        private int _testingColumn;
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        public int TestingRow { get { return _testingRow; } set { _testingRow = value; OnPropertyChanged(); } }
-        public int TestingColumn { get { return _testingColumn; } set { _testingColumn = value; OnPropertyChanged(); } }
-
-      public Command UpMover { get; set; }
-        public Command DownMover { get; set; }
-        public Command LeftMover { get; set; }
-        public Command RightMover { get; set; }
-
         public RowsAndColumnsViewModel()
         {
-            TestingRow = 5;
-            TestingColumn = 3;
-            UpMover = new Command(MoveitUp);
-            DownMover = new Command(MoveitDown);
-            LeftMover = new Command(MoveitLeft);
-            RightMover = new Command(MoveitRight);  
-        }
+            Board = new Board();
+            ListView Pieces = new ListView();
+            Pieces.Items.Add(Board.Squares);
 
-        public void MoveitUp(object mover)
-        {
-            TestingRow--;
-        }
-        public void MoveitDown(object mover)
-        {
-            TestingRow++;
-        }
-        public void MoveitLeft(object mover)
-        {
-            TestingColumn--;
-        }
-        public void MoveitRight(object mover)
-        {
-            TestingColumn++;
+            TestingRow = 2;
+            TestingColumn = 3;
+
         }
     }
-    
+
 }
-  

@@ -10,7 +10,7 @@ namespace Chess.Models
         public King(bool white) : base(white)
         {
             castlingDone = false;
-            ImageOfPiece = Image.
+           
         }
 
         public override bool CanMove(Board board, Square start, Square end)

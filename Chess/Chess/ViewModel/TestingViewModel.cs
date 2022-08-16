@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace Chess.ViewModel
 {
@@ -12,30 +13,19 @@ namespace Chess.ViewModel
     {
         public int TestingRow { get; set; }
         public int TestingColumn { get; set; }
-        private Board _board;
-        
-        public Board Board
-        {
-            get
-            {
-                return _board;
-            }
-            set
-            {
-                _board = value;
-                OnPropertyChanged(nameof(Board));
-            }
-        }
+        public string Rows { get; set; }
+        public string Columns { get; set; }
+
+
         public TestingViewModel()
         {
-            Board = new Board();
-            ListView Pieces = new ListView();
-            Pieces.Items.Add(Board.Squares);
-            
-            TestingRow = 2;
-            TestingColumn = 3 ;
+            TestingRow = 5;
+            TestingColumn = 3;
 
         }
+
+
+        BitmapImage carBitmap = new BitmapImage(new Uri("Chess/Pictures/chess_piece_black_bishop.jpg", UriKind.Absolute));
     }
     
 }
