@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace Chess.Models
 {
@@ -11,6 +12,7 @@ namespace Chess.Models
 
         public Bishop(bool white) : base(white)
         {
+            AttachImage(white);
 
         }
         public Square[] getAvailableMoves(Board board, Square start)
@@ -29,6 +31,17 @@ namespace Chess.Models
             }
             
             return new Square[0];   
+        }
+        private void AttachImage(bool white)
+        {
+            if (white)
+            {
+                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_white_bishop.jpg", UriKind.Relative));
+            }
+            else
+            {
+                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_black_bishop.jpg", UriKind.Relative));
+            }
         }
         public override bool CanMove(Board board, Square start, Square end)
         {

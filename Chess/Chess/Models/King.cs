@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace Chess.Models
 {
@@ -10,9 +12,19 @@ namespace Chess.Models
         public King(bool white) : base(white)
         {
             castlingDone = false;
-           
+            AttachImage(white);
         }
-
+        private void AttachImage(bool white)
+        {
+            if (white)
+            {  
+                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_white_king.jpg", UriKind.Relative));
+            }
+            else
+            {
+                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_black_king.jpg", UriKind.Relative));
+            }
+        }
         public override bool CanMove(Board board, Square start, Square end)
         {
             throw new System.NotImplementedException();
