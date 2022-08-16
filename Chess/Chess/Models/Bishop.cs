@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,16 +9,27 @@ namespace Chess.Models
     public class Bishop : Piece
     {
 
-             Bitmap bmp = new Bitmap(
-              System.Reflection.Assembly.GetEntryAssembly().
-             GetManifestResourceStream("Chess/Pictures/chess_piece_black_bishop.jpg"));
         public Bishop(bool white) : base(white)
         {
-                
-        }
 
-      
-        
+        }
+        public Square[] getAvailableMoves(Board board, Square start)
+        {
+            Square[] squares= new Square[64];
+            for (int i = 0; i < 64; i++)
+            {
+               Square sq = board.GetSquare(i);
+                if (sq.Piece != null)
+                {
+                    if (sq.Piece.White == start.Piece.White)
+                    {
+                        squares[i] = sq;
+                    }
+                }
+            }
+            
+            return new Square[0];   
+        }
         public override bool CanMove(Board board, Square start, Square end)
         {
             if (end.Piece.White == start.Piece.White)
@@ -32,25 +42,8 @@ namespace Chess.Models
             {
                 return true;
             }
-            for (int i = 0; i<x; i++)
-            {
-                if (board.GetSquare(i, i) != null)
-                {
-
-                }
-                 
-            }
+           
             return false;
-        }
-    }
-
-    internal class Bitmap
-    {
-        private Stream? stream;
-
-        public Bitmap(Stream? stream)
-        {
-            this.stream = stream;
         }
     }
 }
