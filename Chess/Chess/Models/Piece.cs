@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
+using System.Windows.Controls;
 
 namespace Chess.Models
 {
@@ -12,6 +14,7 @@ namespace Chess.Models
         {
             White = white;
         }
+        public Image ImageOfPiece { get; set; }
         public int Row  { get; set; }
         public int Column { get; set; }
         public bool Killed { get; set; }

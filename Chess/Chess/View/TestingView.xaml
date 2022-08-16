@@ -5,37 +5,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Chess.View"
              xmlns:vm="clr-namespace:Chess.ViewModel"
+            
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="800">
     <UserControl.DataContext>
         <vm:TestingViewModel/>
     </UserControl.DataContext>
-    <Grid Width="700" Height="700" >
-        <Grid.RowDefinitions>
 
-            <RowDefinition Height="87.5"/>
-            <RowDefinition Height="87.5"/>
-            <RowDefinition Height="87.5"/>
-            <RowDefinition Height="87.5"/>
-            <RowDefinition Height="87.5"/>
-            <RowDefinition Height="87.5"/>
-            <RowDefinition Height="87.5"/>
-            <RowDefinition Height="87.5"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="87.5"/>
-            <ColumnDefinition Width="87.5"/>
-            <ColumnDefinition Width="87.5"/>
-            <ColumnDefinition Width="87.5"/>
-            <ColumnDefinition Width="87.5"/>
-            <ColumnDefinition Width="87.5"/>
-            <ColumnDefinition Width="87.5"/>
-            <ColumnDefinition Width="87.5"/>
-        </Grid.ColumnDefinitions>
-
-            <Image Grid.Row="{Binding TestingRow}" Grid.Column="{Binding TestingColumn}" Margin="20,20,20,20" Source="/Pictures/chess_piece_black_bishop.jpg" Stretch="Fill" />
-
-        
-            
-        </Grid>
+    <Grid >
+        <ListView x:Name="Pieces" ItemsSource="{Binding Board.Squares}" Background="Transparent">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Width="700" Height="700" ItemHeight="87.5" ItemWidth="87.5" Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
+    </Grid>
+    
+           
 </UserControl>

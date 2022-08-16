@@ -6,10 +6,11 @@ namespace Chess.Models
     {
         
         public bool castlingDone { get; set; }
-
+  
         public King(bool white) : base(white)
         {
             castlingDone = false;
+            ImageOfPiece = Image.
         }
 
         public override bool CanMove(Board board, Square start, Square end)
