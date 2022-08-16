@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Chess.Models
 {
@@ -14,7 +15,7 @@ namespace Chess.Models
         {
             White = white;
         }
-        public Image ImageOfPiece { get; set; }
+        public ImageSource ImageOfPiece { get; set; }
         public int Row  { get; set; }
         public int Column { get; set; }
         public bool Killed { get; set; }
