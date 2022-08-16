@@ -32,10 +32,13 @@
             <ColumnDefinition Width="87.5"/>
             <ColumnDefinition Width="87.5"/>
         </Grid.ColumnDefinitions>
+        <Button x:Name="UpControl" Grid.Row="0" Grid.Column="0" Content="Up" Command="{Binding UpMover}"/>
+        <Button x:Name="DownControl" Grid.Row="0" Grid.Column="1" Content="Down" Command="{Binding DownMover}" />
+        <Button x:Name="LeftControl" Grid.Row="1" Grid.Column="0" Content="Left" Command="{Binding LeftMover}" />
+        <Button x:Name="RightControl" Grid.Row="1" Grid.Column="1" Content="Right" Command="{Binding RightMover}" />
+        <Image Grid.Row="{Binding TestingRow}" Grid.Column="{Binding TestingColumn}" Margin="20,20,20,20" Source="/Pictures/chess_piece_white_bishop.jpg" Stretch="Fill" />
 
-            <Image Grid.Row="{Binding TestingRow}" Grid.Column="{Binding TestingColumn}" Margin="20,20,20,20" Source="/Pictures/chess_piece_white_bishop.jpg" Stretch="Fill" />
 
-        
-            
-        </Grid>
+       
+    </Grid>
 </UserControl>

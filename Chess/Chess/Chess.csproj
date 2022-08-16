@@ -9,12 +9,38 @@
 
   <ItemGroup>
     <None Remove="Pictures\chess_piece_black_bishop.jpg" />
+    <None Remove="Pictures\chess_piece_black_king.jpg" />
+    <None Remove="Pictures\chess_piece_black_knight.jpg" />
+    <None Remove="Pictures\chess_piece_black_pawn.jpg" />
+    <None Remove="Pictures\chess_piece_black_queen.jpg" />
+    <None Remove="Pictures\chess_piece_black_rook.jpg" />
+    <None Remove="Pictures\chess_piece_white_bishop.jpg" />
+    <None Remove="Pictures\chess_piece_white_king.jpg" />
+    <None Remove="Pictures\chess_piece_white_knight.jpg" />
+    <None Remove="Pictures\chess_piece_white_pawn.jpg" />
+    <None Remove="Pictures\chess_piece_white_queen.jpg" />
+    <None Remove="Pictures\chess_piece_white_rook.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="MvvmLight" Version="5.4.1.1" />
     <PackageReference Include="Prism.Core" Version="8.1.97" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <Resource Include="Pictures\chess_piece_black_bishop.jpg" />
+    <Resource Include="Pictures\chess_piece_black_king.jpg" />
+    <Resource Include="Pictures\chess_piece_black_knight.jpg" />
+    <Resource Include="Pictures\chess_piece_black_pawn.jpg" />
+    <Resource Include="Pictures\chess_piece_black_queen.jpg" />
+    <Resource Include="Pictures\chess_piece_black_rook.jpg" />
+    <Resource Include="Pictures\chess_piece_white_bishop.jpg" />
+    <Resource Include="Pictures\chess_piece_white_king.jpg" />
+    <Resource Include="Pictures\chess_piece_white_knight.jpg" />
+    <Resource Include="Pictures\chess_piece_white_pawn.jpg" />
+    <Resource Include="Pictures\chess_piece_white_queen.jpg" />
+    <Resource Include="Pictures\chess_piece_white_rook.jpg" />
   </ItemGroup>
 
 </Project>
