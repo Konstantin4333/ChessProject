@@ -1,6 +1,7 @@
 ﻿using Chess.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,20 +15,24 @@ namespace Chess.ViewModel
         private Board _board;
         private Piece _sPiece;
         private Square _square;
-        private Square[] _squares;
-
+        private ObservableCollection<Square> _squares;
+        
 
         public void Move()
         {
             if (SPiece == null)
             {
                 SPiece = SelectedSquare.Piece;
-                SelectedSquare.Piece = null;
+                
+                
+                    SelectedSquare.Piece = null;
+                
             }
             else
             {
                 if (SelectedSquare.Piece == null)
                     SelectedSquare.Piece = SPiece;
+                    SPiece = null; 
             }
         }
         public Square SelectedSquare
@@ -52,7 +57,7 @@ namespace Chess.ViewModel
             }
             
         }
-        public Square[] Squares
+        public ObservableCollection<Square> Squares
         {
             get { return _squares; }
             set { _squares = value;
@@ -74,7 +79,7 @@ namespace Chess.ViewModel
         public RowsAndColumnsViewModel()
         {
             Board = new Board();
-            Squares = Board.Squares;
+            Squares = new ObservableCollection<Square>(Board.Squares);
             
         }
     }
