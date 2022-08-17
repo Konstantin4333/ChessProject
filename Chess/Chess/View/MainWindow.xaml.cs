@@ -24,6 +24,7 @@ namespace Chess.View
             InitializeComponent();
          
             Border.Content = new BorderView();
+          // Plank.Content = new PlankControlView();
             TEST.Content = new RowsAndColumns();
             // Plank.Content = new PlankControlView();
 

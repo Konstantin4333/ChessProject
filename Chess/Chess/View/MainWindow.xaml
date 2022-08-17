@@ -38,11 +38,11 @@
 
 
 
-    <Grid>
-        <Frame x:Name="Border"/>
+    <Grid MouseDown=" Grid_MouseDown" >
+        
         <Frame x:Name="TEST"/>
-        <Frame x:Name="Plank"/> 
-       
+        <Frame x:Name="Plank"/>
+        <Frame x:Name="Border"/>
     </Grid>
 
 

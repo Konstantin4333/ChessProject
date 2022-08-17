@@ -1,6 +1,7 @@
 ﻿using Chess.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,64 @@ namespace Chess.ViewModel
 {
     public class RowsAndColumnsViewModel : BaseViewModel
     {
-        public int TestingRow { get; set; }
-        public int TestingColumn { get; set; }
+    
         private Board _board;
+        private Piece _sPiece;
         private bool _IsEven;
+        private Square _square;
+       
+        private ObservableCollection<Square> _squares;
+        
+
+        public void Move()
+        {
+            if (SPiece == null)
+            {
+                SPiece = SelectedSquare.Piece;
+
+                SelectedSquare.Piece = null;
+
+
+            }
+            else
+            {
+                if (SelectedSquare.Piece == null)
+                    SelectedSquare.Piece = SPiece;
+                    SPiece = null; 
+            }
+        }
+        
+        public Square SelectedSquare
+        {
+            get { return _square; }
+            set { _square = value;
+               
+               
+                
+                Move();
+                OnPropertyChanged("SelectedSquare");
+            }
+
+        }
+
+        public Piece SPiece
+        {
+            get { return _sPiece; }
+            set {
+                _sPiece = value;
+                
+                OnPropertyChanged("SPiece");
+
+            }
+            
+        }
+        public ObservableCollection<Square> Squares
+        {
+            get { return _squares; }
+            set { _squares = value;
+            OnPropertyChanged("Squares");
+            }
+        }
         public Board Board
         {
             get
@@ -23,7 +78,7 @@ namespace Chess.ViewModel
             set
             {
                 _board = value;
-                OnPropertyChanged(nameof(Board));
+                OnPropertyChanged("Board");
             }
         }
 
@@ -56,9 +111,10 @@ namespace Chess.ViewModel
         public RowsAndColumnsViewModel()
         {
             Board = new Board();
+            Squares = new ObservableCollection<Square>(Board.Squares);
+            
             IsEven = new bool();
           
-           
 
           
         }
