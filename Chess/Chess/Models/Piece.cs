@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Collections.ObjectModel;
 
 namespace Chess.Models
 {
@@ -21,6 +22,6 @@ namespace Chess.Models
         public bool Killed { get; set; }
         public bool White { get; set; }
         public abstract bool CanMove(Board board, Square start, Square end);
-
+        public abstract bool CheckPath(ObservableCollection<Square> squares, Square start, Square end);
     }
 }

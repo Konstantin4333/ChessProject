@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace Chess.Models
 {
     public class Bishop : Piece
     {
-
+        int[] steps = { 7, 9, -7, -9};
         public Bishop(bool white) : base(white)
         {
             AttachImage(white);
@@ -45,18 +46,54 @@ namespace Chess.Models
         }
         public override bool CanMove(Board board, Square start, Square end)
         {
-            if (end.Piece.White == start.Piece.White)
+            if (end.Piece != null)
             {
-                return false;
+                if (end.Piece.White == start.Piece.White)
+                {
+                    return false;
+                }
             }
+            
             int x = Math.Abs(start.X - end.X);
             int y = Math.Abs(start.Y - end.Y);
             if (x == y)
             {
                 return true;
             }
-           
+
+         
             return false;
         }
+        public override bool CheckPath(ObservableCollection<Square> squares, Square PrevSquare, Square SelectedSquare)
+        {
+            int indexPrev = squares.IndexOf(PrevSquare);
+            int indexSquare = squares.IndexOf(SelectedSquare);
+            if(indexPrev < indexSquare)
+            {
+                int diff = indexSquare - indexPrev;
+                for (int i = 0; i <diff/9 ; i++)
+                {
+                    if (squares[indexPrev + 9] != null)
+                        return false;
+                }
+                if ((diff) % 9 == 0)
+                {
+                    
+                    
+                }
+            }
+            else
+            {
+                int diff = indexPrev- indexSquare;
+                if ((diff) % 9 == 0)
+                {
+                    if (squares[diff] != null)
+                        return false;
+                }
+            }
+            return false;
+        }
+
+        
     }
 }
