@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,27 @@ namespace Chess.Models
             }
         }
         public override bool CanMove(Board board, Square start, Square end)
+        {
+            if (end.Piece != null)
+            {
+                if (end.Piece.White == start.Piece.White)
+                {
+                    return false;
+                }
+            }
+
+            int x = Math.Abs(start.X - end.X);
+            int y = Math.Abs(start.Y - end.Y);
+            if (x == y+1)
+            {
+                return true;
+            }
+
+
+            return false;
+        }
+
+        public override bool CheckPath(ObservableCollection<Square> squares, Square start, Square end)
         {
             throw new NotImplementedException();
         }

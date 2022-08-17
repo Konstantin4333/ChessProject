@@ -16,33 +16,43 @@ namespace Chess.ViewModel
         private Piece _sPiece;
         private Square _square;
         private ObservableCollection<Square> _squares;
-        
+        private Square _prevSquare;
 
         public void Move()
         {
             if (SPiece == null)
             {
                 SPiece = SelectedSquare.Piece;
-                
-                
-                    SelectedSquare.Piece = null;
-                
+                PrevSquare = SelectedSquare;
+                _square = null;
             }
             else
             {
-                if (SelectedSquare.Piece == null)
-                    SelectedSquare.Piece = SPiece;
-                    SPiece = null; 
+                if (SPiece.CanMove(Board, PrevSquare , SelectedSquare))
+                {
+                    if (SelectedSquare.Piece == null)
+                    {
+                        /* if (SPiece.CheckPath(Squares, PrevSquare, SelectedSquare))
+                         {*/
+                            SelectedSquare.Piece = SPiece;
+                            PrevSquare.Piece = null;
+                            SPiece = null;
+                            _square = null;
+                    //  }
+
+                    }
+                                         
+                }
+                    
             }
         }
+        
         public Square SelectedSquare
         {
             get { return _square; }
             set { _square = value;
-                
                 Move();
-                
-            OnPropertyChanged("SelectedSquare");
+                OnPropertyChanged("SelectedSquare");
             }
 
         }
@@ -56,6 +66,14 @@ namespace Chess.ViewModel
 
             }
             
+        }
+        public Square PrevSquare
+        {
+            get { return _prevSquare; }
+            set { _prevSquare = value;
+                OnPropertyChanged("PrevSquare");
+
+            }
         }
         public ObservableCollection<Square> Squares
         {

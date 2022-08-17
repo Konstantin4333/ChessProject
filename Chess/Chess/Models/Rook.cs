@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,11 @@ namespace Chess.Models
             }
         }
         public override bool CanMove(Board board, Square start, Square end)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool CheckPath(ObservableCollection<Square> squares, Square start, Square end)
         {
             throw new NotImplementedException();
         }

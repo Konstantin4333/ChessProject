@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
@@ -28,6 +29,11 @@ namespace Chess.Models
         public override bool CanMove(Board board, Square start, Square end)
         {
             throw new System.NotImplementedException();
+        }
+
+        public override bool CheckPath(ObservableCollection<Square> squares, Square start, Square end)
+        {
+            throw new NotImplementedException();
         }
     }
 }
