@@ -13,7 +13,7 @@ namespace Chess.ViewModel
         public int TestingRow { get; set; }
         public int TestingColumn { get; set; }
         private Board _board;
-
+        private bool _IsEven;
         public Board Board
         {
             get
@@ -26,15 +26,41 @@ namespace Chess.ViewModel
                 OnPropertyChanged(nameof(Board));
             }
         }
+
+        public bool IsEven
+        {
+            get { return _IsEven; }
+            set
+            {
+                _IsEven = value;
+                OnPropertyChanged(nameof(IsEven));
+            }
+        }
+        public void CheckSquareEvent(Square[] sq)
+        {
+
+            // Squares = new Square[64];
+            for (int i = 0; i < 64; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    sq[i].IsEven = true;
+
+                }
+
+            }
+            Console.WriteLine();
+
+        }
+
         public RowsAndColumnsViewModel()
         {
             Board = new Board();
-            ListView Pieces = new ListView();
-            Pieces.Items.Add(Board.Squares);
+            IsEven = new bool();
+          
+           
 
-            TestingRow = 2;
-            TestingColumn = 3;
-
+          
         }
     }
 

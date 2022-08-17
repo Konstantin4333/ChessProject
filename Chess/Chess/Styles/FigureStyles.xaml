@@ -9,6 +9,8 @@
     <SolidColorBrush x:Key="BoardOutline" Color="#423936" />
     <SolidColorBrush x:Key="OddTile" Color="#FFA29494" />
     <SolidColorBrush x:Key="EvenTile" Color="green" />
+    
+    
     <Style x:Key="ChessPieces" TargetType="Path">
         <Setter Property="Fill" Value="White" />
         <Setter Property="Stretch" Value="Uniform" />
@@ -132,5 +134,33 @@
     </Style>
 
 
+    <Style x:Key="ListViewItem" TargetType="Path">
+        
+    </Style>
+    
+    <Style  TargetType="{x:Type WrapPanel}" x:Key="trt">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding  Board.IsEven }" Value="True">
+                <Setter Property="Background" Value="#FFA29494" />
+                <Setter Property="Width" Value="700"/>
+                <Setter Property="Height" Value="700"/>
+                <Setter Property="ItemHeight" Value="87.5"/>
+                <Setter Property="ItemWidth" Value="87.5"/>
+                <Setter Property="Orientation" Value="Horizontal"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Board.IsEven}" Value="False">
+                <Setter Property="Background" Value="green"/>
+                <Setter Property="Width" Value="700"/>
+                <Setter Property="Height" Value="700"/>
+                <Setter Property="ItemHeight" Value="87.5"/>
+                <Setter Property="ItemWidth" Value="87.5"/>
+                <Setter Property="Orientation" Value="Horizontal"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="trt2" TargetType="WrapPanel" BasedOn="{StaticResource trt}">
+       
+    </Style>
 
 </ResourceDictionary>

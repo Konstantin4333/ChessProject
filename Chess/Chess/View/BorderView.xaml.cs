@@ -26,7 +26,7 @@ namespace Chess.View
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            /* Window window = new MainWindow();
+           /* Window window = new MainWindow();
              window.Close();*/
             System.Windows.Application.Current.Windows[0].Close();
         }

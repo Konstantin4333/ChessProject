@@ -40,9 +40,9 @@
 
     <Grid>
         <Frame x:Name="Border"/>
-
-        <Frame x:Name="Plank"/> 
         <Frame x:Name="TEST"/>
+        <Frame x:Name="Plank"/> 
+       
     </Grid>
 
 
