@@ -26,7 +26,7 @@ namespace Chess.Models
             }
         }
 
-        public override bool CanMove(Board board, Square start, Square end)
+        public override bool CanMove(Square start, Square end)
         {
             throw new NotImplementedException();
         }

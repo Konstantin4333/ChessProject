@@ -30,22 +30,16 @@ namespace Chess.ViewModel
             }
             else
             {
-                if (SPiece.CanMove(Board, PrevSquare , SelectedSquare))
+               if (SPiece.CanMove(PrevSquare , SelectedSquare))
                 {
                     if (SelectedSquare.Piece == null)
                     {
-                        /* if (SPiece.CheckPath(Squares, PrevSquare, SelectedSquare))
-                         {*/
-                            SelectedSquare.Piece = SPiece;
-                            PrevSquare.Piece = null;
-                            SPiece = null;
-                            _square = null;
-                    //  }
-
-                    }
-                                         
+                        SelectedSquare.Piece = SPiece;
+                        PrevSquare.Piece = null;
+                    }                     
                 }
-                    
+                SPiece = null;
+                _square = null;
             }
         }
         

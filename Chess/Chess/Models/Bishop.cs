@@ -10,7 +10,7 @@ namespace Chess.Models
 {
     public class Bishop : Piece
     {
-        int[] steps = { 7, 9, -7, -9};
+       
         public Bishop(bool white) : base(white)
         {
             AttachImage(white);
@@ -44,7 +44,7 @@ namespace Chess.Models
                 ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_black_bishop.jpg", UriKind.Relative));
             }
         }
-        public override bool CanMove(Board board, Square start, Square end)
+        public override bool CanMove(Square start, Square end)
         {
             if (end.Piece != null)
             {
@@ -64,49 +64,162 @@ namespace Chess.Models
          
             return false;
         }
-        
+        public List<Square> upLeftPath(ObservableCollection<Square> squares, Square start)
+        {
+            List<Square> result = new List<Square>();
+            int x = start.X;
+            int y = start.Y;
 
+            while (true)
+            {
+                
+                if(x > 0 && y > 0)
+                {
+                    x--;
+                    y--;
+                    int index = x * 8 + y;
+                    Square sq = squares[index];
+                    if (sq.Piece == null) result.Add(sq);
+                    else break;
+                }
+                if (x == 0 || y == 0)
+                {
+                    break;
+                }
+            }
+            return result;
+        }
+        public List<Square> upRightPath(ObservableCollection<Square> squares, Square start)
+        {
+            List<Square> result = new List<Square>();
+            int x = start.X;
+            int y = start.Y;
+
+            while (true)
+            {
+
+                if (x > 0 && y < 8)
+                {
+                    x--;
+                    y++;
+                    int index = x * 8 + y;
+                    Square sq = squares[index];
+                    if (sq.Piece == null) result.Add(sq);
+                    else break;
+                }
+                if (x == 0 || y == 8)
+                {
+                    break;
+                }
+            }
+            return result;
+        }
+        public List<Square> downRightPath(ObservableCollection<Square> squares, Square start)
+        {
+            List<Square> result = new List<Square>();
+            int x = start.X;
+            int y = start.Y;
+
+            while (true)
+            {
+
+                if (x < 8 && y < 8)
+                {
+                    x++;
+                    y++;
+                    int index = x * 8 + y;
+                    Square sq = squares[index];
+                    if (sq.Piece == null) result.Add(sq);
+                    else break;
+                }
+                if (x == 8 || y == 8)
+                {
+                    break;
+                }
+            }
+            return result;
+        }
+        public List<Square> downLeftPath(ObservableCollection<Square> squares, Square start)
+        {
+            List<Square> result = new List<Square>();
+            int x = start.X;
+            int y = start.Y;
+
+            while (true)
+            {
+
+                if (x < 8 && y < 8)
+                {
+                    x++;
+                    y--;
+                    int index = x * 8 + y;
+                    Square sq = squares[index];
+                    if (sq.Piece == null) result.Add(sq);
+                    else break;
+                }
+                if (x == 8 || y == 8)
+                {
+                    break;
+                }
+            }
+            return result;
+        }
         public override List<Square> CheckPath(ObservableCollection<Square> squares, Square start)
         {
             int index = squares.IndexOf(start);
             int a = 1;
             List<Square> result = new List<Square>();
+            
             while (true)
             {
                 if (index - a*7>0)
                 {
-                    Square square = squares[a * 7];
-                    
-                    if (square.Piece != null)
+                    Square square = squares[index - a * 7];
+                    if(CanMove(start, square))
                     {
-                        result.Add(square);
+                        if (square.Piece == null)
+                        {
+                            result.Add(square);
+                        }
                     }
+
                 }
                 if (index - a * 9 > 0)
                 {
-                    Square square = squares[a * 9];
-                    if (square.Piece != null)
+                    Square square = squares[index - a * 9];
+                    if (CanMove(start, square))
                     {
-                        result.Add(square);
+                        if (square.Piece == null)
+                        {
+                            result.Add(square);
+                        }
                     }
                 }
                 if (index + a * 7 <64)
                 {
-                    Square square = squares[a * 7];
-                    if (square.Piece != null)
+                    Square square = squares[index + a * 7];
+                    if (CanMove(start, square))
                     {
-                        result.Add(square);
+                        if (square.Piece != null)
+                        {
+                            result.Add(square);
+                        }
                     }
                 }
                 if (index + a * 9 < 64)
                 {
-                    Square square = squares[a * 9];
-                    if (square.Piece != null)
-                    {
-                        result.Add(square);
-                    }
+                    Square square = squares[index + a * 9];
+                        if (CanMove(start, square))
+                        {
+                            if (square.Piece != null)
+                            {
+                                result.Add(square);
+                            }
+                        }
                 }
+                a++;
             }
+            return result;
         }
     }
 }
