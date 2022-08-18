@@ -22,9 +22,12 @@ namespace Chess.View
         public MainWindow()
         {
             InitializeComponent();
-           Border.Content = new BorderView();
-            Plank.Content = new PlankControlView();
+         
+            Border.Content = new BorderView();
+          // Plank.Content = new PlankControlView();
             TEST.Content = new RowsAndColumns();
+            // Plank.Content = new PlankControlView();
+
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
