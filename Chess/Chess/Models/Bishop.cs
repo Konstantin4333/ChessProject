@@ -64,36 +64,11 @@ namespace Chess.Models
          
             return false;
         }
-        public override bool CheckPath(ObservableCollection<Square> squares, Square PrevSquare, Square SelectedSquare)
-        {
-            int indexPrev = squares.IndexOf(PrevSquare);
-            int indexSquare = squares.IndexOf(SelectedSquare);
-            if(indexPrev < indexSquare)
-            {
-                int diff = indexSquare - indexPrev;
-                for (int i = 0; i <diff/9 ; i++)
-                {
-                    if (squares[indexPrev + 9] != null)
-                        return false;
-                }
-                if ((diff) % 9 == 0)
-                {
-                    
-                    
-                }
-            }
-            else
-            {
-                int diff = indexPrev- indexSquare;
-                if ((diff) % 9 == 0)
-                {
-                    if (squares[diff] != null)
-                        return false;
-                }
-            }
-            return false;
-        }
-
         
+
+        public override List<Square> CheckPath(ObservableCollection<Square> squares, Square start)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

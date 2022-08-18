@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Media.Imaging;
 
@@ -26,7 +27,9 @@ namespace Chess.Models
             throw new System.NotImplementedException();
         }
 
-        public override bool CheckPath(ObservableCollection<Square> squares, Square start, Square end)
+       
+
+        public override List<Square> CheckPath(ObservableCollection<Square> squares, Square start)
         {
             throw new NotImplementedException();
         }
