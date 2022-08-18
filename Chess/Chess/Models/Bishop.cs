@@ -68,7 +68,45 @@ namespace Chess.Models
 
         public override List<Square> CheckPath(ObservableCollection<Square> squares, Square start)
         {
-            throw new NotImplementedException();
+            int index = squares.IndexOf(start);
+            int a = 1;
+            List<Square> result = new List<Square>();
+            while (true)
+            {
+                if (index - a*7>0)
+                {
+                    Square square = squares[a * 7];
+                    
+                    if (square.Piece != null)
+                    {
+                        result.Add(square);
+                    }
+                }
+                if (index - a * 9 > 0)
+                {
+                    Square square = squares[a * 9];
+                    if (square.Piece != null)
+                    {
+                        result.Add(square);
+                    }
+                }
+                if (index + a * 7 <64)
+                {
+                    Square square = squares[a * 7];
+                    if (square.Piece != null)
+                    {
+                        result.Add(square);
+                    }
+                }
+                if (index + a * 9 < 64)
+                {
+                    Square square = squares[a * 9];
+                    if (square.Piece != null)
+                    {
+                        result.Add(square);
+                    }
+                }
+            }
         }
     }
 }
