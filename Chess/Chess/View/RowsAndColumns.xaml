@@ -31,7 +31,7 @@
             
             <ListView.ItemTemplate >
                 <DataTemplate>
-                    <Image Source="{Binding Piece.ImageOfPiece}" Margin="15,0,15,0"></Image>
+                    <Image Source="{Binding Piece.ImageOfPiece}" Height="75" Width="50" Margin="18.75,0,18.75,0"></Image>
                     </DataTemplate>
             </ListView.ItemTemplate>
             <ListView.ItemsPanel >
