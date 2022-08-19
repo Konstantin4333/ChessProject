@@ -7,7 +7,8 @@
         xmlns:locals="clr-namespace:Chess"
         xmlns:vm="clr-namespace:Chess.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="800"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+        Title="MainWindow" Height="800" Width="1400"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" WindowState="Normal">
+
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
@@ -36,13 +37,23 @@
 
     </Window.Resources>
 
+    <Window.Background>
+        <SolidColorBrush Opacity="0.5" Color="Transparent"/>
+    </Window.Background>
 
+    <Grid Width="800" Name="test" MouseDown=" Grid_MouseDown" >
+        <Grid.Background>
+            <ImageBrush ImageSource="/Pictures/natural.jfif"/>
+        </Grid.Background>
 
-    <Grid MouseDown=" Grid_MouseDown" >
-        <Frame x:Name="Rows"/>
-       
-        <Frame x:Name="Border"/> 
         
+
+        <Frame x:Name="Rows"/>
+
+        <Frame x:Name="Border"/>
+
+
+
     </Grid>
 
 

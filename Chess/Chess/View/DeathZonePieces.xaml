@@ -5,8 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Chess.View"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="800">
-    <Grid Width="250" Height="700" HorizontalAlignment="Right" Margin="400,0,50,0">
+             d:DesignHeight="800" d:DesignWidth="1000">
+    <Grid Width="200" Height="700" HorizontalAlignment="Right" Margin="800,50,0,50">
         <TextBlock Height="60" Width="60" Text="Test" FontSize="30" FontWeight="Bold"/>
+        <Frame x:Name="DeathZone" Background="#FFBD6262"/>
     </Grid>
 </UserControl>

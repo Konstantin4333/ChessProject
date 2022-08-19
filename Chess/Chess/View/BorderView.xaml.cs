@@ -23,7 +23,7 @@ namespace Chess.View
         public BorderView()
         {
             InitializeComponent();
-            DeathZone.Content = new DeathZonePieces();
+           // DeathZone.Content = new DeathZonePieces();
            
         }
         public bool IsOpened = true;
@@ -49,23 +49,28 @@ namespace Chess.View
             System.Windows.Application.Current.Windows[0].Close();
         }
 
-        
-
-       
-
-       /* private void op_CheckedChanged(object sender, EventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (op.Checked)
-            {
+            DeathZone.Content = new DeathZonePieces();
+        }
 
-                DeathZone.Visibility = Visibility.Visible;
-                Ischecked = false;
-            }
-            else
-            {
-                DeathZone.Visibility = Visibility.Hidden;
-                Ischecked = true;
-            }
-        }*/
+
+
+
+
+        /* private void op_CheckedChanged(object sender, EventArgs e)
+         {
+             if (op.Checked)
+             {
+
+                 DeathZone.Visibility = Visibility.Visible;
+                 Ischecked = false;
+             }
+             else
+             {
+                 DeathZone.Visibility = Visibility.Hidden;
+                 Ischecked = true;
+             }
+         }*/
     }
 }
