@@ -10,7 +10,7 @@ namespace Chess.Models
 {
     public class Bishop : Piece
     {
-        int[] steps = { 7, 9, -7, -9};
+       
         public Bishop(bool white) : base(white)
         {
             AttachImage(white);
@@ -44,7 +44,7 @@ namespace Chess.Models
                 ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_black_bishop.png", UriKind.Relative));
             }
         }
-        public override bool CanMove(Board board, Square start, Square end)
+        public override bool CanMove(Square start, Square end)
         {
             if (end.Piece != null)
             {
@@ -64,36 +64,120 @@ namespace Chess.Models
          
             return false;
         }
-        public override bool CheckPath(ObservableCollection<Square> squares, Square PrevSquare, Square SelectedSquare)
+        public List<Square> UpLeftPath(ObservableCollection<Square> squares, Square start)
         {
-            int indexPrev = squares.IndexOf(PrevSquare);
-            int indexSquare = squares.IndexOf(SelectedSquare);
-            if(indexPrev < indexSquare)
-            {
-                int diff = indexSquare - indexPrev;
-                for (int i = 0; i <diff/9 ; i++)
-                {
-                    if (squares[indexPrev + 9] != null)
-                        return false;
-                }
-                if ((diff) % 9 == 0)
-                {
-                    
-                    
-                }
-            }
-            else
-            {
-                int diff = indexPrev- indexSquare;
-                if ((diff) % 9 == 0)
-                {
-                    if (squares[diff] != null)
-                        return false;
-                }
-            }
-            return false;
-        }
+            List<Square> result = new List<Square>();
+            int x = start.X;
+            int y = start.Y;
 
-        
+            while (true)
+            {
+                
+                if(x > 0 && y > 0)
+                {
+                    x--;
+                    y--;
+                    int index = x * 8 + y;
+                    Square sq = squares[index];
+                    if (sq.Piece == null) result.Add(sq);
+                    else break;
+                }
+                if (x == 0 || y == 0)
+                {
+                    break;
+                }
+            }
+            return result;
+        }
+        public List<Square> UpRightPath(ObservableCollection<Square> squares, Square start)
+        {
+            List<Square> result = new List<Square>();
+            int x = start.X;
+            int y = start.Y;
+
+            while (true)
+            {
+
+                if (x > 0 && y < 8)
+                {
+                    x--;
+                    y++;
+                    int index = x * 8 + y;
+                    Square sq = squares[index];
+                    if (sq.Piece == null) result.Add(sq);
+                    else break;
+                }
+                if (x == 0 || y == 8)
+                {
+                    break;
+                }
+            }
+            return result;
+        }
+        public List<Square> DownRightPath(ObservableCollection<Square> squares, Square start)
+        {
+            List<Square> result = new List<Square>();
+            int x = start.X;
+            int y = start.Y;
+
+            while (true)
+            {
+
+                if (x < 8 && y < 8)
+                {
+                    x++;
+                    y++;
+                    int index = x * 8 + y;
+                    Square sq = squares[index];
+                    if (sq.Piece == null) result.Add(sq);
+                    else break;
+                }
+                if (x == 8 || y == 8)
+                {
+                    break;
+                }
+            }
+            return result;
+        }
+        public List<Square> DownLeftPath(ObservableCollection<Square> squares, Square start)
+        {
+            List<Square> result = new List<Square>();
+            int x = start.X;
+            int y = start.Y;
+
+            while (true)
+            {
+
+                if (x < 8 && y >0)
+                {
+                    x++;
+                    y--;
+                    int index = x * 8 + y;
+                    Square sq = squares[index];
+                    if (sq.Piece == null) result.Add(sq);
+                    else break;
+                }
+                if (x == 8 || y == 0)
+                {
+                    break;
+                }
+            }
+            return result;
+        }
+        public override List<Square> SelectPath(ObservableCollection<Square> squares, Square start)
+        {
+            List<Square> upLeft= UpLeftPath(squares, start);
+            List<Square> downLeft= DownLeftPath(squares, start);
+            List<Square> upRight = UpRightPath(squares, start);
+            List<Square> downRight = DownRightPath(squares, start);
+            List<Square> result = new List<Square>();
+
+            result.AddRange(upLeft);
+            result.AddRange(downLeft);
+            result.AddRange(downRight);
+            result.AddRange(upRight);
+
+            return result;
+        }
     }
 }

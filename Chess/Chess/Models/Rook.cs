@@ -25,12 +25,12 @@ namespace Chess.Models
                 ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_black_rook.png", UriKind.Relative));
             }
         }
-        public override bool CanMove(Board board, Square start, Square end)
+        public override bool CanMove( Square start, Square end)
         {
             throw new NotImplementedException();
         }
 
-        public override bool CheckPath(ObservableCollection<Square> squares, Square start, Square end)
+        public override List<Square> SelectPath(ObservableCollection<Square> squares, Square start)
         {
             throw new NotImplementedException();
         }
