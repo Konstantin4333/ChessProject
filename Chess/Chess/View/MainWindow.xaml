@@ -39,10 +39,10 @@
 
 
     <Grid MouseDown=" Grid_MouseDown" >
+        <Frame x:Name="Rows"/>
+       
+        <Frame x:Name="Border"/> 
         
-        <Frame x:Name="TEST"/>
-        <Frame x:Name="Plank"/>
-        <Frame x:Name="Border"/>
     </Grid>
 
 

@@ -38,8 +38,8 @@
             
             <ItemsPanelTemplate>
 
-
-                    <WrapPanel  Width="700" Height="700"  Orientation="Horizontal" ItemHeight="87.5" ItemWidth="87.5"    >
+                    <!-- Style="{StaticResource trt}" -->
+                    <WrapPanel   Width="700" Height="700"  Orientation="Horizontal" ItemHeight="87.5" ItemWidth="87.5"    >
 
                             <WrapPanel.Background>
                                 <ImageBrush ImageSource="/Pictures/Screenshot 2022-08-17 113032.png" TileMode="None" Stretch="UniformToFill"/>
@@ -58,7 +58,7 @@
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
-                        </WrapPanel.Style> -->
+                        </WrapPanel.Style>  -->
                         
 
                     </WrapPanel>
