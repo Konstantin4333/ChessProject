@@ -27,7 +27,11 @@ namespace Chess.ViewModel
                 SPiece = SelectedSquare.Piece;
                 
                 PrevSquare = SelectedSquare;
-                List<Square> test =  SPiece.SelectPath(Squares,PrevSquare);
+                if(SPiece != null)
+                {
+                    List<Square> test = SPiece.SelectPath(Squares, PrevSquare);
+
+                }
                 _square = null;
             }
             else

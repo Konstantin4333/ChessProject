@@ -72,20 +72,23 @@ namespace Chess.Models
 
             while (true)
             {
-                
-                if(x > 0 && y > 0)
+                x--;
+                y--;
+                if (x >= 0 && y >= 0)
                 {
-                    x--;
-                    y--;
+                    
                     int index = x * 8 + y;
                     Square sq = squares[index];
                     if (sq.Piece == null) result.Add(sq);
                     else break;
                 }
-                if (x == 0 || y == 0)
+                else
                 {
                     break;
+
                 }
+
+
             }
             return result;
         }
@@ -97,20 +100,21 @@ namespace Chess.Models
 
             while (true)
             {
-
-                if (x > 0 && y < 8)
+                x--;
+                y++;
+                if (x >= 0 && y < 8)
                 {
-                    x--;
-                    y++;
+                    
                     int index = x * 8 + y;
                     Square sq = squares[index];
                     if (sq.Piece == null) result.Add(sq);
                     else break;
                 }
-                if (x == 0 || y == 8)
+                else
                 {
                     break;
                 }
+                  
             }
             return result;
         }
@@ -122,20 +126,22 @@ namespace Chess.Models
 
             while (true)
             {
-
+                x++;
+                y++;
                 if (x < 8 && y < 8)
                 {
-                    x++;
-                    y++;
+                    
                     int index = x * 8 + y;
                     Square sq = squares[index];
                     if (sq.Piece == null) result.Add(sq);
                     else break;
                 }
-                if (x == 8 || y == 8)
+                else
                 {
                     break;
                 }
+                   
+                
             }
             return result;
         }
@@ -147,17 +153,17 @@ namespace Chess.Models
 
             while (true)
             {
-
-                if (x < 8 && y >0)
+                x++;
+                y--;
+                if (x < 8 && y >=0)
                 {
-                    x++;
-                    y--;
+                    
                     int index = x * 8 + y;
                     Square sq = squares[index];
                     if (sq.Piece == null) result.Add(sq);
                     else break;
                 }
-                if (x == 8 || y == 0)
+                else
                 {
                     break;
                 }
@@ -168,7 +174,7 @@ namespace Chess.Models
         {
             List<Square> upLeft= UpLeftPath(squares, start);
             List<Square> downLeft= DownLeftPath(squares, start);
-            List<Square> upRight = UpRightPath(squares, start);
+           List<Square> upRight = UpRightPath(squares, start);
             List<Square> downRight = DownRightPath(squares, start);
             List<Square> result = new List<Square>();
 
