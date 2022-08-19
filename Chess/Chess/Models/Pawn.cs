@@ -18,11 +18,11 @@ namespace Chess.Models
         {
             if (white)
             {
-                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_white_pawn.jpg", UriKind.Relative));
+                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_white_pawn.png", UriKind.Relative));
             }
             else
             {
-                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_black_pawn.jpg", UriKind.Relative));
+                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_black_pawn.png", UriKind.Relative));
             }
         }
         public override bool CanMove(Square start, Square end)
