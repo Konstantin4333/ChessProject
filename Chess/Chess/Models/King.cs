@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -19,19 +20,21 @@ namespace Chess.Models
         {
             if (white)
             {  
-                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_white_king.jpg", UriKind.Relative));
+                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_white_king.png", UriKind.Relative));
             }
             else
             {
-                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_black_king.jpg", UriKind.Relative));
+                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_black_king.png", UriKind.Relative));
             }
         }
-        public override bool CanMove(Board board, Square start, Square end)
+        public override bool CanMove(Square start, Square end)
         {
             throw new System.NotImplementedException();
         }
 
-        public override bool CheckPath(ObservableCollection<Square> squares, Square start, Square end)
+ 
+
+        public override List<Square> SelectPath(ObservableCollection<Square> squares, Square start)
         {
             throw new NotImplementedException();
         }

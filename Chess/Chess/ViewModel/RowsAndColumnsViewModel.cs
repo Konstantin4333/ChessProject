@@ -1,4 +1,4 @@
-﻿using Chess.Models;
+﻿ using Chess.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,27 +25,23 @@ namespace Chess.ViewModel
             if (SPiece == null)
             {
                 SPiece = SelectedSquare.Piece;
+                
                 PrevSquare = SelectedSquare;
+                List<Square> test =  SPiece.SelectPath(Squares,PrevSquare);
                 _square = null;
             }
             else
             {
-                if (SPiece.CanMove(Board, PrevSquare , SelectedSquare))
+               if (SPiece.CanMove(PrevSquare , SelectedSquare))
                 {
                     if (SelectedSquare.Piece == null)
                     {
-                        /* if (SPiece.CheckPath(Squares, PrevSquare, SelectedSquare))
-                         {*/
-                            SelectedSquare.Piece = SPiece;
-                            PrevSquare.Piece = null;
-                            SPiece = null;
-                            _square = null;
-                    //  }
-
-                    }
-                                         
+                        SelectedSquare.Piece = SPiece;
+                        PrevSquare.Piece = null;
+                    }                     
                 }
-                    
+                SPiece = null;
+                _square = null;
             }
         }
         

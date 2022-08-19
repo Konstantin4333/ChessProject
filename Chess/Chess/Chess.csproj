@@ -8,18 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Pictures\chess_piece_black_bishop.jpg" />
-    <None Remove="Pictures\chess_piece_black_king.jpg" />
-    <None Remove="Pictures\chess_piece_black_knight.jpg" />
-    <None Remove="Pictures\chess_piece_black_pawn.jpg" />
-    <None Remove="Pictures\chess_piece_black_queen.jpg" />
-    <None Remove="Pictures\chess_piece_black_rook.jpg" />
-    <None Remove="Pictures\chess_piece_white_bishop.jpg" />
-    <None Remove="Pictures\chess_piece_white_king.jpg" />
-    <None Remove="Pictures\chess_piece_white_knight.jpg" />
-    <None Remove="Pictures\chess_piece_white_pawn.jpg" />
-    <None Remove="Pictures\chess_piece_white_queen.jpg" />
-    <None Remove="Pictures\chess_piece_white_rook.jpg" />
+	  <None Remove="Pictures\chess_piece_black_rook.png" />
+	  <None Remove="Pictures\chess_piece_black_bishop.png" />
+	  <None Remove="Pictures\chess_piece_black_king.png" />
+	  <None Remove="Pictures\chess_piece_black_knight.png" />
+	  <None Remove="Pictures\chess_piece_black_pawn.png" />
+	  <None Remove="Pictures\chess_piece_black_queen.png" />
+	  <None Remove="Pictures\chess_piece_white_bishop.png" />
+	  <None Remove="Pictures\chess_piece_white_king.png" />
+	  <None Remove="Pictures\chess_piece_white_knight.png" />
+	  <None Remove="Pictures\chess_piece_white_pawn.png" />
+	  <None Remove="Pictures\chess_piece_white_queen.png" />
+	  <None Remove="Pictures\chess_piece_white_rook.png" />
     <None Remove="Pictures\Screenshot 2022-08-17 113032.png" />
   </ItemGroup>
 
@@ -30,18 +30,18 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <Resource Include="Pictures\chess_piece_black_bishop.jpg" />
-    <Resource Include="Pictures\chess_piece_black_king.jpg" />
-    <Resource Include="Pictures\chess_piece_black_knight.jpg" />
-    <Resource Include="Pictures\chess_piece_black_pawn.jpg" />
-    <Resource Include="Pictures\chess_piece_black_queen.jpg" />
-    <Resource Include="Pictures\chess_piece_black_rook.jpg" />
-    <Resource Include="Pictures\chess_piece_white_bishop.jpg" />
-    <Resource Include="Pictures\chess_piece_white_king.jpg" />
-    <Resource Include="Pictures\chess_piece_white_knight.jpg" />
-    <Resource Include="Pictures\chess_piece_white_pawn.jpg" />
-    <Resource Include="Pictures\chess_piece_white_queen.jpg" />
-    <Resource Include="Pictures\chess_piece_white_rook.jpg" />
+	  <Resource Include="Pictures\chess_piece_black_bishop.png" />
+	  <Resource Include="Pictures\chess_piece_black_king.png" />
+	  <Resource Include="Pictures\chess_piece_black_rook.png" />
+	  <Resource Include="Pictures\chess_piece_black_knight.png" />
+	  <Resource Include="Pictures\chess_piece_black_pawn.png" />
+	  <Resource Include="Pictures\chess_piece_black_queen.png" />
+	  <Resource Include="Pictures\chess_piece_white_bishop.png" />
+	  <Resource Include="Pictures\chess_piece_white_king.png" />
+	  <Resource Include="Pictures\chess_piece_white_knight.png" />
+	  <Resource Include="Pictures\chess_piece_white_pawn.png" />
+	  <Resource Include="Pictures\chess_piece_white_queen.png" />
+	  <Resource Include="Pictures\chess_piece_white_rook.png" />
     <Resource Include="Pictures\Screenshot 2022-08-17 113032.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
