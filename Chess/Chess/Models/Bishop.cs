@@ -64,7 +64,7 @@ namespace Chess.Models
          
             return false;
         }
-        public List<Square> upLeftPath(ObservableCollection<Square> squares, Square start)
+        public List<Square> UpLeftPath(ObservableCollection<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
             int x = start.X;
@@ -89,7 +89,7 @@ namespace Chess.Models
             }
             return result;
         }
-        public List<Square> upRightPath(ObservableCollection<Square> squares, Square start)
+        public List<Square> UpRightPath(ObservableCollection<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
             int x = start.X;
@@ -114,7 +114,7 @@ namespace Chess.Models
             }
             return result;
         }
-        public List<Square> downRightPath(ObservableCollection<Square> squares, Square start)
+        public List<Square> DownRightPath(ObservableCollection<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
             int x = start.X;
@@ -139,7 +139,7 @@ namespace Chess.Models
             }
             return result;
         }
-        public List<Square> downLeftPath(ObservableCollection<Square> squares, Square start)
+        public List<Square> DownLeftPath(ObservableCollection<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
             int x = start.X;
@@ -148,7 +148,7 @@ namespace Chess.Models
             while (true)
             {
 
-                if (x < 8 && y < 8)
+                if (x < 8 && y >0)
                 {
                     x++;
                     y--;
@@ -157,68 +157,26 @@ namespace Chess.Models
                     if (sq.Piece == null) result.Add(sq);
                     else break;
                 }
-                if (x == 8 || y == 8)
+                if (x == 8 || y == 0)
                 {
                     break;
                 }
             }
             return result;
         }
-        public override List<Square> CheckPath(ObservableCollection<Square> squares, Square start)
+        public override List<Square> SelectPath(ObservableCollection<Square> squares, Square start)
         {
-            int index = squares.IndexOf(start);
-            int a = 1;
+            List<Square> upLeft= UpLeftPath(squares, start);
+            List<Square> downLeft= DownLeftPath(squares, start);
+            List<Square> upRight = UpRightPath(squares, start);
+            List<Square> downRight = DownRightPath(squares, start);
             List<Square> result = new List<Square>();
-            
-            while (true)
-            {
-                if (index - a*7>0)
-                {
-                    Square square = squares[index - a * 7];
-                    if(CanMove(start, square))
-                    {
-                        if (square.Piece == null)
-                        {
-                            result.Add(square);
-                        }
-                    }
 
-                }
-                if (index - a * 9 > 0)
-                {
-                    Square square = squares[index - a * 9];
-                    if (CanMove(start, square))
-                    {
-                        if (square.Piece == null)
-                        {
-                            result.Add(square);
-                        }
-                    }
-                }
-                if (index + a * 7 <64)
-                {
-                    Square square = squares[index + a * 7];
-                    if (CanMove(start, square))
-                    {
-                        if (square.Piece != null)
-                        {
-                            result.Add(square);
-                        }
-                    }
-                }
-                if (index + a * 9 < 64)
-                {
-                    Square square = squares[index + a * 9];
-                        if (CanMove(start, square))
-                        {
-                            if (square.Piece != null)
-                            {
-                                result.Add(square);
-                            }
-                        }
-                }
-                a++;
-            }
+            result.AddRange(upLeft);
+            result.AddRange(downLeft);
+            result.AddRange(downRight);
+            result.AddRange(upRight);
+
             return result;
         }
     }

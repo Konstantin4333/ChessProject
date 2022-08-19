@@ -33,7 +33,7 @@ namespace Chess.Models
 
         
 
-        public override List<Square> CheckPath(ObservableCollection<Square> squares, Square start)
+        public override List<Square> SelectPath(ObservableCollection<Square> squares, Square start)
         {
             throw new NotImplementedException();
         }

@@ -22,6 +22,6 @@ namespace Chess.Models
         public bool Killed { get; set; }
         public bool White { get; set; }
         public abstract bool CanMove( Square start, Square end);
-        public abstract List<Square> CheckPath(ObservableCollection<Square> squares, Square start);
+        public abstract List<Square> SelectPath(ObservableCollection<Square> squares, Square start);
     }
 }
