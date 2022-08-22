@@ -43,12 +43,8 @@ namespace Chess.Models
             if (!start.Piece.White)
             {
                 x++;
-
-
                 if (x < 8 && y < 8)
                 {
-
-
                     int index = x * 8 + y;
                     Square sq = squares[index];
                     if (sq.Piece == null)
@@ -65,29 +61,19 @@ namespace Chess.Models
                         {
                             result.Add(sq1);
                         }
-
-
-
-
                     }
-
-
-
                 }
-
             }
             else
             {
                 x--;
                 if (x >= 0 && y >= 0)
                 {
-
                     int index = x * 8 + y;
                     Square sq = squares[index];
                     if (sq.Piece == null)
                     {
                         result.Add(sq);
-
                     }
                     if (x == 5)
                     {
@@ -98,10 +84,6 @@ namespace Chess.Models
                         {
                             result.Add(sq2);
                         }
-
-
-
-
                     }
                 }
             }
@@ -114,10 +96,6 @@ namespace Chess.Models
             int x = start.X;
             int y = start.Y;
 
-
-
-            
-            
             if (!start.Piece.White)
             {
                 x++;
@@ -125,7 +103,6 @@ namespace Chess.Models
 
                 if (x < 8 && y >= 0)
                 {
-
                     int index = x * 8 + y;
                     Square sq = squares[index];
                     if (sq.Piece != null)
@@ -136,10 +113,6 @@ namespace Chess.Models
 
                         }
                     }
-
-
-
-
                 }
 
             }
@@ -162,9 +135,6 @@ namespace Chess.Models
 
                         }
                     }
-
-
-
                 }
 
             }
@@ -176,8 +146,6 @@ namespace Chess.Models
             int x = start.X;
             int y = start.Y;
 
-
-
             
             if (!start.Piece.White)
             {
@@ -186,22 +154,15 @@ namespace Chess.Models
 
                 if (x < 8 && y < 8)
                 {
-
                     int index = x * 8 + y;
                     Square sq = squares[index];
                     if (sq.Piece != null)
                     {
-
-
                         if (sq.Piece.White)
                         {
                             result.Add(sq);
-
                         }
                     }
-
-
-
                 }
 
             }
@@ -221,14 +182,7 @@ namespace Chess.Models
                         {
                             result.Add(sq);
                         }
-
-
-
-
-
-
                 }
-
             }
             return result;
         }

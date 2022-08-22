@@ -37,9 +37,7 @@ namespace Chess.ViewModel
                 }
                 _square = null;
             }
-            
-         
-          else
+            else
             {
                if(test.Contains(SelectedSquare))
                 {
@@ -47,7 +45,7 @@ namespace Chess.ViewModel
                   //  {
                         SelectedSquare.Piece = SPiece;
                         PrevSquare.Piece = null;
-                    //  }                     
+                   //}                     
                     }                     
                 test = null;
                 SPiece = null;

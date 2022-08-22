@@ -26,7 +26,7 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid >
+    <Grid>
         <ListView x:Name="Pieces"  ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">
             <ListView.ItemTemplate >
                 <DataTemplate>
