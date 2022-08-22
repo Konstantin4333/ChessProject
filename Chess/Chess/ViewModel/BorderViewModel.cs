@@ -93,6 +93,7 @@ namespace Chess.ViewModel
                 }));
             }
         }
+      
         public ICommand DeathZonecmd
         {
             get
@@ -102,6 +103,7 @@ namespace Chess.ViewModel
                    UserControl userControl = new DeathZonePieces();
                     UserControls.Add(userControl);
                     userControl.BringIntoView();
+                   
                 }));
             }
         }
