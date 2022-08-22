@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Chess.ViewModel
 {
@@ -14,12 +15,14 @@ namespace Chess.ViewModel
     
         private Board _board;
         private Piece _sPiece;
-        private bool _IsEven;
+        
         private Square _square;
        
         private ObservableCollection<Square> _squares;
         private Square _prevSquare;
+        private List<Square> test;
         
+
         public void Move()
         {
             if (SPiece == null)
@@ -29,21 +32,24 @@ namespace Chess.ViewModel
                 PrevSquare = SelectedSquare;
                 if(SPiece != null)
                 {
-                    List<Square> test = SPiece.SelectPath(Squares, PrevSquare);
+                    test = SPiece.SelectPath(Squares, PrevSquare);
 
                 }
                 _square = null;
             }
-            else
+            
+         
+          else
             {
-               if (SPiece.CanMove(PrevSquare , SelectedSquare))
+               if(test.Contains(SelectedSquare))
                 {
-                    if (SelectedSquare.Piece == null)
-                    {
+                  //  if (SelectedSquare.Piece == null)
+                  //  {
                         SelectedSquare.Piece = SPiece;
                         PrevSquare.Piece = null;
+                    //  }                     
                     }                     
-                }
+                test = null;
                 SPiece = null;
                 _square = null;
             }
@@ -100,15 +106,7 @@ namespace Chess.ViewModel
             }
         }
 
-        public bool IsEven
-        {
-            get { return _IsEven; }
-            set
-            {
-                _IsEven = value;
-                OnPropertyChanged(nameof(IsEven));
-            }
-        }
+        
         public void CheckSquareEvent(Square[] sq)
         {
 
@@ -131,10 +129,10 @@ namespace Chess.ViewModel
             Board = new Board();
              Squares = new ObservableCollection<Square>(Board.Squares);
             
-            IsEven = new bool();
-          
 
-          
+
+
+
         }
 
     }

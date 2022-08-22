@@ -28,14 +28,45 @@ namespace Chess.Models
 
         public override bool CanMove(Square start, Square end)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         
 
         public override List<Square> SelectPath(ObservableCollection<Square> squares, Square start)
         {
-            throw new NotImplementedException();
+               
+                List<Square> result = new List<Square>();
+            int x=1;
+            int y=-2;
+            int Px, Py;
+            int c = -1;
+            Square sq; 
+            for(int i=0;i<4;i++)
+            {
+                Px=start.X;
+                Py = start.Y;
+                Px += x;
+                Py += y;
+                if (Px >= 0 && Py >= 0 && Px < 8 && Py < 8) { 
+                    sq = squares[Px * 8 + Py];
+                    if(sq.Piece == null || sq.Piece.White != start.Piece.White)
+                    result.Add(sq); 
+                }
+                Px = start.X;
+                Py = start.Y;
+                Px += y;
+                Py += x;
+                if (Px >= 0 && Py >= 0 && Px < 8 && Py < 8)
+                {
+                    sq = squares[Px * 8 + Py];
+                    if (sq.Piece == null || sq.Piece.White!=start.Piece.White)
+                        result.Add(sq);
+                }
+                y = y * x * c;
+                x = x * c;
+            }
+               return result;
         }
     }
 }

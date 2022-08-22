@@ -49,7 +49,7 @@ namespace Chess.Models
                 }
 
             }
-            Console.WriteLine();
+            
            
         }
         public void ResetBoard()
