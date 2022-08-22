@@ -46,144 +46,38 @@ namespace Chess.Models
         }
         public override bool CanMove(Square start, Square end)
         {
-            if (end.Piece != null)
-            {
-                if (end.Piece.White == start.Piece.White)
-                {
                     return false;
                 }
-            }
-            
-            int x = Math.Abs(start.X - end.X);
-            int y = Math.Abs(start.Y - end.Y);
-            if (x == y)
-            {
-                return true;
-            }
-
-         
-            return false;
-        }
-        public List<Square> UpLeftPath(ObservableCollection<Square> squares, Square start)
-        {
-            List<Square> result = new List<Square>();
-            int x = start.X;
-            int y = start.Y;
-
-            while (true)
-            {
-                x--;
-                y--;
-                if (x >= 0 && y >= 0)
-                {
-                    
-                    int index = x * 8 + y;
-                    Square sq = squares[index];
-                    if (sq.Piece == null) result.Add(sq);
-                    else break;
-                }
-                else
-                {
-                    break;
-
-                }
-
-
-            }
-            return result;
-        }
-        public List<Square> UpRightPath(ObservableCollection<Square> squares, Square start)
-        {
-            List<Square> result = new List<Square>();
-            int x = start.X;
-            int y = start.Y;
-
-            while (true)
-            {
-                x--;
-                y++;
-                if (x >= 0 && y < 8)
-                {
-                    
-                    int index = x * 8 + y;
-                    Square sq = squares[index];
-                    if (sq.Piece == null) result.Add(sq);
-                    else break;
-                }
-                else
-                {
-                    break;
-                }
-                  
-            }
-            return result;
-        }
-        public List<Square> DownRightPath(ObservableCollection<Square> squares, Square start)
-        {
-            List<Square> result = new List<Square>();
-            int x = start.X;
-            int y = start.Y;
-
-            while (true)
-            {
-                x++;
-                y++;
-                if (x < 8 && y < 8)
-                {
-                    
-                    int index = x * 8 + y;
-                    Square sq = squares[index];
-                    if (sq.Piece == null) result.Add(sq);
-                    else break;
-                }
-                else
-                {
-                    break;
-                }
-                   
-                
-            }
-            return result;
-        }
-        public List<Square> DownLeftPath(ObservableCollection<Square> squares, Square start)
-        {
-            List<Square> result = new List<Square>();
-            int x = start.X;
-            int y = start.Y;
-
-            while (true)
-            {
-                x++;
-                y--;
-                if (x < 8 && y >=0)
-                {
-                    
-                    int index = x * 8 + y;
-                    Square sq = squares[index];
-                    if (sq.Piece == null) result.Add(sq);
-                    else break;
-                }
-                else
-                {
-                    break;
-                }
-            }
-            return result;
-        }
         public override List<Square> SelectPath(ObservableCollection<Square> squares, Square start)
-        {
-            List<Square> upLeft= UpLeftPath(squares, start);
-            List<Square> downLeft= DownLeftPath(squares, start);
-           List<Square> upRight = UpRightPath(squares, start);
-            List<Square> downRight = DownRightPath(squares, start);
+            {
             List<Square> result = new List<Square>();
+            int x = 1;
+            int y = -1;
+            int Px, Py;
+            int c = -1;
+            Square sq;
+            for(int i=0;i<4;i++)
+            {
+                Px = start.X;
+                Py = start.Y;
+                Px += x;
+                Py += y;
+                while (Px >= 0 && Py >= 0 && Px < 8 && Py < 8)
+                {
+                    sq = squares[Px * 8 + Py];
+                    if (sq.Piece != null && sq.Piece.White == start.Piece.White) break;
+                    else if (sq.Piece != null && sq.Piece.White != start.Piece.White) { result.Add(sq); break; }
+                        result.Add(sq);      
+                    Px += x;
+                    Py += y;
 
-            result.AddRange(upLeft);
-            result.AddRange(downLeft);
-            result.AddRange(downRight);
-            result.AddRange(upRight);
+                }
+
+                y = y * x * c;
+                x = x * c;
+                }
 
             return result;
+        }
         }
     }
-}
