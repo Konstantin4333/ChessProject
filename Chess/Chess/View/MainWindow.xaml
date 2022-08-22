@@ -7,43 +7,33 @@
         xmlns:locals="clr-namespace:Chess"
         xmlns:vm="clr-namespace:Chess.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="800"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+        Title="MainWindow" Height="800" Width="800"  AllowsTransparency="False" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" WindowState="Normal">
+
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
     
-    <Window.Resources>
+    
 
-        <DrawingBrush x:Key="Checkerboard" Stretch="None" TileMode="Tile" Viewport="0,0,2,2" ViewportUnits="Absolute">
-            <DrawingBrush.Drawing>
-                <DrawingGroup>
-                    <GeometryDrawing Brush="Tan">
-                        <GeometryDrawing.Geometry>
-                            <RectangleGeometry Rect="0,0,2,2" />
-                        </GeometryDrawing.Geometry>
-                    </GeometryDrawing>
-                    <GeometryDrawing Brush="Brown">
-                        <GeometryDrawing.Geometry>
-                            <GeometryGroup>
-                                <RectangleGeometry Rect="0,0,1,1" />
-                                <RectangleGeometry Rect="1,1,1,1" />
-                            </GeometryGroup>
-                        </GeometryDrawing.Geometry>
-                    </GeometryDrawing>
-                </DrawingGroup>
-            </DrawingBrush.Drawing>
-        </DrawingBrush>
+    <Window.Background>
+        <SolidColorBrush Opacity="0.5" Color="Transparent"/>
+    </Window.Background>
 
-    </Window.Resources>
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="/Pictures/chess2.jpg"/>
+        </Grid.Background>
+        <Grid  MouseDown=" Grid_MouseDown" HorizontalAlignment="Center" VerticalAlignment="Center" >
 
 
+            <Frame x:Name="Rows" />
+            <Frame x:Name="testss" />
+            <Frame x:Name="Border"/>
 
-    <Grid MouseDown=" Grid_MouseDown" >
-        
-        <Frame x:Name="TEST"/>
-        <Frame x:Name="Plank"/>
-        <Frame x:Name="Border"/>
+        </Grid>
     </Grid>
-
-
+    <!--  <Frame x:Name="Rows"/>
+        <Frame x:Name="testss"/>
+        <Frame x:Name="Border"/> -->
+  
 </Window>
