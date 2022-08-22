@@ -35,11 +35,11 @@ namespace Chess.ViewModel
                     test = SPiece.SelectPath(Squares, PrevSquare);
 
                 }
-
-                }
                 _square = null;
             }
-            else
+            
+         
+          else
             {
                if(test.Contains(SelectedSquare))
                 {
