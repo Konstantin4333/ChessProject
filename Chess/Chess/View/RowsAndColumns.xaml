@@ -14,12 +14,12 @@
     </UserControl.DataContext>
 
     <UserControl.Resources>
-        <Style  TargetType="{x:Type WrapPanel}" x:Key="trt">
+        <Style  TargetType="{x:Type ListViewItem}" >
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Path= Board.IsEven }" Value="True">
+                <DataTrigger Binding="{Binding Path= Square.IsEven}" Value="True">
                     <Setter Property="Background" Value="#FFA29494" />
                 </DataTrigger>
-                <DataTrigger Binding="{Binding Path= Board.IsEven}" Value="False">
+                <DataTrigger Binding="{Binding Path= Square.IsEven}" Value="False">
                     <Setter Property="Background" Value="green"/>
                 </DataTrigger>
             </Style.Triggers>
@@ -27,49 +27,36 @@
     </UserControl.Resources>
 
     <Grid >
-        <ListView x:Name="Pieces" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}" Background="Transparent">
-            
+        <ListView x:Name="Pieces"  ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">
             <ListView.ItemTemplate >
                 <DataTemplate>
                     <Image Source="{Binding Piece.ImageOfPiece}" Height="75" Width="50" Margin="18.75,0,18.75,0"></Image>
-                    </DataTemplate>
+                </DataTemplate>
+
             </ListView.ItemTemplate>
             <ListView.ItemsPanel >
-            
-            <ItemsPanelTemplate>
+                <ItemsPanelTemplate>
+                    <WrapPanel  Width="700" Height="700"  Orientation="Horizontal" ItemHeight="87.5" ItemWidth="87.5">
 
-
-                    <WrapPanel  Width="700" Height="700"  Orientation="Horizontal" ItemHeight="87.5" ItemWidth="87.5"    >
-
-                            <WrapPanel.Background>
-                                <ImageBrush ImageSource="/Pictures/Screenshot 2022-08-17 113032.png" TileMode="None" Stretch="UniformToFill"/>
-                            </WrapPanel.Background>
-                       
+                        <WrapPanel.Background>
+                           <ImageBrush ImageSource="/Pictures/Screenshot 2022-08-17 113032.png" TileMode="None" Stretch="UniformToFill"/>
+                       </WrapPanel.Background>
                         <!-- <WrapPanel.Style>
                             <Style TargetType="WrapPanel">
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Path= Board.IsEven }" Value="True">
-                                        <Setter Property="Background" Value="#FFA29494" />
-                                       
+                                    <DataTrigger Binding="{Binding Path= Square.IsEven}" Value="True">
+                                        <Setter Property="Background" Value="#FFA29494"/>
                                     </DataTrigger>
-                                    <DataTrigger Binding="{Binding Board.IsEven}" Value="False">
+                                    <DataTrigger Binding="{Binding Path= Square.IsEven}"  Value="False">
                                         <Setter Property="Background" Value="green"/>
-                                        
+
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
-                        </WrapPanel.Style> -->
-                        
-
+                        </WrapPanel.Style>-->
                     </WrapPanel>
-
                 </ItemsPanelTemplate>
-               
             </ListView.ItemsPanel>
-            
         </ListView>
-   
-        
     </Grid>
-
 </UserControl>
