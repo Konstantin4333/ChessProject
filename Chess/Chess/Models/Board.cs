@@ -85,14 +85,14 @@ namespace Chess.Models
             Squares[62] = new Square(7, 6, new Knight(true));
             Squares[63] = new Square(7, 7, new Rook(true));
 
-            Squares[55] = new Square(6, 0, new Pawn(true));
-            Squares[54] = new Square(6, 1, new Pawn(true));
-            Squares[53] = new Square(6, 2, new Pawn(true));
-            Squares[52] = new Square(6, 3, new Pawn(true));
-            Squares[51] = new Square(6, 4, new Pawn(true));
-            Squares[50] = new Square(6, 5, new Pawn(true));
-            Squares[49] = new Square(6, 6, new Pawn(true));
-            Squares[48] = new Square(6, 7, new Pawn(true));
+            Squares[55] = new Square(6, 7, new Pawn(true));
+            Squares[54] = new Square(6, 6, new Pawn(true));
+            Squares[53] = new Square(6, 5, new Pawn(true));
+            Squares[52] = new Square(6, 4, new Pawn(true));
+            Squares[51] = new Square(6, 3, new Pawn(true));
+            Squares[50] = new Square(6, 2, new Pawn(true));
+            Squares[49] = new Square(6, 1, new Pawn(true));
+            Squares[48] = new Square(6, 0, new Pawn(true));
 
             //initialize squares without pieces
             int a = 8;

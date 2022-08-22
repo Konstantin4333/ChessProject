@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Chess.ViewModel
 {
@@ -19,7 +20,9 @@ namespace Chess.ViewModel
        
         private ObservableCollection<Square> _squares;
         private Square _prevSquare;
-        
+        private List<Square> test;
+
+
         public void Move()
         {
             if (SPiece == null)
@@ -27,20 +30,25 @@ namespace Chess.ViewModel
                 SPiece = SelectedSquare.Piece;
                 
                 PrevSquare = SelectedSquare;
-                List<Square> test =  SPiece.SelectPath(Squares,PrevSquare);
+                if(SPiece != null)
+                {
+                    test = SPiece.SelectPath(Squares, PrevSquare);
+
+                }
                 _square = null;
             }
             else
             {
-               if (SPiece.CanMove(PrevSquare , SelectedSquare))
+               if(test.Contains(SelectedSquare))
                 {
-                    if (SelectedSquare.Piece == null)
-                    {
+                  //  if (SelectedSquare.Piece == null)
+                  //  {
                         SelectedSquare.Piece = SPiece;
                         PrevSquare.Piece = null;
-                    }                     
+                    //  }                     
                 }
-                SPiece = null;
+                test = null;
+                 SPiece = null;
                 _square = null;
             }
         }
