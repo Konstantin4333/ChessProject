@@ -4,10 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Chess.View"
+             xmlns:vm2="clr-namespace:Chess.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1000">
-    <Grid Width="200" Height="700" HorizontalAlignment="Right" Margin="800,50,0,50">
+
+    
+
+    <Grid x:Name="death" Width="200" Height="700" HorizontalAlignment="Right" Margin="800,50,0,50 " >
+
+
         <TextBlock Height="60" Width="60" Text="Test" FontSize="30" FontWeight="Bold"/>
         <Frame x:Name="DeathZone" Background="#FFBD6262"/>
+        
     </Grid>
 </UserControl>

@@ -3,7 +3,9 @@ using Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,9 +25,23 @@ namespace Chess.ViewModel
         public MainViewModel()
         {
             Board = new Board();
-            transparency();
+            // transparency();
+          
+
+            // Setting default: homeViewModela.
            
+
+          
         }
+
+        private DeathZonePiecesViewModel otherVM;
+        private MainViewModel homeVM;
+
+        public DelegateCommand<string> NavigationCommand { get; private set; }
+
+        
+
+       
 
         private static void transparency()
         {
@@ -79,5 +95,12 @@ namespace Chess.ViewModel
         #endregion
 
 
+    }
+
+    internal class propertyChangedEventArgs : PropertyChangedEventArgs
+    {
+        public propertyChangedEventArgs(string? propertyName) : base(propertyName)
+        {
+        }
     }
 }

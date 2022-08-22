@@ -129,13 +129,14 @@ namespace Chess.ViewModel
         public RowsAndColumnsViewModel()
         {
             Board = new Board();
-            Squares = new ObservableCollection<Square>(Board.Squares);
+             Squares = new ObservableCollection<Square>(Board.Squares);
             
             IsEven = new bool();
           
 
           
         }
+
     }
 
 }

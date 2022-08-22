@@ -4,13 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Chess.View"
-             xmlns:vm="clr-namespace:Chess.ViewModel"
+             xmlns:vm1="clr-namespace:Chess.ViewModel"
              xmlns:st="clr-namespace:Chess.Models"
             
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="800">
     <UserControl.DataContext>
-        <vm:RowsAndColumnsViewModel/>
+        <vm1:RowsAndColumnsViewModel/>
     </UserControl.DataContext>
 
     <UserControl.Resources>

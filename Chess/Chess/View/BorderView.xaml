@@ -13,6 +13,7 @@
     </UserControl.DataContext>
 
     <Canvas Width="800" Height="800" >
+        
 
 
 
@@ -47,6 +48,24 @@
             <Rectangle Width="10" Height="10" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="White" />
         </Button>
         <Button Content="___" Foreground="White" FontSize="14" Canvas.Left="700" Height="22" Width="34" Background="Transparent"  HorizontalAlignment="Left" VerticalAlignment="Center" Command="{Binding Minimize}"/>
-        <Button Content="Death" Foreground="White" FontSize="14" Canvas.Left="700" Height="22" Width="100" Background="Transparent"  HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="22" Click="Button_Click" />
+        <Button Content="Death" Foreground="White" FontSize="14" Canvas.Left="700" Height="22" Width="100" Background="Transparent"  HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="22" Click="Button_Click"  />
+
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" Background="{x:Null}">
+                <MenuItem Header="_File"  FontSize="14" FontWeight="Bold" Foreground="White" BorderBrush="#FF0C0B0B" >
+                    <MenuItem Header="_Reset" Foreground="#FF0A0909" FontWeight="Normal" Command="{Binding ResetApp}" >
+                        <MenuItem.Icon>
+                            <Image Source="/Pictures/restart.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Exit" Foreground="Black" FontWeight="Normal" Command="{Binding CloseApp}">
+                        <MenuItem.Icon>
+                            <Image Source="/Pictures/close.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>                
+            </Menu>
+        </DockPanel>
+
     </Canvas>
 </UserControl>

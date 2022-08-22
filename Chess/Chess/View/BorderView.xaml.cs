@@ -44,15 +44,14 @@ namespace Chess.View
 
         }*/
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            System.Windows.Application.Current.Windows[0].Close();
-        }
+       
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             DeathZone.Content = new DeathZonePieces();
         }
+
+        
 
 
 

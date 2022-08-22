@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+	  <None Remove="Pictures\chess2.jpg" />
 	  <None Remove="Pictures\chess_piece_black_rook.png" />
 	  <None Remove="Pictures\chess_piece_black_bishop.png" />
 	  <None Remove="Pictures\chess_piece_black_king.png" />
@@ -20,8 +21,10 @@
 	  <None Remove="Pictures\chess_piece_white_pawn.png" />
 	  <None Remove="Pictures\chess_piece_white_queen.png" />
 	  <None Remove="Pictures\chess_piece_white_rook.png" />
+	  <None Remove="Pictures\close.png" />
 	  <None Remove="Pictures\images.jpg" />
 	  <None Remove="Pictures\natural.jfif" />
+	  <None Remove="Pictures\restart.png" />
     <None Remove="Pictures\Screenshot 2022-08-17 113032.png" />
     <None Remove="Pictures\tree.jpg" />
   </ItemGroup>
@@ -33,6 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
+	  <Resource Include="Pictures\chess2.jpg" />
 	  <Resource Include="Pictures\chess_piece_black_bishop.png" />
 	  <Resource Include="Pictures\chess_piece_black_king.png" />
 	  <Resource Include="Pictures\chess_piece_black_rook.png" />
@@ -45,8 +49,10 @@
 	  <Resource Include="Pictures\chess_piece_white_pawn.png" />
 	  <Resource Include="Pictures\chess_piece_white_queen.png" />
 	  <Resource Include="Pictures\chess_piece_white_rook.png" />
+	  <Resource Include="Pictures\close.png" />
 	  <Resource Include="Pictures\images.jpg" />
 	  <Resource Include="Pictures\natural.jfif" />
+	  <Resource Include="Pictures\restart.png" />
     <Resource Include="Pictures\Screenshot 2022-08-17 113032.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
