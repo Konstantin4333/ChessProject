@@ -50,18 +50,18 @@ namespace Chess.Models
                     if (sq.Piece == null)
                     {
                         result.Add(sq);
-
-                    }
-                    if (x == 2)
-                    {
-                        x++;
-                        index = x * 8 + y;
-                        Square sq1 = squares[index];
-                        if (sq1.Piece == null)
+                        if (x == 2)
                         {
-                            result.Add(sq1);
+                            x++;
+                            index = x * 8 + y;
+                            Square sq1 = squares[index];
+                            if (sq1.Piece == null)
+                            {
+                                result.Add(sq1);
+                            }
                         }
                     }
+                    
                 }
             }
             else
@@ -74,17 +74,18 @@ namespace Chess.Models
                     if (sq.Piece == null)
                     {
                         result.Add(sq);
-                    }
-                    if (x == 5)
-                    {
-                        x--;
-                        index = x * 8 + y;
-                        Square sq2 = squares[index];
-                        if (sq2.Piece == null)
+                        if (x == 5)
                         {
-                            result.Add(sq2);
+                            x--;
+                            index = x * 8 + y;
+                            Square sq2 = squares[index];
+                            if (sq2.Piece == null)
+                            {
+                                result.Add(sq2);
+                            }
                         }
                     }
+                    
                 }
             }
             return result;
