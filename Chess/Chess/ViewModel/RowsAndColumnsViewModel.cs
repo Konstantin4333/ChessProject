@@ -20,7 +20,7 @@ namespace Chess.ViewModel
        
         private ObservableCollection<Square> _squares;
         private Square _prevSquare;
-        private List<Square> test;
+        private List<Square> _availableMoves;
         
 
         public void Move()
@@ -32,22 +32,19 @@ namespace Chess.ViewModel
                 PrevSquare = SelectedSquare;
                 if(SPiece != null)
                 {
-                    test = SPiece.SelectPath(Squares, PrevSquare);
+                    _availableMoves = SPiece.SelectPath(Squares, PrevSquare);
 
                 }
                 _square = null;
             }
             else
             {
-               if(test.Contains(SelectedSquare))
+               if(_availableMoves.Contains(SelectedSquare))
                 {
-                  //  if (SelectedSquare.Piece == null)
-                  //  {
-                        SelectedSquare.Piece = SPiece;
-                        PrevSquare.Piece = null;
-                   //}                     
+                    SelectedSquare.Piece = SPiece;
+                    PrevSquare.Piece = null;                 
                     }                     
-                test = null;
+                _availableMoves = null;
                 SPiece = null;
                 _square = null;
             }
@@ -105,32 +102,13 @@ namespace Chess.ViewModel
         }
 
         
-        public void CheckSquareEvent(Square[] sq)
-        {
-
-            // Squares = new Square[64];
-            for (int i = 0; i < 64; i++)
-            {
-                if (i % 2 == 0)
-                {
-                    sq[i].IsEven = true;
-
-                }
-
-            }
-            Console.WriteLine();
-
-        }
+        
 
         public RowsAndColumnsViewModel()
         {
             Board = new Board();
-             Squares = new ObservableCollection<Square>(Board.Squares);
+            Squares = new ObservableCollection<Square>(Board.Squares);
             
-
-
-
-
         }
 
     }
