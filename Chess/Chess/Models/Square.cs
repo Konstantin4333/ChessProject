@@ -48,6 +48,16 @@ namespace Chess.Models
             set { y = value; }
         }
 
+    
+        public bool _IsEven;
 
+        public bool IsEven
+        {
+            get { return _IsEven; }
+            set
+            {
+                _IsEven = value;
+            }
+        }
     }
 }

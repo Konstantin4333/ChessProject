@@ -169,9 +169,9 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ListView" TargetType="{x:Type ListViewItem}" >
+    <Style x:Key="ListView" TargetType="{x:Type ListView}" >
         <Style.Triggers>
-            <Trigger Property="TabIndex" Value=""/>
+            <Trigger Property="TabIndex" Value="0"/>
         </Style.Triggers>
     </Style>
 

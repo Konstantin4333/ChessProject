@@ -15,7 +15,7 @@ namespace Chess.Models
         {
             
             this.ResetBoard();
-          
+            this.CheckSquareEvent(Squares);
 
         }
         public Square GetSquare(int x)
@@ -36,7 +36,50 @@ namespace Chess.Models
             return Squares[index];
 
         }
-        
+
+
+        //----------------------------
+        public void CheckSquareEvent(Square[] sq)
+        {
+            bool f = false;
+            // Squares = new Square[64];
+            for (int i = 0; i < 64; i++)
+            {
+
+                if (i % 8 == 0)
+                {
+                    f = !f;
+                }
+                if (i % 2 == 0)
+                {
+                    sq[i].IsEven = f;
+                }
+
+                else
+                {
+
+
+                    if (i % 2 != 0)
+                    {
+                        sq[i].IsEven = !f;
+                    }
+                }
+
+
+            }
+
+            /* f = true;
+             sq[i].IsEven = true;*/
+
+            Console.WriteLine();
+
+        }
+
+
+
+
+
+
         public void ResetBoard()
         {
             //Initialize black pieces

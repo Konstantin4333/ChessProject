@@ -21,7 +21,8 @@ namespace Chess.ViewModel
         private ObservableCollection<Square> _squares;
         private Square _prevSquare;
         private List<Square> test;
-        
+        private bool _IsEven;
+
 
         public void Move()
         {
@@ -104,15 +105,44 @@ namespace Chess.ViewModel
             }
         }
 
-        
-        
+        //--------------------------------------------
+
+      
+
+        public bool IsEven
+        {
+            get { return _IsEven; }
+            set
+            {
+                _IsEven = value;
+                OnPropertyChanged(nameof(IsEven));
+            }
+        }
+        public void CheckSquareEvent(Square[] sq)
+        {
+
+            // Squares = new Square[64];
+            for (int i = 0; i < 64; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    sq[i].IsEven = true;
+
+                }
+
+            }
+            Console.WriteLine();
+
+        }
+        //--------------------------------------------
+
 
         public RowsAndColumnsViewModel()
         {
             Board = new Board();
              Squares = new ObservableCollection<Square>(Board.Squares);
-            
 
+            IsEven = new bool();
 
 
 
