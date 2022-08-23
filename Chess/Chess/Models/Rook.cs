@@ -29,33 +29,33 @@ namespace Chess.Models
         public override List<Square> SelectPath(ObservableCollection<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
-            int x = 1;
-            int y = 0;
-            int Px, Py;
+            int primary = 1;
+            int secondary = 0;
+            int PieceX, PieceY;
             int c = -1;
-            int temp;
-            Square sq;
+            int temporary;
+            Square currentSquare;
             for (int i = 0; i < 4; i++)
             {
-                Px = start.X;
-                Py = start.Y;
-                Px += x;
-                Py += y;
-                while (Px >= 0 && Py >= 0 && Px < 8 && Py < 8)
+                PieceX = start.X;
+                PieceY = start.Y;
+                PieceX += primary;
+                PieceY += secondary;
+                while (PieceX >= 0 && PieceY >= 0 && PieceX < 8 && PieceY < 8)
                 {
-                    sq = squares[Px * 8 + Py];
-                    if (sq.Piece != null && sq.Piece.White == start.Piece.White) break;
-                    else if (sq.Piece != null && sq.Piece.White != start.Piece.White) { result.Add(sq); break; }
-                    result.Add(sq);
-                    Px += x;
-                    Py += y;
+                    currentSquare = squares[PieceX * 8 + PieceY];
+                    if (currentSquare.Piece != null && currentSquare.Piece.White == start.Piece.White) break;
+                    else if (currentSquare.Piece != null && currentSquare.Piece.White != start.Piece.White) { result.Add(currentSquare); break; }
+                    result.Add(currentSquare);
+                    PieceX += primary;
+                    PieceY += secondary;
 
                 }
 
-                x = x * c;
-                temp = x;
-                x = y;
-                y = temp;
+                primary = primary * c;
+                temporary = primary;
+                primary = secondary;
+                secondary = temporary;
             }
 
             return result;

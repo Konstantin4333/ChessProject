@@ -107,7 +107,7 @@ namespace Chess.ViewModel
 
         //--------------------------------------------
 
-      
+              
 
         public bool IsEven
         {

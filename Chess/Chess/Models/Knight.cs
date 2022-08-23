@@ -34,34 +34,34 @@ namespace Chess.Models
         {
                
                 List<Square> result = new List<Square>();
-            int x=1;
-            int y=-2;
-            int Px, Py;
+            int primary=1;
+            int secondary=-2;
+            int PieceX, PieceY;
             int c = -1;
-            Square sq; 
+            Square currentSquare; 
             for(int i=0;i<4;i++)
             {
-                Px=start.X;
-                Py = start.Y;
-                Px += x;
-                Py += y;
-                if (Px >= 0 && Py >= 0 && Px < 8 && Py < 8) { 
-                    sq = squares[Px * 8 + Py];
-                    if(sq.Piece == null || sq.Piece.White != start.Piece.White)
-                    result.Add(sq); 
+                PieceX=start.X;
+                PieceY = start.Y;
+                PieceX += primary;
+                PieceY += secondary;
+                if (PieceX >= 0 && PieceY >= 0 && PieceX < 8 && PieceY < 8) { 
+                    currentSquare = squares[PieceX * 8 + PieceY];
+                    if(currentSquare.Piece == null || currentSquare.Piece.White != start.Piece.White)
+                    result.Add(currentSquare); 
                 }
-                Px = start.X;
-                Py = start.Y;
-                Px += y;
-                Py += x;
-                if (Px >= 0 && Py >= 0 && Px < 8 && Py < 8)
+                PieceX = start.X;
+                PieceY = start.Y;
+                PieceX += secondary;
+                PieceY += primary;
+                if (PieceX >= 0 && PieceY >= 0 && PieceX < 8 && PieceY < 8)
                 {
-                    sq = squares[Px * 8 + Py];
-                    if (sq.Piece == null || sq.Piece.White!=start.Piece.White)
-                        result.Add(sq);
+                    currentSquare = squares[PieceX * 8 + PieceY];
+                    if (currentSquare.Piece == null || currentSquare.Piece.White!=start.Piece.White)
+                        result.Add(currentSquare);
                 }
-                y = y * x * c;
-                x = x * c;
+                secondary = secondary * primary * c;
+                primary = primary * c;
             }
                return result;
         }
