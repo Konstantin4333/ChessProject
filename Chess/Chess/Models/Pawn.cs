@@ -28,12 +28,8 @@ namespace Chess.Models
                 ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_black_pawn.png", UriKind.Relative));
             }
         }
-        public override bool CanMove(Square start, Square end)
-        {
-
-            return false;
-        }
-        public List<Square> UpPath(ObservableCollection<Square> squares, Square start)
+        
+        private List<Square> UpPath(ObservableCollection<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
             int x = start.X;
@@ -91,7 +87,7 @@ namespace Chess.Models
             return result;
         }
 
-        public List<Square> AttackRight(ObservableCollection<Square> squares, Square start)
+        private List<Square> AttackRight(ObservableCollection<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
             int x = start.X;
@@ -141,7 +137,7 @@ namespace Chess.Models
             }
             return result;
         }
-        public List<Square> AttackLeft(ObservableCollection<Square> squares, Square start)
+        private List<Square> AttackLeft(ObservableCollection<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
             int x = start.X;

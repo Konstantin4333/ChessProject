@@ -105,22 +105,7 @@ namespace Chess.ViewModel
         }
 
         
-        public void CheckSquareEvent(Square[] sq)
-        {
-
-            // Squares = new Square[64];
-            for (int i = 0; i < 64; i++)
-            {
-                if (i % 2 == 0)
-                {
-                    sq[i].IsEven = true;
-
-                }
-
-            }
-            Console.WriteLine();
-
-        }
+        
 
         public RowsAndColumnsViewModel()
         {

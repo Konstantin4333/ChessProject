@@ -22,12 +22,7 @@ namespace Chess.Models
                 ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_black_queen.png", UriKind.Relative));
             }
         }
-        public override bool CanMove( Square start, Square end)
-        {
-            throw new System.NotImplementedException();
-        }
-
-       
+        
 
         public override List<Square> SelectPath(ObservableCollection<Square> squares, Square start)
         {
