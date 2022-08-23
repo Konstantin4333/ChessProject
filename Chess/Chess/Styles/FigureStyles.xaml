@@ -168,5 +168,11 @@
             </Setter.Value>
         </Setter>
     </Style>
-            
+
+    <Style x:Key="ListView" TargetType="{x:Type ListViewItem}" >
+        <Style.Triggers>
+            <Trigger Property="TabIndex" Value=""/>
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>

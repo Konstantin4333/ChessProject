@@ -115,16 +115,7 @@ namespace Chess.ViewModel
                 {
                     if (App.Current.Windows[0].WindowState == WindowState.Normal)
                     {
-                       /* Window win = new MainWindow();
-                        win.Close();*/
-                        /*  App.Current.Shutdown();
-                          // win.Show();
-                          System.Windows.Application.Current.Windows[0].Close();
-                          
-                          App.Current.Windows[0].Show();*/
-                        // transparency();
-
-                       // App.Current.Windows[0].AllowsTransparency = false;
+                       
                         App.Current.Windows[0].WindowState = WindowState.Maximized;
                         
                     }
