@@ -5,7 +5,7 @@
                     xmlns:s="clr-namespace:Chess.View">
 
     
-
+<!--#region Custom Figures Styles-->
     <SolidColorBrush x:Key="BoardOutline" Color="#423936" />
     <SolidColorBrush x:Key="OddTile" Color="#FFA29494" />
     <SolidColorBrush x:Key="EvenTile" Color="green" />
@@ -108,6 +108,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!--#endregion-->
+        <!--#region Border TextBlock Triggers-->
     <Style x:Key="TbStyle" TargetType="TextBlock">
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
@@ -132,11 +134,8 @@
         <Setter Property="Canvas.Top" Value="762"/>
 
     </Style>
-
-
-    <Style x:Key="ListViewItem" TargetType="Path">
-        
-    </Style>
+<!--#endregion-->
+        <!--#region Wrap Panel Trigger (not working yet)-->
     
     <Style  TargetType="{x:Type WrapPanel}" x:Key="trt">
         <Style.Triggers>
@@ -158,9 +157,8 @@
             </DataTrigger>
         </Style.Triggers>
     </Style>
-
-    
-    
+        <!--#endregion-->
+        <!--#region Border Trigger-->
     <Style x:Key="borderImg" TargetType="Rectangle" >
         <Setter Property="Fill">
             <Setter.Value>
@@ -168,5 +166,60 @@
             </Setter.Value>
         </Setter>
     </Style>
-            
+      <!--#endregion-->
+        <!--#region Board Trigger-->
+    <Style  TargetType="{x:Type ListViewItem}" >
+
+        <Style.Triggers>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                <Setter Property="Background" Value="DarkGray " />
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                <Setter Property="Background" Value="#423936" />
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="2">
+                <Setter Property="Background" Value="DarkGray" />
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="3">
+                <Setter Property="Background" Value="#423936" />
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="4">
+                <Setter Property="Background" Value="DarkGray" />
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="5">
+                <Setter Property="Background" Value="#423936" />
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="6">
+                <Setter Property="Background" Value="DarkGray" />
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="7">
+                <Setter Property="Background" Value="#423936" />
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="8">
+                <Setter Property="Background" Value="#423936" />
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="9">
+                <Setter Property="Background" Value="DarkGray" />
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="10">
+                <Setter Property="Background" Value="#423936" />
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="11">
+                <Setter Property="Background" Value="DarkGray" />
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="12">
+                <Setter Property="Background" Value="#423936" />
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="13">
+                <Setter Property="Background" Value="DarkGray" />
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="14">
+                <Setter Property="Background" Value="#423936" />
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="15">
+                <Setter Property="Background" Value="DarkGray" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+        <!--#endregion-->
 </ResourceDictionary>
