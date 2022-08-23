@@ -15,23 +15,12 @@ namespace Chess.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
-        #region Private properties
-        private Board _board;
-        private Player _whitePlayer;
-        private Player _blackPlayer;
-        private Piece _selectedPiece;
-        #endregion
+       
        
         public MainViewModel()
         {
-            Board = new Board();
-            // transparency();
-          
-
-            // Setting default: homeViewModela.
+            
            
-
-          
         }
 
         private DeathZonePiecesViewModel otherVM;
@@ -54,53 +43,10 @@ namespace Chess.ViewModel
             }
         }
 
-        #region public properties
-
-        public Board Board
-        {
-            get
-            {
-                return _board;
-            } set
-            {
-                _board = value;
-                OnPropertyChanged(nameof(Board));
-            }
-        }
-        public Player WhitePlayer
-        {
-            get { return _whitePlayer; }
-            set { _whitePlayer = value; 
-                OnPropertyChanged(nameof(WhitePlayer)); 
-            }
-        }
-        public Player BlackPlayer
-        {
-            get { return _blackPlayer; }
-            set
-            {
-                _blackPlayer = value;
-                OnPropertyChanged(nameof(BlackPlayer));
-            }
-        }
-        public Piece SelectedPiece
-        {
-            get { return _selectedPiece; }
-            set
-            {
-                _selectedPiece = value;
-                OnPropertyChanged(nameof(SelectedPiece));
-            }
-        }
-        #endregion
+       
 
 
     }
 
-    internal class propertyChangedEventArgs : PropertyChangedEventArgs
-    {
-        public propertyChangedEventArgs(string? propertyName) : base(propertyName)
-        {
-        }
-    }
+    
 }

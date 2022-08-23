@@ -17,11 +17,10 @@ namespace Chess.Models
             White = white;
         }
         public ImageSource ImageOfPiece { get; set; }
-        public int Row  { get; set; }
-        public int Column { get; set; }
-        public bool Killed { get; set; }
+        
+        
         public bool White { get; set; }
-        public abstract bool CanMove( Square start, Square end);
+        
         public abstract List<Square> SelectPath(ObservableCollection<Square> squares, Square start);
     }
 }

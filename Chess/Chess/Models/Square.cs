@@ -13,16 +13,7 @@ namespace Chess.Models
         private Piece? _piece;
         private int x;
         private int y;
-        private bool _IsEven;
-
-        public bool IsEven
-        {
-            get { return _IsEven; }
-            set
-            {
-                _IsEven = value;
-            }
-        }
+        
         public Square(int x, int y, Piece piece)
         {
             Piece = piece;
