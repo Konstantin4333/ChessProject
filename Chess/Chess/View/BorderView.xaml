@@ -48,7 +48,7 @@
             <Rectangle Width="10" Height="10" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="White" />
         </Button>
         <Button Content="___" Foreground="White" FontSize="14" Canvas.Left="700" Height="22" Width="34" Background="Transparent"  HorizontalAlignment="Left" VerticalAlignment="Center" Command="{Binding Minimize}"/>
-        <Button Content="Death" Foreground="White" FontSize="14" Canvas.Left="700" Height="22" Width="100" Background="Transparent"  HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="22" Click="Button_Click"  />
+        <Button Content="Death" Foreground="White" FontSize="14" Canvas.Left="700" Height="22" Width="100" Background="Transparent"  HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="22" Click="Button_Click" Visibility="Hidden"  />
 
         <DockPanel>
             <Menu DockPanel.Dock="Top" Background="{x:Null}">

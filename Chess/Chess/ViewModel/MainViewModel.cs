@@ -16,22 +16,12 @@ namespace Chess.ViewModel
     public class MainViewModel : BaseViewModel
     {
        
-       
-        public MainViewModel()
-        {
-            
-           
-        }
-
         private DeathZonePiecesViewModel otherVM;
         private MainViewModel homeVM;
 
         public DelegateCommand<string> NavigationCommand { get; private set; }
 
         
-
-       
-
         private static void transparency()
         {
             if (App.Current.Windows[0].WindowState == WindowState.Normal)

@@ -14,17 +14,8 @@
     </UserControl.DataContext>
 
     <UserControl.Resources>
-      <!--  <Style  TargetType="{x:Type ListViewItem}" >
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding Path= Square.IsEven}" Value="True">
-                    <Setter Property="Background" Value="#FFA29494" />
-                </DataTrigger>
-                <DataTrigger Binding="{Binding Path= Square.IsEven}" Value="False">
-                    <Setter Property="Background" Value="green"/>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
- -->
+  
+
 
         <Style TargetType="ListViewItem">
             <Style.Triggers>
@@ -40,7 +31,8 @@
     </UserControl.Resources>
 
     <Grid>
-        <ListView x:Name="Pieces"  ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}" SelectedIndex="0">
+        <ListView x:Name="Pieces" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">
+            <!--  <ListView x:Name="Pieces" AlternationCount="16" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">-->
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Image Source="{Binding Piece.ImageOfPiece}" Height="75" Width="50" Margin="18.75,0,18.75,0"></Image>
@@ -51,20 +43,6 @@
                 <ItemsPanelTemplate>
                     <WrapPanel  Width="700" Height="700"  Orientation="Horizontal" ItemHeight="87.5" ItemWidth="87.5" Background="Transparent">
 
-                       
-                        <WrapPanel.Style>
-                            <Style TargetType="WrapPanel">
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Path= Square.IsEven}" Value="True">
-                                        <Setter Property="Background" Value="#FFA29494"/>
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding Path= Square.IsEven}"  Value="False">
-                                        <Setter Property="Background" Value="green"/>
-
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </WrapPanel.Style>
                     </WrapPanel>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
