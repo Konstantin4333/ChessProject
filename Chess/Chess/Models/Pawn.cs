@@ -28,66 +28,79 @@ namespace Chess.Models
                 ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_black_pawn.png", UriKind.Relative));
             }
         }
-        
-        private List<Square> UpPath(ObservableCollection<Square> squares, Square start)
+
+        public List<Square> UpPath(ObservableCollection<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
             int x = start.X;
             int y = start.Y;
 
-            
+
             if (!start.Piece.White)
             {
                 x++;
+
+
                 if (x < 8 && y < 8)
                 {
+
+
                     int index = x * 8 + y;
                     Square sq = squares[index];
                     if (sq.Piece == null)
                     {
                         result.Add(sq);
-                        if (x == 2)
-                        {
-                            x++;
-                            index = x * 8 + y;
-                            Square sq1 = squares[index];
-                            if (sq1.Piece == null)
-                            {
-                                result.Add(sq1);
-                            }
-                        }
+
                     }
-                    
+                    if (x == 2)
+                    {
+                        x++;
+                        index = x * 8 + y;
+                        Square sq1 = squares[index];
+                        if (sq1.Piece == null)
+                        {
+                            result.Add(sq1);
+                        }
+
+
+
+
+                    }
+
+
+
                 }
+
             }
             else
             {
                 x--;
                 if (x >= 0 && y >= 0)
                 {
+
                     int index = x * 8 + y;
                     Square sq = squares[index];
                     if (sq.Piece == null)
                     {
                         result.Add(sq);
-                        if (x == 5)
+
+                    }
+                    if (x == 5)
+                    {
+                        x--;
+                        index = x * 8 + y;
+                        Square sq2 = squares[index];
+                        if (sq2.Piece == null)
                         {
-                            x--;
-                            index = x * 8 + y;
-                            Square sq2 = squares[index];
-                            if (sq2.Piece == null)
-                            {
-                                result.Add(sq2);
-                            }
+                            result.Add(sq2);
                         }
                     }
-                    
                 }
             }
             return result;
         }
 
-        private List<Square> AttackRight(ObservableCollection<Square> squares, Square start)
+        public List<Square> AttackRight(ObservableCollection<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
             int x = start.X;
@@ -100,6 +113,7 @@ namespace Chess.Models
 
                 if (x < 8 && y >= 0)
                 {
+
                     int index = x * 8 + y;
                     Square sq = squares[index];
                     if (sq.Piece != null)
@@ -111,7 +125,6 @@ namespace Chess.Models
                         }
                     }
                 }
-
             }
             else
             {
@@ -132,18 +145,20 @@ namespace Chess.Models
 
                         }
                     }
+
+
+
                 }
 
             }
             return result;
         }
-        private List<Square> AttackLeft(ObservableCollection<Square> squares, Square start)
+        public List<Square> AttackLeft(ObservableCollection<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
             int x = start.X;
             int y = start.Y;
 
-            
             if (!start.Piece.White)
             {
                 x++;
@@ -151,15 +166,22 @@ namespace Chess.Models
 
                 if (x < 8 && y < 8)
                 {
+
                     int index = x * 8 + y;
                     Square sq = squares[index];
                     if (sq.Piece != null)
                     {
+
+
                         if (sq.Piece.White)
                         {
                             result.Add(sq);
+
                         }
                     }
+
+
+
                 }
 
             }
@@ -180,14 +202,13 @@ namespace Chess.Models
                             result.Add(sq);
                         }
                 }
+
             }
             return result;
         }
-
-
         public override List<Square> SelectPath(ObservableCollection<Square> squares, Square start)
         {
-            
+
             List<Square> up = UpPath(squares, start);
             List<Square> attackRight = AttackRight(squares, start);
             List<Square> attackLeft = AttackLeft(squares, start);
