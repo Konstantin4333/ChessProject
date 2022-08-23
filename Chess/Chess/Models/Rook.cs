@@ -52,7 +52,6 @@ namespace Chess.Models
 
                 }
 
-                // y = y * x * c;
                 x = x * c;
                 temp = x;
                 x = y;
