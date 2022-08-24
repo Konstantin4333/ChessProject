@@ -26,10 +26,7 @@ namespace Chess.Models
             }
         }
 
-        public override bool CanMove(Square start, Square end)
-        {
-            return false;
-        }
+        
 
         
 

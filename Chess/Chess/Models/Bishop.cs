@@ -16,23 +16,7 @@ namespace Chess.Models
             AttachImage(white);
 
         }
-        public Square[] getAvailableMoves(Board board, Square start)
-        {
-            Square[] squares= new Square[64];
-            for (int i = 0; i < 64; i++)
-            {
-               Square sq = board.GetSquare(i);
-                if (sq.Piece != null)
-                {
-                    if (sq.Piece.White == start.Piece.White)
-                    {
-                        squares[i] = sq;
-                    }
-                }
-            }
-            
-            return new Square[0];   
-        }
+        
         private void AttachImage(bool white)
         {
             if (white)
@@ -44,10 +28,7 @@ namespace Chess.Models
                 ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_black_bishop.png", UriKind.Relative));
             }
         }
-        public override bool CanMove(Square start, Square end)
-        {
-                    return false;
-                }
+        
         public override List<Square> SelectPath(ObservableCollection<Square> squares, Square start)
             {
             List<Square> result = new List<Square>();
