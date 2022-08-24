@@ -2,12 +2,8 @@
 using Chess.View;
 using Prism.Commands;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -22,15 +18,9 @@ namespace Chess.ViewModel
         private DelegateCommand _windowTest;
         private DelegateCommand _resetApp;
         private DelegateCommand _deathZone;
-
-
         private Board _board;
         private Square _square;
         bool isOpened = false;
-
-
-      
-        
 
         public ICommand CloseApp
         {
@@ -38,19 +28,19 @@ namespace Chess.ViewModel
             {
                 return _minimize ?? (_minimize = new DelegateCommand(() =>
                 {
-                       App.Current.Shutdown();
-               }));
+                    App.Current.Shutdown();
+                }));
             }
         }
-      
-       
+
+
         public ICommand ResetApp
         {
             get
             {
                 return _resetApp ?? (_resetApp = new DelegateCommand(() =>
                 {
-                      var currentExecutablePath = Process.GetCurrentProcess().MainModule.FileName;
+                    var currentExecutablePath = Process.GetCurrentProcess().MainModule.FileName;
                     Process.Start(currentExecutablePath);
                     Application.Current.Shutdown();
 
@@ -74,10 +64,10 @@ namespace Chess.ViewModel
             {
                 return _windowTest ?? (_windowTest = new DelegateCommand(() =>
                 {
-                    /*App.Current.Windows[0].WindowState = WindowState.Minimized;*/
+
                     Window window = new WindowDeathZone();
-                    
-                   
+
+
                     if (!isOpened)
                     {
                         window.Show();
@@ -85,25 +75,25 @@ namespace Chess.ViewModel
                     }
                     else
                     {
-                        // App.Current.Windows[1].Close();
+
                         window.Hide();
                         isOpened = false;
                     }
-                    
+
                 }));
             }
         }
-      
+
         public ICommand DeathZonecmd
         {
             get
             {
                 return _deathZone ?? (_deathZone = new DelegateCommand(() =>
                 {
-                   UserControl userControl = new DeathZonePieces();
+                    UserControl userControl = new DeathZonePieces();
                     UserControls.Add(userControl);
                     userControl.BringIntoView();
-                   
+
                 }));
             }
         }
@@ -115,31 +105,31 @@ namespace Chess.ViewModel
                 {
                     if (App.Current.Windows[0].WindowState == WindowState.Normal)
                     {
-                       
+
                         App.Current.Windows[0].WindowState = WindowState.Maximized;
-                        
+
                     }
                     else
                     {
                         App.Current.Windows[0].WindowState = WindowState.Normal;
                     }
-                    
+
                 }));
             }
         }
 
-        
+
 
         public ObservableCollection<FrameworkElement> UserControls { get; set; } = new ObservableCollection<FrameworkElement>();
         public void Execute(object? parameter)
         {
-           // UserControls.Clear();
+
             switch (parameter?.ToString())
             {
                 case "DeathZone":
                     UserControls.Add(GetUserControlInstance("DeathZone"));
                     break;
-                
+
                 default:
                     break;
             }
@@ -156,7 +146,5 @@ namespace Chess.ViewModel
         {
             throw new NotImplementedException();
         }
-
-       
     }
 }

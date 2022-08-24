@@ -13,19 +13,10 @@
     </UserControl.DataContext>
 
     <Canvas Width="800" Height="800" >
-        
-
-
-
         <Rectangle StrokeDashArray="1 2" Height="50"   VerticalAlignment="Top" Width="800" HorizontalAlignment="Left" Style="{StaticResource borderImg}"  />
-
-
-
-
         <Rectangle Width="50" Height="800" Canvas.Left="0" Canvas.Top="0" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource borderImg}" />
         <Rectangle Height="50"  StrokeDashArray="1 2" VerticalAlignment="Bottom" Width="800" HorizontalAlignment="Left" Style="{StaticResource borderImg}" Canvas.Left="0" Canvas.Top="750" />
         <Rectangle Width="50" Height="800" Canvas.Left="750" Canvas.Top="0" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource borderImg}" />
-
         <TextBlock Text="8" Style="{StaticResource TbStyle}" Canvas.Top="70"/>
         <TextBlock Text="7"  Style="{StaticResource TbStyle}" Canvas.Top="170" />
         <TextBlock Text="6"  Style="{StaticResource TbStyle}" Canvas.Top="250" />
@@ -63,7 +54,7 @@
                             <Image Source="/Pictures/close.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
-                </MenuItem>                
+                </MenuItem>
             </Menu>
         </DockPanel>
 
