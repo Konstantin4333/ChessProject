@@ -15,8 +15,6 @@
 
     <UserControl.Resources>
   
-
-
         <Style TargetType="ListViewItem">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding IsEven}" Value="false">
@@ -25,6 +23,7 @@
                 <DataTrigger Binding="{Binding IsEven}" Value="true">
                     <Setter Property="Background" Value="DarkGray" />
                 </DataTrigger>
+                
             </Style.Triggers>
         </Style>
 
@@ -44,7 +43,7 @@
                     <WrapPanel  Width="700" Height="700"  Orientation="Horizontal" ItemHeight="87.5" ItemWidth="87.5" Background="Transparent">
 
                     </WrapPanel>
-                </ItemsPanelTemplate>
+                </ItemsPanelTemplate> 
             </ListView.ItemsPanel>
         </ListView> 
 
