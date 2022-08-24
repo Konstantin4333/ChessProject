@@ -32,16 +32,19 @@
     <Grid>
         <!--<ListView x:Name="Pieces" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">-->
             <ListView x:Name="Pieces" AlternationCount="16" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">
-                <ListView.ItemTemplate>
+            
+            <ListView.ItemTemplate>
+                
                 <DataTemplate>
-                    <Image Source="{Binding Piece.ImageOfPiece}" Height="75" Width="50" Margin="18.75,0,18.75,0"></Image>
+                    <Image Source="{Binding Piece.ImageOfPiece}" Height="50" Width="25" Margin="18.75,0,18.75,0"></Image>
                 </DataTemplate>
-
+                
             </ListView.ItemTemplate>
             <ListView.ItemsPanel >
                 <ItemsPanelTemplate>
-                    <WrapPanel  Width="700" Height="700"  Orientation="Horizontal" ItemHeight="87.5" ItemWidth="87.5" Background="Transparent">
 
+                    <WrapPanel Width="600" Height="600"  Orientation="Horizontal">
+                        
                     </WrapPanel>
                 </ItemsPanelTemplate> 
             </ListView.ItemsPanel>

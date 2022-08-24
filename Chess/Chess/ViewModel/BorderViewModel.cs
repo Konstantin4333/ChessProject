@@ -58,14 +58,14 @@ namespace Chess.ViewModel
                 }));
             }
         }
-        public ICommand WindowTest
+        /*public ICommand WindowTest
         {
             get
             {
                 return _windowTest ?? (_windowTest = new DelegateCommand(() =>
                 {
 
-                    Window window = new WindowDeathZone();
+                    //Window window = new WindowDeathZone();
 
 
                     if (!isOpened)
@@ -82,7 +82,7 @@ namespace Chess.ViewModel
 
                 }));
             }
-        }
+        }*/
 
         public ICommand DeathZonecmd
         {
