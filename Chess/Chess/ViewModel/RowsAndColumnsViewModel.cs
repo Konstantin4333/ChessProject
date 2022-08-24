@@ -2,14 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows;
-using System.Diagnostics;
-using static System.Net.Mime.MediaTypeNames;
 using Prism.Commands;
 using Chess.View;
 
@@ -25,9 +17,9 @@ namespace Chess.ViewModel
        
         private ObservableCollection<Square> _squares;
         private Square _prevSquare;
-        private List<Square> test;
+        private List<Square> _availableMoves;
         private bool _IsEven;
-
+        public List<Square> AvailableMoves { get { return _availableMoves; } }
 
         public void Move()
         {
@@ -38,22 +30,21 @@ namespace Chess.ViewModel
                 PrevSquare = SelectedSquare;
                 if(SPiece != null)
                 {
-                    test = SPiece.SelectPath(Squares, PrevSquare);
+                    _availableMoves = SPiece.SelectPath(Squares, PrevSquare);
 
                 }
                 _square = null;
             }
             else
             {
-               if(test.Contains(SelectedSquare))
+               if(_availableMoves.Contains(SelectedSquare))
                 {
-                  //  if (SelectedSquare.Piece == null)
-                  //  {
+                 
                         SelectedSquare.Piece = SPiece;
                         PrevSquare.Piece = null;
-                   //}                     
+                                       
                     }                     
-                test = null;
+                _availableMoves = null;
                 SPiece = null;
                 _square = null;
             }

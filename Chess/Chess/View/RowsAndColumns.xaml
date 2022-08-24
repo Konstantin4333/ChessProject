@@ -25,26 +25,31 @@
                 <DataTrigger Binding="{Binding IsEven}" Value="true">
                     <Setter Property="Background" Value="DarkGray" />
                 </DataTrigger>
+                
             </Style.Triggers>
         </Style>
-    </UserControl.Resources>
+   
 
-    <Grid Width="800" Height="800"  >
-        <StackPanel Background="White"/>
-        <!--#region Board-->
-        <ListView    x:Name="Pieces" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}"  Background="Transparent"  Width="800" Height="800">
-            <!--  <ListView x:Name="Pieces" AlternationCount="16" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">-->
+   
+    <Grid>
+        <!--<ListView x:Name="Pieces" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">-->
+            <ListView x:Name="Pieces" AlternationCount="16" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">
+            
          
             <ListView.ItemTemplate>
+                
                 <DataTemplate>
-                    <Image Source="{Binding Piece.ImageOfPiece}" Height="75" Width="50" Margin="18.75,0,18.75,0"></Image>
+                   
+                    <Image Source="{Binding Piece.ImageOfPiece}" Height="50" Width="25" Margin="18.75,0,18.75,0"></Image>
                 </DataTemplate>
 
             </ListView.ItemTemplate>
             <ListView.ItemsPanel >
                 <ItemsPanelTemplate>
-                    <WrapPanel Width="700" Height="700" MinWidth="600" MinHeight="600" MaxHeight="1000" MaxWidth="1000"  Orientation="Horizontal" ItemHeight="87.5" ItemWidth="87.5"  Background="Transparent">
+                   <!-- <WrapPanel Width="700" Height="700" MinWidth="600" MinHeight="600" MaxHeight="1000" MaxWidth="1000"  Orientation="Horizontal" ItemHeight="87.5" ItemWidth="87.5"  Background="Transparent"> -->
 
+                    <WrapPanel Width="600" Height="600"  Orientation="Horizontal">
+                        
                     </WrapPanel>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>

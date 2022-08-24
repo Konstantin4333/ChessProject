@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Chess.Models
 {
     public class Board
     {
         public Square[] Squares { get; set; }
-        
+
 
         public Board()
         {
-            
+
             this.ResetBoard();
             this.CheckSquareEvent(Squares);
 
@@ -28,10 +24,11 @@ namespace Chess.Models
         }
         public Square GetSquare(int x, int y)
         {
-            if(x < 0 || x > 7 || y < 0 || y > 7) {
+            if (x < 0 || x > 7 || y < 0 || y > 7)
+            {
                 throw new Exception("Index out of bounds");
             }
-            
+
             int index = x * 8 + y;
             return Squares[index];
 
@@ -42,7 +39,7 @@ namespace Chess.Models
         public void CheckSquareEvent(Square[] sq)
         {
             bool f = false;
-            // Squares = new Square[64];
+
             for (int i = 0; i < 64; i++)
             {
 
@@ -68,8 +65,7 @@ namespace Chess.Models
 
             }
 
-            /* f = true;
-             sq[i].IsEven = true;*/
+
 
             Console.WriteLine();
 
@@ -96,7 +92,7 @@ namespace Chess.Models
             Squares[8] = new Square(1, 0, new Pawn(false));
             Squares[9] = new Square(1, 1, new Pawn(false));
             Squares[10] = new Square(1, 2, new Pawn(false));
-            Squares[11] = new Square(1, 3, new Pawn(false)); 
+            Squares[11] = new Square(1, 3, new Pawn(false));
             Squares[12] = new Square(1, 4, new Pawn(false));
             Squares[13] = new Square(1, 5, new Pawn(false));
             Squares[14] = new Square(1, 6, new Pawn(false));
@@ -125,8 +121,8 @@ namespace Chess.Models
             //initialize squares without pieces
             int a = 8;
             for (int i = 16; i < 48; i++)
-            { 
-                    Squares[i] = new Square(i/a, i%a, null);  
+            {
+                Squares[i] = new Square(i / a, i % a, null);
             }
         }
     }
