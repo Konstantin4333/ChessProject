@@ -25,12 +25,12 @@
                 <DataTrigger Binding="{Binding IsEven}" Value="true">
                     <Setter Property="Background" Value="DarkGray" />
                 </DataTrigger>
-                
+
             </Style.Triggers>
         </Style>
-   
 
-   
+    </UserControl.Resources>
+
     <Grid>
         <!--<ListView x:Name="Pieces" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">-->
             <ListView x:Name="Pieces" AlternationCount="16" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">

@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Prism.Commands;
 using Chess.View;
+using System.Windows.Input;
+using System.Diagnostics;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Chess.ViewModel
 {
