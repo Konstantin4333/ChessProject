@@ -21,9 +21,11 @@
             <Style.Triggers>
                 <DataTrigger Binding="{Binding IsEven}" Value="false">
                     <Setter Property="Background" Value="#423936" />
+                    <Setter Property="BorderThickness" Value="0"/>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding IsEven}" Value="true">
                     <Setter Property="Background" Value="DarkGray" />
+                    <Setter Property="BorderThickness" Value="0"/>
                 </DataTrigger>
 
             </Style.Triggers>
@@ -32,8 +34,9 @@
     </UserControl.Resources>
 
     <Grid>
+        
         <!--<ListView x:Name="Pieces" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">-->
-            <ListView x:Name="Pieces" AlternationCount="16" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">
+            <ListView BorderThickness="0" Background="Transparent" x:Name="Pieces" AlternationCount="16" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">
             
          
             <ListView.ItemTemplate>
@@ -46,7 +49,7 @@
             <ListView.ItemsPanel >
                 <ItemsPanelTemplate>
                     
-                    <WrapPanel  Width="700" Height="700"  Orientation="Horizontal"  ItemHeight="87.5" ItemWidth="87.5" >
+                    <WrapPanel Background="White" Width="700" Height="700"  Orientation="Horizontal"  ItemHeight="87.5" ItemWidth="87.5" >
                         
                     </WrapPanel>
                 </ItemsPanelTemplate>
