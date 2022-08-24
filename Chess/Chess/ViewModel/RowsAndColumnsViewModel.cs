@@ -1,11 +1,17 @@
-﻿using Chess.Models;
+﻿ using Chess.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Prism.Commands;
+using Chess.View;
+using System.Windows.Input;
+using System.Diagnostics;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Chess.ViewModel
 {
-    public class RowsAndColumnsViewModel : BaseViewModel
+    public class RowsAndColumnsViewModel : BaseViewModel 
     {
     
         private Board _board;
@@ -38,8 +44,8 @@ namespace Chess.ViewModel
                if(_availableMoves.Contains(SelectedSquare))
                 {
                  
-                    SelectedSquare.Piece = SPiece;
-                    PrevSquare.Piece = null;
+                        SelectedSquare.Piece = SPiece;
+                        PrevSquare.Piece = null;
                                        
                     }                     
                 _availableMoves = null;
@@ -129,6 +135,134 @@ namespace Chess.ViewModel
 
         }
         //--------------------------------------------
+
+
+
+        #region Border
+        private DelegateCommand _closeApp;
+        private DelegateCommand _minimize;
+        private DelegateCommand _resize;
+        private DelegateCommand _windowTest;
+        private DelegateCommand _resetApp;
+        private DelegateCommand _deathZone;
+
+
+       
+        bool isOpened = false;
+
+
+
+
+
+        public ICommand CloseApp
+        {
+            get
+            {
+                return _minimize ?? (_minimize = new DelegateCommand(() =>
+                {
+                    App.Current.Shutdown();
+                }));
+            }
+        }
+
+
+        public ICommand ResetApp
+        {
+            get
+            {
+                return _resetApp ?? (_resetApp = new DelegateCommand(() =>
+                {
+                    var currentExecutablePath = Process.GetCurrentProcess().MainModule.FileName;
+                    Process.Start(currentExecutablePath);
+                    App.Current.Shutdown();
+
+                }));
+            }
+        }
+
+        public ICommand Minimize
+        {
+            get
+            {
+                return _closeApp ?? (_closeApp = new DelegateCommand(() =>
+                {
+                    App.Current.Windows[0].WindowState = WindowState.Minimized;
+                }));
+            }
+        }
+        public ICommand WindowTest
+         {
+             get
+             {
+                 return _windowTest ?? (_windowTest = new DelegateCommand(() =>
+                 {
+                     //*App.Current.Windows[0].WindowState = WindowState.Minimized;*//*
+                     
+                        
+                             UserControls.Add(GetUserControlInstance("DeathZone"));
+                      
+
+                 }));
+             }
+         }
+
+        public ICommand DeathZonecmd
+        {
+            get
+            {
+                return _deathZone ?? (_deathZone = new DelegateCommand(() =>
+                {
+                    UserControl userControl = new DeathZonePieces();
+                    UserControls.Add(userControl);
+                    userControl.BringIntoView();
+
+                }));
+            }
+        }
+        public ICommand Resize
+        {
+            get
+            {
+                return _resize ?? (_resize = new DelegateCommand(() =>
+                {
+                    if (App.Current.Windows[0].WindowState == WindowState.Normal)
+                    {
+
+                        App.Current.Windows[0].WindowState = WindowState.Maximized;
+
+                    }
+                    else
+                    {
+                        App.Current.Windows[0].WindowState = WindowState.Normal;
+                    }
+
+                }));
+            }
+        }
+
+
+
+        public ObservableCollection<FrameworkElement> UserControls { get; set; } = new ObservableCollection<FrameworkElement>();
+        public void Execute(object? parameter)
+        {
+            // UserControls.Clear();
+            switch (parameter?.ToString())
+            {
+                case "DeathZone":
+                    UserControls.Add(GetUserControlInstance("DeathZone"));
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        private FrameworkElement GetUserControlInstance(string v)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
 
 
         public RowsAndColumnsViewModel()

@@ -12,7 +12,7 @@ namespace Chess.View
         {
             InitializeComponent();
          
-          Border.Content = new BorderView();
+        //  Border.Content = new BorderView();
           Rows.Content = new RowsAndColumns();
             // Plank.Content = new PlankControlView();
           

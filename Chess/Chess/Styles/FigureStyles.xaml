@@ -1,9 +1,10 @@
 ﻿<ResourceDictionary 
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:Chess"
-        xmlns:s="clr-namespace:Chess.View">
-    <!--#region Border TextBlock Triggers-->
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Chess"
+                    xmlns:s="clr-namespace:Chess.View">
+       
+        <!--#region Border TextBlock Triggers-->
     <Style x:Key="TbStyle" TargetType="TextBlock">
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
@@ -12,11 +13,11 @@
         <Setter Property="TextBlock.FontSize" Value="20"/>
         <Setter Property="TextBlock.Width" Value="20"/>
         <Setter Property="TextBlock.Height" Value="25"/>
-        <Setter Property="Canvas.Left" Value="15"/>
-
-
+        <Setter Property="Margin" Value="15,0,0,0"/>
+        
+       
     </Style>
-
+    
     <Style x:Key="TbStyle2" TargetType="TextBlock">
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
@@ -25,11 +26,12 @@
         <Setter Property="TextBlock.FontSize" Value="20"/>
         <Setter Property="TextBlock.Width" Value="20"/>
         <Setter Property="TextBlock.Height" Value="25"/>
-        <Setter Property="Canvas.Top" Value="762"/>
+      
+        <Setter Property="Margin" Value="0,762,0,0"/>
 
     </Style>
-    <!--#endregion-->
-    <!--#region Wrap Panel Trigger (not working yet)-->
+<!--#endregion-->
+        <!--#region Wrap Panel Trigger (not working yet)-->
 
     <Style  TargetType="{x:Type WrapPanel}" x:Key="trt">
         <Style.Triggers>
@@ -51,8 +53,8 @@
             </DataTrigger>
         </Style.Triggers>
     </Style>
-    <!--#endregion-->
-    <!--#region Border Trigger-->
+        <!--#endregion-->
+        <!--#region Border Trigger-->
     <Style x:Key="borderImg" TargetType="Rectangle" >
         <Setter Property="Fill">
             <Setter.Value>
@@ -60,8 +62,15 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="borderImgs" TargetType="ListView" >
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/Pictures/tree.jpg"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <!--#endregion-->
-    <!--#region Board Trigger-->
+        <!--#region Board Trigger-->
     
     <Style  TargetType="{x:Type ListViewItem}" >
 
@@ -117,5 +126,5 @@
         </Style.Triggers>
     </Style>
     
-    <!--#endregion-->
+        <!--#endregion-->
 </ResourceDictionary>
