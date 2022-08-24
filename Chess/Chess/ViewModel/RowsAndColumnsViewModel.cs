@@ -22,7 +22,7 @@ namespace Chess.ViewModel
         private Square _prevSquare;
         private List<Square> _availableMoves;
         
-
+       
         public void Move()
         {
             if (SPiece == null)
@@ -35,6 +35,7 @@ namespace Chess.ViewModel
                     _availableMoves = SPiece.SelectPath(Squares, PrevSquare);
 
                 }
+               // if (SPiece.ToString() == "King") KingChecker(Squares, _availableMoves, SPiece);
                 _square = null;
             }
             else
