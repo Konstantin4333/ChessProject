@@ -13,7 +13,7 @@
         <vm:RowsAndColumnsViewModel/>
     </UserControl.DataContext>
 
-    <UserControl.Resources>
+    <!-- <UserControl.Resources>
   
         <Style TargetType="ListViewItem">
             <Style.Triggers>
@@ -27,12 +27,12 @@
             </Style.Triggers>
         </Style>
 
-    </UserControl.Resources>
+    </UserControl.Resources>-->
 
     <Grid>
-        <ListView x:Name="Pieces" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">
-            <!--  <ListView x:Name="Pieces" AlternationCount="16" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">-->
-            <ListView.ItemTemplate>
+        <!--<ListView x:Name="Pieces" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">-->
+            <ListView x:Name="Pieces" AlternationCount="16" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">
+                <ListView.ItemTemplate>
                 <DataTemplate>
                     <Image Source="{Binding Piece.ImageOfPiece}" Height="75" Width="50" Margin="18.75,0,18.75,0"></Image>
                 </DataTemplate>

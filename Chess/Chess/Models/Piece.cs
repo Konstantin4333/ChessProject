@@ -17,10 +17,7 @@ namespace Chess.Models
             White = white;
         }
         public ImageSource ImageOfPiece { get; set; }
-
-
         public bool White { get; set; }
-
         public abstract List<Square> SelectPath(ObservableCollection<Square> squares, Square start);
     }
 }

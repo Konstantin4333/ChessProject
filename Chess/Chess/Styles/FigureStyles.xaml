@@ -62,7 +62,7 @@
     </Style>
     <!--#endregion-->
     <!--#region Board Trigger-->
-    <!--
+    
     <Style  TargetType="{x:Type ListViewItem}" >
 
         <Style.Triggers>
@@ -116,6 +116,6 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    -->
+    
     <!--#endregion-->
 </ResourceDictionary>

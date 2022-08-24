@@ -16,13 +16,14 @@ namespace Chess.Models
 
         private void AttachImage(bool white)
         {
+            String str = "/Pictures/chess_piece_black_bishop.png";
             if (white)
             {
                 ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_white_bishop.png", UriKind.Relative));
             }
             else
             {
-                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_black_bishop.png", UriKind.Relative));
+                ImageOfPiece = new BitmapImage(new Uri(str, UriKind.Relative));
             }
         }
 
