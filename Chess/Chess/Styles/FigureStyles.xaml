@@ -118,7 +118,7 @@
         <Setter Property="TextBlock.FontSize" Value="20"/>
         <Setter Property="TextBlock.Width" Value="20"/>
         <Setter Property="TextBlock.Height" Value="25"/>
-        <Setter Property="Canvas.Left" Value="15"/>
+        <Setter Property="Margin" Value="15,0,0,0"/>
         
        
     </Style>
@@ -131,7 +131,7 @@
         <Setter Property="TextBlock.FontSize" Value="20"/>
         <Setter Property="TextBlock.Width" Value="20"/>
         <Setter Property="TextBlock.Height" Value="25"/>
-        <Setter Property="Canvas.Top" Value="762"/>
+        <Setter Property="Margin" Value="0,762,0,0"/>
 
     </Style>
 <!--#endregion-->
@@ -166,7 +166,14 @@
             </Setter.Value>
         </Setter>
     </Style>
-      <!--#endregion-->
+    <Style x:Key="borderImgs" TargetType="ListView" >
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/Pictures/tree.jpg"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
         <!--#region Board Trigger-->
     <!--
     <Style  TargetType="{x:Type ListViewItem}" >
