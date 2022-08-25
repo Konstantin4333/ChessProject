@@ -3,8 +3,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Chess"
                     xmlns:s="clr-namespace:Chess.View">
-       
-        <!--#region Border TextBlock Triggers-->
+
+    <!--#region Border TextBlock Triggers-->
     <Style x:Key="TbStyle" TargetType="TextBlock">
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
@@ -14,10 +14,10 @@
         <Setter Property="TextBlock.Width" Value="20"/>
         <Setter Property="TextBlock.Height" Value="25"/>
         <Setter Property="Margin" Value="15,0,0,0"/>
-        
-       
+
+
     </Style>
-    
+
     <Style x:Key="TbStyle2" TargetType="TextBlock">
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
@@ -26,12 +26,12 @@
         <Setter Property="TextBlock.FontSize" Value="20"/>
         <Setter Property="TextBlock.Width" Value="20"/>
         <Setter Property="TextBlock.Height" Value="25"/>
-      
+
         <Setter Property="Margin" Value="0,762,0,0"/>
 
     </Style>
-<!--#endregion-->
-        <!--#region Wrap Panel Trigger (not working yet)-->
+    <!--#endregion-->
+    <!--#region Wrap Panel Trigger (not working yet)-->
 
     <Style  TargetType="{x:Type WrapPanel}" x:Key="trt">
         <Style.Triggers>
@@ -53,8 +53,8 @@
             </DataTrigger>
         </Style.Triggers>
     </Style>
-        <!--#endregion-->
-        <!--#region Border Trigger-->
+    <!--#endregion-->
+    <!--#region Border Trigger-->
     <Style x:Key="borderImg" TargetType="Rectangle" >
         <Setter Property="Fill">
             <Setter.Value>
@@ -70,61 +70,53 @@
         </Setter>
     </Style>
     <!--#endregion-->
-        <!--#region Board Trigger-->
-    
+    <!--#region Board Trigger-->
+
     <Style  TargetType="{x:Type ListViewItem}" >
 
         <Style.Triggers>
             <Trigger Property="ItemsControl.AlternationIndex" Value="0">
                 <Setter Property="Background" Value="DarkGray " />
+                <Setter Property="BorderThickness" Value="0"/>
             </Trigger>
-            <Trigger Property="ItemsControl.AlternationIndex" Value="1">
-                <Setter Property="Background" Value="#423936" />
-            </Trigger>
+
             <Trigger Property="ItemsControl.AlternationIndex" Value="2">
                 <Setter Property="Background" Value="DarkGray" />
+                <Setter Property="BorderThickness" Value="0"/>
             </Trigger>
-            <Trigger Property="ItemsControl.AlternationIndex" Value="3">
-                <Setter Property="Background" Value="#423936" />
-            </Trigger>
+
             <Trigger Property="ItemsControl.AlternationIndex" Value="4">
                 <Setter Property="Background" Value="DarkGray" />
+                <Setter Property="BorderThickness" Value="0"/>
             </Trigger>
-            <Trigger Property="ItemsControl.AlternationIndex" Value="5">
-                <Setter Property="Background" Value="#423936" />
-            </Trigger>
+
             <Trigger Property="ItemsControl.AlternationIndex" Value="6">
                 <Setter Property="Background" Value="DarkGray" />
+                <Setter Property="BorderThickness" Value="0"/>
             </Trigger>
-            <Trigger Property="ItemsControl.AlternationIndex" Value="7">
-                <Setter Property="Background" Value="#423936" />
-            </Trigger>
-            <Trigger Property="ItemsControl.AlternationIndex" Value="8">
-                <Setter Property="Background" Value="#423936" />
-            </Trigger>
+
+
             <Trigger Property="ItemsControl.AlternationIndex" Value="9">
                 <Setter Property="Background" Value="DarkGray" />
+                <Setter Property="BorderThickness" Value="0"/>
             </Trigger>
-            <Trigger Property="ItemsControl.AlternationIndex" Value="10">
-                <Setter Property="Background" Value="#423936" />
-            </Trigger>
+
             <Trigger Property="ItemsControl.AlternationIndex" Value="11">
                 <Setter Property="Background" Value="DarkGray" />
+                <Setter Property="BorderThickness" Value="0"/>
             </Trigger>
-            <Trigger Property="ItemsControl.AlternationIndex" Value="12">
-                <Setter Property="Background" Value="#423936" />
-            </Trigger>
+
             <Trigger Property="ItemsControl.AlternationIndex" Value="13">
                 <Setter Property="Background" Value="DarkGray" />
+                <Setter Property="BorderThickness" Value="0"/>
             </Trigger>
-            <Trigger Property="ItemsControl.AlternationIndex" Value="14">
-                <Setter Property="Background" Value="#423936" />
-            </Trigger>
+
             <Trigger Property="ItemsControl.AlternationIndex" Value="15">
                 <Setter Property="Background" Value="DarkGray" />
+                <Setter Property="BorderThickness" Value="0"/>
             </Trigger>
         </Style.Triggers>
     </Style>
-    
-        <!--#endregion-->
+
+    <!--#endregion-->
 </ResourceDictionary>
