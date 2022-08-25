@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
+using Chess.Commands;
 
 namespace Chess.ViewModel
 {
@@ -16,55 +17,58 @@ namespace Chess.ViewModel
     
         private Board _board;
         private Piece _sPiece;
-        
         private Square _square;
-       
         private ObservableCollection<Square> _squares;
         private Square _prevSquare;
         private List<Square> _availableMoves;
         private bool _IsEven;
-        public List<Square> AvailableMoves { get { return _availableMoves; } }
-
+        
         public void Move()
         {
             if (SPiece == null)
             {
                 SPiece = SelectedSquare.Piece;
-                
-                PrevSquare = SelectedSquare;
+                _availableMoves = new List<Square>();
                 if(SPiece != null)
                 {
-                    _availableMoves = SPiece.SelectPath(Squares, PrevSquare);
-
+                    if (SPiece.White)
+                    {
+                        PrevSquare = SelectedSquare;
+                        //_availableMoves = MoveCommand.SelectPath(SPiece, PrevSquare,Squares);
+                       
+                        _availableMoves = SPiece.SelectPath(Squares, PrevSquare);
+                        
+                    }
+                    
                 }
                 _square = null;
             }
             else
             {
-               if(_availableMoves.Contains(SelectedSquare))
+                if(_availableMoves.Contains(SelectedSquare))
                 {
-                 
-                        SelectedSquare.Piece = SPiece;
-                        PrevSquare.Piece = null;
-                                       
-                    }                     
+                    SelectedSquare.Piece = SPiece;
+                    PrevSquare.Piece = null;
+                }                     
                 _availableMoves = null;
                 SPiece = null;
                 _square = null;
             }
         }
+       
         
         public Square SelectedSquare
         {
             get { return _square; }
             set { _square = value;
-               
-                
+
+
                 Move();
                 OnPropertyChanged("SelectedSquare");
             }
 
         }
+        public List<Square> AvailableMoves { get { return _availableMoves; } }
 
         public Piece SPiece
         {
@@ -107,7 +111,6 @@ namespace Chess.ViewModel
 
         //--------------------------------------------
 
-              
 
         public bool IsEven
         {
@@ -268,8 +271,7 @@ namespace Chess.ViewModel
         public RowsAndColumnsViewModel()
         {
             Board = new Board();
-             Squares = new ObservableCollection<Square>(Board.Squares);
-
+            Squares = new ObservableCollection<Square>(Board.Squares);
             IsEven = new bool();
 
 

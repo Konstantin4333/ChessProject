@@ -57,8 +57,4 @@
     <Resource Include="Pictures\tree.jpg" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
-
 </Project>
