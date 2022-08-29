@@ -11,7 +11,5 @@ namespace Chess.View
         {
             InitializeComponent();
         }
-
-        public static object Children { get; internal set; }
     }
 }

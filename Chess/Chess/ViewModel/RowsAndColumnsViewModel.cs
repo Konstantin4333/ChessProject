@@ -1,7 +1,8 @@
-﻿using Chess.Helper;
+﻿using Chess.Commands;
+using Chess.Helper;
 using Chess.Models;
 using Chess.View;
-using Prism.Commands;
+
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,8 +23,70 @@ namespace Chess.ViewModel
         private Square _prevSquare;
         private List<Square> _availableMoves;
         private bool round = true;
+        private ICommand _closeApp;
+        private ICommand _resetApp;
+        private ICommand _resize;
+        private ICommand _minimize;
+        #endregion
+        #region Commands
+        public ICommand CloseApp
+        {
+            get { return _closeApp ?? (_closeApp = new Command(p => true, p => Shutdown())); }
+        }
+        public ICommand ResetApp
+        {
+            get { return _resetApp ?? (_resetApp = new Command(p => true, p => Reset())); }
+        }
+        public ICommand Resize
+        {
+            get
+            {
+                return _resize ?? (_resize = new Command(p => true, p => ResizeAction()));
+            }
+        }
+        public ICommand Minimize
+        {
+            get
+            {
+                return _minimize ?? (_minimize = new Command(p => true, p => MinimizeAction()));
+            }
+        }
         #endregion
         #region Methods
+        private void Shutdown()
+        {
+            App.Current.Shutdown();
+        }
+        private void MinimizeAction()
+        {
+            App.Current.Windows[0].WindowState = WindowState.Minimized;
+        }
+        private void Reset()
+        {
+            var currentExecutablePath = Process.GetCurrentProcess().MainModule.FileName;
+            Process.Start(currentExecutablePath);
+            App.Current.Shutdown();
+        }
+        private void ResizeAction()
+        {
+
+            if (App.Current.Windows[0].WindowState == WindowState.Normal)
+            {
+
+                App.Current.Windows[0].WindowState = WindowState.Maximized;
+                Button button = new Button();
+                // Visibility.Visible = false;
+
+
+            }
+            else
+            {
+                App.Current.Windows[0].WindowState = WindowState.Normal;
+
+            }
+
+
+        }
         public void KingChecker(List<Square> squares, List<Square> AvailableMoves, Piece King)
         {
             List<Square> enemyMoves = new List<Square>();
@@ -132,13 +195,13 @@ namespace Chess.ViewModel
                 _availableMoves = new List<Square>();
                 if (SPiece != null && SPiece.White && round == true)
                 {
-                    
+
                     _availableMoves = SPiece.SelectPath(Squares, PrevSquare);
                     if (SPiece.GetType() == typeof(King)) { KingChecker(Squares, _availableMoves, SPiece); }
                 }
                 if (SPiece != null && !SPiece.White && round == false)
                 {
-                    
+
                     _availableMoves = SPiece.SelectPath(Squares, PrevSquare);
                     if (SPiece.GetType() == typeof(King)) { KingChecker(Squares, _availableMoves, SPiece); }
                 }
@@ -216,151 +279,6 @@ namespace Chess.ViewModel
                 _board = value;
                 OnPropertyChanged("Board");
             }
-        }
-        #endregion
-        #region Border
-        private DelegateCommand _closeApp;
-        private DelegateCommand _minimize;
-
-        private DelegateCommand _resize;
-        private DelegateCommand _windowTest;
-        private DelegateCommand _resetApp;
-        private DelegateCommand _deathZone;
-
-
-
-
-        bool isOpened = false;
-
-
-
-
-
-        public ICommand CloseApp
-        {
-            get
-            {
-                return _closeApp ?? (_closeApp = new DelegateCommand(() =>
-                {
-                    App.Current.Shutdown();
-                }));
-            }
-        }
-
-
-        public ICommand ResetApp
-        {
-            get
-            {
-                return _resetApp ?? (_resetApp = new DelegateCommand(() =>
-                {
-                    var currentExecutablePath = Process.GetCurrentProcess().MainModule.FileName;
-                    Process.Start(currentExecutablePath);
-                    App.Current.Shutdown();
-
-                }));
-            }
-        }
-
-        public ICommand Minimize
-        {
-            get
-            {
-                return _minimize ?? (_minimize = new DelegateCommand(() =>
-                {
-                    App.Current.Windows[0].WindowState = WindowState.Minimized;
-                }));
-            }
-        }
-
-
-        public ICommand WindowTest
-        {
-            get
-            {
-                return _windowTest ?? (_windowTest = new DelegateCommand(() =>
-                {
-                    //*App.Current.Windows[0].WindowState = WindowState.Minimized;*//*
-
-
-                    UserControls.Add(GetUserControlInstance("DeathZone"));
-
-
-                }));
-            }
-        }
-
-        public ICommand DeathZonecmd
-        {
-            get
-            {
-                return _deathZone ?? (_deathZone = new DelegateCommand(() =>
-                {
-                    UserControl userControl = new DeathZonePieces();
-                    UserControls.Add(userControl);
-                    userControl.BringIntoView();
-
-                }));
-            }
-        }
-
-
-
-        public ICommand Resize
-        {
-            get
-            {
-                return _resize ?? (_resize = new DelegateCommand(() =>
-                {
-                    if (App.Current.Windows[0].WindowState == WindowState.Normal)
-                    {
-
-                        App.Current.Windows[0].WindowState = WindowState.Maximized;
-                        Button button = new Button();
-                        // Visibility.Visible = false;
-
-
-                    }
-                    else
-                    {
-                        App.Current.Windows[0].WindowState = WindowState.Normal;
-
-                    }
-
-                }));
-            }
-        }
-
-        private Visibility _MessageVisibilty;
-        public Visibility MessageVisibilty
-        {
-            get { return _MessageVisibilty; }
-            set { SetProperty(ref _MessageVisibilty, value); }
-        }
-
-        private void SetProperty(ref Visibility messageVisibilty, Visibility value)
-        {
-            MessageVisibilty = Visibility.Hidden;
-        }
-
-        public ObservableCollection<FrameworkElement> UserControls { get; set; } = new ObservableCollection<FrameworkElement>();
-        public void Execute(object? parameter)
-        {
-            // UserControls.Clear();
-            switch (parameter?.ToString())
-            {
-                case "DeathZone":
-                    UserControls.Add(GetUserControlInstance("DeathZone"));
-                    break;
-
-                default:
-                    break;
-            }
-        }
-
-        private FrameworkElement GetUserControlInstance(string v)
-        {
-            throw new NotImplementedException();
         }
         #endregion
         public RowsAndColumnsViewModel()

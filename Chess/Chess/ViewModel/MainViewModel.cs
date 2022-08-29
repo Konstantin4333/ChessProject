@@ -5,10 +5,6 @@ namespace Chess.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
-       
-     
-        private MainViewModel homeVM;
-
         public DelegateCommand<string> NavigationCommand { get; private set; }
 
         

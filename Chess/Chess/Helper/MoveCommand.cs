@@ -8,10 +8,7 @@ namespace Chess.Helper
 {
     public static class MoveCommand 
     {
-        
-
-        
-       // public ImageSource ImageOfPiece { get; set; }
+  
         public static void AttachImage(List<Square> p)
         {
             

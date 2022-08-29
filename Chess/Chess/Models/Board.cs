@@ -5,77 +5,10 @@ namespace Chess.Models
     public class Board
     {
         public Square[] Squares { get; set; }
-
-
         public Board()
         {
-
             this.ResetBoard();
-            this.CheckSquareEvent(Squares);
-
         }
-        public Square GetSquare(int x)
-        {
-            if (x < 0 || x > 64)
-            {
-                throw new Exception("Index out of bounds");
-            }
-            return Squares[x];
-        }
-        public Square GetSquare(int x, int y)
-        {
-            if (x < 0 || x > 7 || y < 0 || y > 7)
-            {
-                throw new Exception("Index out of bounds");
-            }
-
-            int index = x * 8 + y;
-            return Squares[index];
-
-        }
-
-
-        //----------------------------
-        public void CheckSquareEvent(Square[] sq)
-        {
-            bool f = false;
-
-            for (int i = 0; i < 64; i++)
-            {
-
-                if (i % 8 == 0)
-                {
-                    f = !f;
-                }
-                if (i % 2 == 0)
-                {
-                    sq[i].IsEven = f;
-                }
-
-                else
-                {
-
-
-                    if (i % 2 != 0)
-                    {
-                        sq[i].IsEven = !f;
-                    }
-                }
-
-
-            }
-
-
-
-            Console.WriteLine();
-
-        }
-
-
-
-
-
-
         public void ResetBoard()
         {
             //Initialize black pieces

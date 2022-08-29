@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-
+﻿using System.Collections.Generic;
 
 namespace Chess.Models
 {
@@ -12,8 +9,6 @@ namespace Chess.Models
       
         }
        
-
-
         public override List<Square> SelectPath(List<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();

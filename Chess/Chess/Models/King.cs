@@ -14,7 +14,6 @@ namespace Chess.Models
         {
             castlingDone = false;
         }
-     
         public override List<Square> SelectPath(List<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();

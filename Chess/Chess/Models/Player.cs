@@ -1,5 +1,4 @@
-﻿
-namespace Chess.Models
+﻿namespace Chess.Models
 {
     public class Player
     {
