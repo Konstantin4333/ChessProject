@@ -19,7 +19,7 @@ namespace Chess.Models
         private void AttachImage(bool white)
         {
             if (white)
-            {
+            {  
                 ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_white_king.png", UriKind.Relative));
             }
             else
