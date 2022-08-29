@@ -205,8 +205,9 @@ namespace Chess.Models
             result.AddRange(up);
             result.AddRange(attackRight);
             result.AddRange(attackLeft);
-
             return result;
+      //    List <Square> result= new List<Square>();
+
         }
     }
 }
