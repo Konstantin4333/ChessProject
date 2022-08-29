@@ -14,7 +14,7 @@ namespace Chess.ViewModel
 {
     public class RowsAndColumnsViewModel : BaseViewModel
     {
-
+        #region Private fields
         private Board _board;
         private Piece _sPiece;
         private Square _square;
@@ -22,8 +22,8 @@ namespace Chess.ViewModel
         private Square _prevSquare;
         private List<Square> _availableMoves;
         private bool round = true;
-        private bool _IsEven;
-
+        #endregion
+        #region Methods
         public void KingChecker(List<Square> squares, List<Square> AvailableMoves, Piece King)
         {
             List<Square> enemyMoves = new List<Square>();
@@ -120,8 +120,6 @@ namespace Chess.ViewModel
 
         }
 
-
-       
         public void Move()
         {
 
@@ -160,7 +158,8 @@ namespace Chess.ViewModel
                 _square = null;
             }
         }
-
+        #endregion
+        #region public Fields
         public Square SelectedSquare
         {
             get { return _square; }
@@ -218,39 +217,7 @@ namespace Chess.ViewModel
                 OnPropertyChanged("Board");
             }
         }
-
-        public bool IsEven
-        {
-            get { return _IsEven; }
-            set
-            {
-                _IsEven = value;
-                OnPropertyChanged(nameof(IsEven));
-            }
-        }
-        public void CheckSquareEvent(Square[] sq)
-        {
-
-            // Squares = new Square[64];
-            for (int i = 0; i < 64; i++)
-            {
-                if (i % 2 == 0)
-                {
-                    sq[i].IsEven = true;
-
-                }
-
-            }
-            Console.WriteLine();
-
-        }
-
-
-
-        //--------------------------------------------
-
-
-
+        #endregion
         #region Border
         private DelegateCommand _closeApp;
         private DelegateCommand _minimize;
@@ -396,14 +363,10 @@ namespace Chess.ViewModel
             throw new NotImplementedException();
         }
         #endregion
-
-        
-
         public RowsAndColumnsViewModel()
         {
             Board = new Board();
             Squares = new List<Square>(Board.Squares);
-            IsEven = new bool();
             MoveCommand.AttachImage(Squares);
         }
 

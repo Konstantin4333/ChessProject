@@ -13,27 +13,11 @@
         <vm:RowsAndColumnsViewModel/>
 
     </UserControl.DataContext>
-    <!-- <UserControl.Resources>
-        <Style TargetType="ListViewItem">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding IsEven}" Value="false">
-                    <Setter Property="Background" Value="#423936" />
-                    <Setter Property="BorderThickness" Value="0"/>
-                </DataTrigger>
-                <DataTrigger Binding="{Binding IsEven}" Value="true">
-                    <Setter Property="Background" Value="DarkGray" />
-                    <Setter Property="BorderThickness" Value="0"/>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
-    </UserControl.Resources>-->
+
 
     <Grid>
-        
-        <!--<ListView x:Name="Pieces" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">-->
-            <ListView BorderThickness="0" Background="Transparent" x:Name="Pieces" AlternationCount="16" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">
-            
-         
+        <ListView BorderThickness="0" Background="Transparent" x:Name="Pieces" AlternationCount="16" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">
+                   
             <ListView.ItemTemplate>
                 
                 <DataTemplate>
