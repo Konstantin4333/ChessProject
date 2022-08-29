@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
-using System.Windows.Controls;
+﻿using System.Collections.Generic;
 using System.Windows.Media;
 using System.Collections.ObjectModel;
 
@@ -18,6 +12,6 @@ namespace Chess.Models
         }
         public ImageSource ImageOfPiece { get; set; }
         public bool White { get; set; }
-        public abstract List<Square> SelectPath(ObservableCollection<Square> squares, Square start);
+        public abstract List<Square> SelectPath(List<Square> squares, Square start);
     }
 }

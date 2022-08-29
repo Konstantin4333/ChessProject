@@ -11,23 +11,10 @@ namespace Chess.Models
        
         public Bishop(bool white) : base(white)
         {
-            AttachImage(white);
 
         }
         
-        private void AttachImage(bool white)
-        {
-            if (white)
-            {
-                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_white_bishop.png", UriKind.Relative));
-            }
-            else
-            {
-                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_black_bishop.png", UriKind.Relative));
-            }
-        }
-        
-        public override List<Square> SelectPath(ObservableCollection<Square> squares, Square start)
+        public override List<Square> SelectPath(List<Square> squares, Square start)
             {
             List<Square> result = new List<Square>();
             int primary = 1;
@@ -46,7 +33,7 @@ namespace Chess.Models
             return result;
         }
 
-        private void MoveFiller(ObservableCollection<Square> squares, Square start, List<Square> result, int primary, int secondary)
+        private void MoveFiller(List<Square> squares, Square start, List<Square> result, int primary, int secondary)
         {
           int  PieceX = start.X;
           int  PieceY = start.Y;

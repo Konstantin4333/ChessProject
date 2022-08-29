@@ -1,26 +1,17 @@
-﻿using System;
+﻿using Chess.Models;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Windows.Media.Imaging;
 
-namespace Chess.Models
+namespace Chess.Commands
 {
-    public class Rook : Piece
+    public class BishopMove : IMove
     {
-        public Rook(bool white) : base(white)
-        {
-          
-        }
-        
-
-        public override List<Square> SelectPath(List<Square> squares, Square start)
+        public List<Square> SelectPath(List<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
             int primary = 1;
-            int secondary = 0;
+            int secondary = -1;
             int PieceX, PieceY;
             int c = -1;
-            int temporary;
             Square currentSquare;
             for (int i = 0; i < 4; i++)
             {
@@ -39,10 +30,8 @@ namespace Chess.Models
 
                 }
 
+                secondary = secondary * primary * c;
                 primary = primary * c;
-                temporary = primary;
-                primary = secondary;
-                secondary = temporary;
             }
 
             return result;

@@ -9,7 +9,7 @@ namespace Chess.ViewModel
        // private DeathZonePiecesViewModel otherVM;
         private MainViewModel homeVM;
 
-        //public DelegateCommand<string> NavigationCommand { get; private set; }
+        public DelegateCommand<string> NavigationCommand { get; private set; }
 
         
         private static void transparency()

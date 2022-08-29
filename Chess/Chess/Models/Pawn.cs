@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Windows.Media.Imaging;
+
 
 namespace Chess.Models
 {
@@ -10,21 +9,10 @@ namespace Chess.Models
 
         public Pawn(bool white) : base(white)
         {
-            AttachImage(white);
         }
-        private void AttachImage(bool white)
-        {
-            if (white)
-            {
-                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_white_pawn.png", UriKind.Relative));
-            }
-            else
-            {
-                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_black_pawn.png", UriKind.Relative));
-            }
-        }
+      
 
-        public List<Square> UpPath(ObservableCollection<Square> squares, Square start)
+        public List<Square> UpPath(List<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
             int x = start.X;
@@ -89,7 +77,7 @@ namespace Chess.Models
             return result;
         }
 
-        public List<Square> AttackRight(ObservableCollection<Square> squares, Square start)
+        public List<Square> AttackRight(List<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
             int x = start.X;
@@ -142,7 +130,7 @@ namespace Chess.Models
             }
             return result;
         }
-        public List<Square> AttackLeft(ObservableCollection<Square> squares, Square start)
+        public List<Square> AttackLeft(List<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
             int x = start.X;
@@ -195,7 +183,7 @@ namespace Chess.Models
             }
             return result;
         }
-        public override List<Square> SelectPath(ObservableCollection<Square> squares, Square start)
+        public override List<Square> SelectPath(List<Square> squares, Square start)
         {
 
             List<Square> up = UpPath(squares, start);

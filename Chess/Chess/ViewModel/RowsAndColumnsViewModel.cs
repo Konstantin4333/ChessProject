@@ -1,18 +1,14 @@
-﻿using Chess.Models;
+﻿using Chess.Helper;
+using Chess.Models;
 using Chess.View;
 using Prism.Commands;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Chess.ViewModel
 {
@@ -21,16 +17,14 @@ namespace Chess.ViewModel
 
         private Board _board;
         private Piece _sPiece;
-
         private Square _square;
-
-        private ObservableCollection<Square> _squares;
+        private List<Square> _squares;
         private Square _prevSquare;
         private List<Square> _availableMoves;
         private bool round = true;
         private bool _IsEven;
 
-        public void KingChecker(ObservableCollection<Square> squares, List<Square> AvailableMoves, Piece King)
+        public void KingChecker(List<Square> squares, List<Square> AvailableMoves, Piece King)
         {
             List<Square> enemyMoves = new List<Square>();
             int primaryRook = 1;
@@ -74,7 +68,7 @@ namespace Chess.ViewModel
 
         }
 
-        void SidesChecker(ObservableCollection<Square> squares, List<Square> AvailableMoves, Piece King, List<Square> enemyMoves, int primary, int secondary, int i)
+        void SidesChecker(List<Square> squares, List<Square> AvailableMoves, Piece King, List<Square> enemyMoves, int primary, int secondary, int i)
         {
             int PieceX = AvailableMoves[i].X;
             int PieceY = AvailableMoves[i].Y;
@@ -102,7 +96,7 @@ namespace Chess.ViewModel
 
         }
 
-        public void KnightChecker(ObservableCollection<Square> squares, List<Square> AvailableMoves, Piece King, List<Square> enemyMoves, int primary, int secondary, int i)
+        public void KnightChecker(List<Square> squares, List<Square> AvailableMoves, Piece King, List<Square> enemyMoves, int primary, int secondary, int i)
         {
 
             int PieceX = AvailableMoves[i].X;
@@ -203,7 +197,7 @@ namespace Chess.ViewModel
 
             }
         }
-        public ObservableCollection<Square> Squares
+        public List<Square> Squares
         {
             get { return _squares; }
             set
@@ -403,19 +397,14 @@ namespace Chess.ViewModel
         }
         #endregion
 
-
+        
 
         public RowsAndColumnsViewModel()
         {
-
-
-
             Board = new Board();
-            Squares = new ObservableCollection<Square>(Board.Squares);
+            Squares = new List<Square>(Board.Squares);
             IsEven = new bool();
-
-
-
+            MoveCommand.AttachImage(Squares);
         }
 
     }

@@ -13,21 +13,9 @@ namespace Chess.Models
         public King(bool white) : base(white)
         {
             castlingDone = false;
-            AttachImage(white);
         }
-        private void AttachImage(bool white)
-        {
-            if (white)
-            {  
-                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_white_king.png", UriKind.Relative));
-            }
-            else
-            {
-                ImageOfPiece = new BitmapImage(new Uri("/Pictures/chess_piece_black_king.png", UriKind.Relative));
-            }
-        }
-
-        public override List<Square> SelectPath(ObservableCollection<Square> squares, Square start)
+     
+        public override List<Square> SelectPath(List<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
             int PieceX, PieceY;
