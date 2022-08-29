@@ -8,7 +8,7 @@ using System.Windows.Input;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
-using Chess.Commands;
+
 
 namespace Chess.ViewModel
 {
