@@ -35,7 +35,7 @@ namespace Chess.Models
             int temporary;
             for (int i = 0; i < 4; i++)
             {
-                PieceX = start.X;
+                PieceX = start.X;  
                 PieceY = start.Y;
                 PieceX += primary;
                 PieceY += secondary;
