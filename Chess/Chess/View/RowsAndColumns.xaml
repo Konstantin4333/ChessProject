@@ -43,8 +43,7 @@
             </ListView.ItemTemplate>
             <ListView.ItemsPanel >
                 <ItemsPanelTemplate>
-                    <WrapPanel Background="#423936" Width="700" Height="700"  Orientation="Horizontal"  ItemHeight="87.5" ItemWidth="87.5" >
-                      
+                    <WrapPanel  Background="#423936" Width="700" Height="700"  Orientation="Horizontal"  ItemHeight="87.5" ItemWidth="87.5" >
                     </WrapPanel>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
