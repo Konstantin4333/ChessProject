@@ -206,19 +206,43 @@ namespace Chess.Models
             }
             return result;
         }
+        // Work in Progress
+        public List<Square> Attack(ObservableCollection<Square> squares, Square start)
+        {
+            List<Square> result = new List<Square>();
+            Square currentSquare;
+            int c = 1;
+            if (start.Piece.White == true) c = -1;
+            if (start.X + c < 8 && start.X + c > 0 && start.Y + 1 < 8)
+            {
+               
+                currentSquare = squares[(start.X + c) * 8 + (start.Y + 1)];
+                if(currentSquare.Piece != null && currentSquare.Piece.White != start.Piece.White)
+                    result.Add(currentSquare);
+            }
+            if (start.X + c < 8 && start.X + c > 0 && start.Y - 1 > 0) 
+            { 
+                currentSquare = squares[(start.X + c) * 8 + (start.Y - 1)];
+                if (currentSquare.Piece != null && currentSquare.Piece.White != start.Piece.White)
+                    result.Add(currentSquare);
+            }
+
+            return result;
+        }
         public override List<Square> SelectPath(ObservableCollection<Square> squares, Square start)
         {
 
             List<Square> up = UpPath(squares, start);
-            List<Square> attackRight = AttackRight(squares, start);
-            List<Square> attackLeft = AttackLeft(squares, start);
+         //   List<Square> attackRight = AttackRight(squares, start);
+         //   List<Square> attackLeft = AttackLeft(squares, start);
+            List<Square> attack = Attack(squares, start);
             List<Square> result = new List<Square>();
             result.AddRange(up);
-            result.AddRange(attackRight);
-            result.AddRange(attackLeft);
-            return result;
-      //    List <Square> result= new List<Square>();
+            result.AddRange(attack);
+            //     result.AddRange(attackRight);
+            //     result.AddRange(attackLeft);
 
+            return result;
         }
     }
 }

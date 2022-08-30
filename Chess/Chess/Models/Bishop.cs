@@ -34,7 +34,6 @@ namespace Chess.Models
             List<Square> result = new List<Square>();
             int primary = 1;
             int secondary = -1;
-          //  int PieceX, PieceY;
             int c = -1;
             
             for(int i=0;i<4;i++)
