@@ -1,12 +1,9 @@
-﻿using Prism.Commands;
-using System.Windows;
+﻿using System.Windows;
 
 namespace Chess.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
-        public DelegateCommand<string> NavigationCommand { get; private set; }
-
         
         private static void transparency()
         {
