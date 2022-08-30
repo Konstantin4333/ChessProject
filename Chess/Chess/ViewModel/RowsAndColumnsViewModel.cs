@@ -1,7 +1,11 @@
 ﻿using Chess.Commands;
 using Chess.Helper;
 using Chess.Models;
+using Chess.View;
+
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
@@ -49,6 +53,13 @@ namespace Chess.ViewModel
         }
         #endregion
         #region Methods
+        public void setAvailableSquares()
+        {
+            foreach(Square sq in _availableMoves)
+            {
+                sq.IsAvailable=true;
+            }
+        }
         private void Shutdown()
         {
             App.Current.Shutdown();
@@ -194,6 +205,7 @@ namespace Chess.ViewModel
 
                     _availableMoves = SPiece.SelectPath(Squares, PrevSquare);
                     if (SPiece.GetType() == typeof(King)) { KingChecker(Squares, _availableMoves, SPiece); }
+                    
                 }
                 if (SPiece != null && !SPiece.White && round == false)
                 {
@@ -201,7 +213,7 @@ namespace Chess.ViewModel
                     _availableMoves = SPiece.SelectPath(Squares, PrevSquare);
                     if (SPiece.GetType() == typeof(King)) { KingChecker(Squares, _availableMoves, SPiece); }
                 }
-
+                setAvailableSquares();
                 _square = null;
             }
             else
@@ -255,6 +267,7 @@ namespace Chess.ViewModel
 
             }
         }
+
         public List<Square> Squares
         {
             get { return _squares; }
@@ -263,6 +276,15 @@ namespace Chess.ViewModel
                 _squares = value;
                 OnPropertyChanged("Squares");
             }
+        }
+        public List<Square> AvailableMoves
+        {
+            get { return _availableMoves; }
+            set
+            {
+                _availableMoves = value; OnPropertyChanged("AvailableMoves");
+            }
+
         }
         public Board Board
         {

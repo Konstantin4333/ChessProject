@@ -17,11 +17,14 @@
 
     <Grid>
         <ListView BorderThickness="0" Background="Transparent" x:Name="Pieces" AlternationCount="16" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">
-                   
+            
             <ListView.ItemTemplate>
-                
+            
                 <DataTemplate>
-                    <Image Source="{Binding Piece.ImageOfPiece}" Height="75" Width="50" Margin="18.75,0,18.75,0"></Image>
+                    <Image Source="{Binding Piece.ImageOfPiece}" 
+                           Height="75" 
+                           Width="50" 
+                           Margin="18.75,0,18.75,0"/>
                 </DataTemplate>
 
             </ListView.ItemTemplate>
@@ -31,6 +34,7 @@
                     </WrapPanel>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
+           
         </ListView>
 
         <!--#endregion-->

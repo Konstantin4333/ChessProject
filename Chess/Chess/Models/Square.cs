@@ -8,12 +8,20 @@ namespace Chess.Models
         private Piece? _piece;
         private int x;
         private int y;
-
+        private bool _isAvailable;
+        public bool IsAvailable
+        {
+            get { return _isAvailable; }
+            set
+            { OnPropertyChanged("IsAvailable"); }
+        }
         public Square(int x, int y, Piece piece)
         {
             Piece = piece;
             X = x;
             Y = y;
+            IsAvailable = false;
+          
         }
 
         public Piece Piece
