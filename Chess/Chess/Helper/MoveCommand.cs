@@ -9,8 +9,6 @@ namespace Chess.Helper
 {
     public static class MoveCommand 
     {
-  // <summary>
-  
         public static void AttachImage(List<Square> p)
         {
             
@@ -30,7 +28,7 @@ namespace Chess.Helper
                     {
                          color = "black";
                     }
-                    String str = $"/Pictures/chess_piece_{color}_{type.ToLower()}.png";
+                    string str = $"/Pictures/chess_piece_{color}_{type.ToLower()}.png";
 
                     sq.Piece.ImageOfPiece = new BitmapImage(new Uri(str, UriKind.Relative));
 
@@ -39,8 +37,6 @@ namespace Chess.Helper
             }
             
         }
-
-
         private static void MoveFiller(List<Square> squares, Square start, List<Square> result, int primary, int secondary)
         {
             int PieceX = start.X;
@@ -222,6 +218,7 @@ namespace Chess.Helper
 
             return result;
         }
+
         public static void SelectPathPawn(List<Square> squares, List<Square> result, Square start)
         {
             List<Square> up = UpPath(squares, start);
@@ -231,7 +228,6 @@ namespace Chess.Helper
 
 
         }
-
         public static void SelectPathRook(List<Square> squares, List<Square> result, Square start)
         {
             int primary = 1;
@@ -290,8 +286,6 @@ namespace Chess.Helper
             
         }
 
-
-    
     }
 }
 

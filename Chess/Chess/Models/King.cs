@@ -7,9 +7,7 @@ namespace Chess.Models
 {
     public class King : Piece
     {
-
         public bool castlingDone { get; set; }
-
         public King(bool white) : base(white)
         {
             castlingDone = false;
