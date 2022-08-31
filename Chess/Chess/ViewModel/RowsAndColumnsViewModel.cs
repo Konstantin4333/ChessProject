@@ -67,7 +67,6 @@ namespace Chess.ViewModel
             }
 
         }
-
         void SidesChecker(List<Square> squares, List<Square> AvailableMoves, Piece King, List<Square> enemyMoves, int primary, int secondary, int i)
         {
             int PieceX = AvailableMoves[i].X;
@@ -81,24 +80,17 @@ namespace Chess.ViewModel
                 else if (currentSquare.Piece != null && currentSquare.Piece.White != King.White)
                 {
                     enemyMoves = currentSquare.Piece.SelectPath(squares, currentSquare);
-
                     for (int k = 0; k < AvailableMoves.Count; k++)
                     {
                         if (enemyMoves.Contains(AvailableMoves[k])) { AvailableMoves.RemoveAt(k); k--; }
                     }
-
                 }
                 PieceX += primary;
                 PieceY += secondary;
-
             }
-
-
         }
-
         public void KnightChecker(List<Square> squares, List<Square> AvailableMoves, Piece King, List<Square> enemyMoves, int primary, int secondary, int i)
         {
-
             int PieceX = AvailableMoves[i].X;
             int PieceY = AvailableMoves[i].Y;
             PieceX += primary;
@@ -116,34 +108,28 @@ namespace Chess.ViewModel
                     }
                 }
             }
-
-
         }
-
+        public void RoundChecker()
+        {
+            SPiece = SelectedSquare.Piece;
+            PrevSquare = SelectedSquare;
+            //string type = SPiece.GetType().Name;
+            _availableMoves = new List<Square>();
+            if (SPiece != null && SPiece.White && round == true)
+            {
+                _availableMoves = MoveCommand.SelectPath(Squares, PrevSquare );
+            }
+            else if (SPiece != null && !SPiece.White && round == false)
+            {
+                _availableMoves = MoveCommand.SelectPath(Squares, PrevSquare);                
+            }
+        }    
         public void Move()
         {
-
-
             if (SPiece == null)
-            {
-                SPiece = SelectedSquare.Piece;
-
-                PrevSquare = SelectedSquare;
-                _availableMoves = new List<Square>();
-                if (SPiece != null && SPiece.White && round == true)
-                {
-                    
-                    _availableMoves = SPiece.SelectPath(Squares, PrevSquare);
-                    if (SPiece.GetType() == typeof(King)) { KingChecker(Squares, _availableMoves, SPiece); }
-                }
-                if (SPiece != null && !SPiece.White && round == false)
-                {
-                    
-                    _availableMoves = SPiece.SelectPath(Squares, PrevSquare);
-                    if (SPiece.GetType() == typeof(King)) { KingChecker(Squares, _availableMoves, SPiece); }
-                }
-
-                _square = null;
+            {              
+                RoundChecker();                
+               _square = null;
             }
             else
             {
@@ -157,7 +143,7 @@ namespace Chess.ViewModel
                 SPiece = null;
                 _square = null;
             }
-        }
+            }   
         #endregion
         #region public Fields
         public Square SelectedSquare
@@ -166,14 +152,10 @@ namespace Chess.ViewModel
             set
             {
                 _square = value;
-
-
                 Move();
                 OnPropertyChanged("SelectedSquare");
             }
-
         }
-
         public Piece SPiece
         {
             get { return _sPiece; }
@@ -184,7 +166,6 @@ namespace Chess.ViewModel
                 OnPropertyChanged("SPiece");
 
             }
-
         }
         public Square PrevSquare
         {
@@ -193,7 +174,6 @@ namespace Chess.ViewModel
             {
                 _prevSquare = value;
                 OnPropertyChanged("PrevSquare");
-
             }
         }
         public List<Square> Squares
@@ -221,21 +201,11 @@ namespace Chess.ViewModel
         #region Border
         private DelegateCommand _closeApp;
         private DelegateCommand _minimize;
-
         private DelegateCommand _resize;
         private DelegateCommand _windowTest;
         private DelegateCommand _resetApp;
         private DelegateCommand _deathZone;
-
-
-
-
         bool isOpened = false;
-
-
-
-
-
         public ICommand CloseApp
         {
             get
@@ -246,8 +216,6 @@ namespace Chess.ViewModel
                 }));
             }
         }
-
-
         public ICommand ResetApp
         {
             get
@@ -261,7 +229,6 @@ namespace Chess.ViewModel
                 }));
             }
         }
-
         public ICommand Minimize
         {
             get
@@ -272,8 +239,6 @@ namespace Chess.ViewModel
                 }));
             }
         }
-
-
         public ICommand WindowTest
         {
             get
@@ -284,12 +249,9 @@ namespace Chess.ViewModel
 
 
                     UserControls.Add(GetUserControlInstance("DeathZone"));
-
-
                 }));
             }
         }
-
         public ICommand DeathZonecmd
         {
             get
@@ -299,13 +261,9 @@ namespace Chess.ViewModel
                     UserControl userControl = new DeathZonePieces();
                     UserControls.Add(userControl);
                     userControl.BringIntoView();
-
                 }));
             }
         }
-
-
-
         public ICommand Resize
         {
             get
@@ -318,19 +276,15 @@ namespace Chess.ViewModel
                         App.Current.Windows[0].WindowState = WindowState.Maximized;
                         Button button = new Button();
                         // Visibility.Visible = false;
-
-
                     }
                     else
                     {
                         App.Current.Windows[0].WindowState = WindowState.Normal;
 
                     }
-
                 }));
             }
         }
-
         private Visibility _MessageVisibilty;
         public Visibility MessageVisibilty
         {
@@ -342,7 +296,6 @@ namespace Chess.ViewModel
         {
             MessageVisibilty = Visibility.Hidden;
         }
-
         public ObservableCollection<FrameworkElement> UserControls { get; set; } = new ObservableCollection<FrameworkElement>();
         public void Execute(object? parameter)
         {
@@ -357,7 +310,6 @@ namespace Chess.ViewModel
                     break;
             }
         }
-
         private FrameworkElement GetUserControlInstance(string v)
         {
             throw new NotImplementedException();
@@ -369,9 +321,7 @@ namespace Chess.ViewModel
             Squares = new List<Square>(Board.Squares);
             MoveCommand.AttachImage(Squares);
         }
-
     }
-
 }
 
 

@@ -8,7 +8,7 @@ namespace Chess.Commands
         public List<Square> SelectPath(List<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
-            int primary = 1;
+            /*int primary = 1;
             int secondary = -1;
             int PieceX, PieceY;
             int c = -1;
@@ -32,7 +32,7 @@ namespace Chess.Commands
 
                 secondary = secondary * primary * c;
                 primary = primary * c;
-            }
+            }*/
 
             return result;
         }

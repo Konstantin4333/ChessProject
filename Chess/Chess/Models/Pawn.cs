@@ -1,6 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Chess.ViewModel;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace Chess.Models
 {
@@ -9,9 +15,9 @@ namespace Chess.Models
 
         public Pawn(bool white) : base(white)
         {
+            
         }
       
-
         public List<Square> UpPath(List<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
@@ -33,19 +39,18 @@ namespace Chess.Models
                     if (sq.Piece == null)
                     {
                         result.Add(sq);
-                        if (x == 2)
-                        {
-                            x++;
-                            index = x * 8 + y;
-                            Square sq1 = squares[index];
-                            if (sq1.Piece == null)
-                            {
-                                result.Add(sq1);
-                            }
 
+                    }
+                    if (x == 2)
+                    {
+                        x++;
+                        index = x * 8 + y;
+                        Square sq1 = squares[index];
+                        if (sq1.Piece == null)
+                        {
+                            result.Add(sq1);
                         }
                     }
-
                 }
 
             }
@@ -60,142 +65,52 @@ namespace Chess.Models
                     if (sq.Piece == null)
                     {
                         result.Add(sq);
-                        if (x == 5)
+
+                    }
+                    if (x == 5)
+                    {
+                        x--;
+                        index = x * 8 + y;
+                        Square sq2 = squares[index];
+                        if (sq2.Piece == null)
                         {
-                            x--;
-                            index = x * 8 + y;
-                            Square sq2 = squares[index];
-                            if (sq2.Piece == null)
-                            {
-                                result.Add(sq2);
-                            }
+                            result.Add(sq2);
                         }
                     }
-
                 }
             }
             return result;
         }
-
-        public List<Square> AttackRight(List<Square> squares, Square start)
+        public List<Square> Attack(List<Square> squares, Square start)
         {
             List<Square> result = new List<Square>();
-            int x = start.X;
-            int y = start.Y;
-
-            if (!start.Piece.White)
+            Square currentSquare;
+            int c = 1;
+            if (start.Piece.White == true) c = -1;
+            if (start.X + c < 8 && start.X + c > 0 && start.Y + 1 < 8)
             {
-                x++;
-                y--;
 
-                if (x < 8 && y >= 0)
-                {
-
-                    int index = x * 8 + y;
-                    Square sq = squares[index];
-                    if (sq.Piece != null)
-                    {
-                        if (sq.Piece.White)
-                        {
-                            result.Add(sq);
-
-                        }
-                    }
-                }
+                currentSquare = squares[(start.X + c) * 8 + (start.Y + 1)];
+                if (currentSquare.Piece != null && currentSquare.Piece.White != start.Piece.White)
+                    result.Add(currentSquare);
             }
-            else
+            if (start.X + c < 8 && start.X + c > 0 && start.Y - 1 >= 0)
             {
-                x--;
-                y++;
-
-                if (y < 8 && x >= 0)
-                {
-
-                    int index = x * 8 + y;
-                    Square sq = squares[index];
-                    if (sq.Piece != null)
-                    {
-                        if (!sq.Piece.White)
-
-                        {
-                            result.Add(sq);
-
-                        }
-                    }
-
-
-
-                }
-
+                currentSquare = squares[(start.X + c) * 8 + (start.Y - 1)];
+                if (currentSquare.Piece != null && currentSquare.Piece.White != start.Piece.White)
+                    result.Add(currentSquare);
             }
-            return result;
-        }
-        public List<Square> AttackLeft(List<Square> squares, Square start)
-        {
-            List<Square> result = new List<Square>();
-            int x = start.X;
-            int y = start.Y;
 
-            if (!start.Piece.White)
-            {
-                x++;
-                y++;
-
-                if (x < 8 && y < 8)
-                {
-
-                    int index = x * 8 + y;
-                    Square sq = squares[index];
-                    if (sq.Piece != null)
-                    {
-
-
-                        if (sq.Piece.White)
-                        {
-                            result.Add(sq);
-
-                        }
-                    }
-
-
-
-                }
-
-            }
-            else
-            {
-                x--;
-                y--;
-
-                if (x >= 0 && y >= 0)
-                {
-
-                    int index = x * 8 + y;
-                    Square sq = squares[index];
-                    if (sq.Piece != null)
-
-                        if (!sq.Piece.White)
-                        {
-                            result.Add(sq);
-                        }
-                }
-
-            }
             return result;
         }
         public override List<Square> SelectPath(List<Square> squares, Square start)
         {
-
-            List<Square> up = UpPath(squares, start);
-            List<Square> attackRight = AttackRight(squares, start);
-            List<Square> attackLeft = AttackLeft(squares, start);
+            List<Square> up = UpPath(squares, start);        
+            List<Square> attack = Attack(squares, start);
             List<Square> result = new List<Square>();
             result.AddRange(up);
-            result.AddRange(attackRight);
-            result.AddRange(attackLeft);
+            result.AddRange(attack);
             return result;
-      //    List <Square> result= new List<Square>();
-
         }
     }
 }

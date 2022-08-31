@@ -5,14 +5,10 @@ namespace Chess.Models
     public class Board
     {
         public Square[] Squares { get; set; }
-
-
         public Board()
         {
-
             this.ResetBoard();
             this.CheckSquareEvent(Squares);
-
         }
         public Square GetSquare(int x)
         {
@@ -28,21 +24,14 @@ namespace Chess.Models
             {
                 throw new Exception("Index out of bounds");
             }
-
             int index = x * 8 + y;
             return Squares[index];
-
         }
-
-
-        //----------------------------
         public void CheckSquareEvent(Square[] sq)
         {
             bool f = false;
-
             for (int i = 0; i < 64; i++)
             {
-
                 if (i % 8 == 0)
                 {
                     f = !f;
@@ -51,31 +40,16 @@ namespace Chess.Models
                 {
                     sq[i].IsEven = f;
                 }
-
                 else
                 {
-
-
                     if (i % 2 != 0)
                     {
                         sq[i].IsEven = !f;
                     }
                 }
-
-
             }
-
-
-
             Console.WriteLine();
-
         }
-
-
-
-
-
-
         public void ResetBoard()
         {
             //Initialize black pieces
@@ -88,7 +62,6 @@ namespace Chess.Models
             Squares[5] = new Square(0, 5, new Bishop(false));
             Squares[6] = new Square(0, 6, new Knight(false));
             Squares[7] = new Square(0, 7, new Rook(false));
-
             Squares[8] = new Square(1, 0, new Pawn(false));
             Squares[9] = new Square(1, 1, new Pawn(false));
             Squares[10] = new Square(1, 2, new Pawn(false));
@@ -97,8 +70,7 @@ namespace Chess.Models
             Squares[13] = new Square(1, 5, new Pawn(false));
             Squares[14] = new Square(1, 6, new Pawn(false));
             Squares[15] = new Square(1, 7, new Pawn(false));
-
-
+            
             //Initialize white pieces
             Squares[56] = new Square(7, 0, new Rook(true));
             Squares[57] = new Square(7, 1, new Knight(true));
@@ -108,7 +80,6 @@ namespace Chess.Models
             Squares[61] = new Square(7, 5, new Bishop(true));
             Squares[62] = new Square(7, 6, new Knight(true));
             Squares[63] = new Square(7, 7, new Rook(true));
-
             Squares[55] = new Square(6, 7, new Pawn(true));
             Squares[54] = new Square(6, 6, new Pawn(true));
             Squares[53] = new Square(6, 5, new Pawn(true));
