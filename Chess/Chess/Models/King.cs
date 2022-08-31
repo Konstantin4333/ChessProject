@@ -14,6 +14,6 @@ namespace Chess.Models
         {
             castlingDone = false;
         }
-        }
-}
+
+    }
 }

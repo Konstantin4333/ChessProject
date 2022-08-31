@@ -28,7 +28,7 @@ namespace Chess.Helper
                     {
                          color = "black";
                     }
-                    String str = $"/Pictures/chess_piece_{color}_{type.ToLower()}.png";
+                    string str = $"/Pictures/chess_piece_{color}_{type.ToLower()}.png";
 
                     sq.Piece.ImageOfPiece = new BitmapImage(new Uri(str, UriKind.Relative));
 

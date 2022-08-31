@@ -13,4 +13,4 @@ namespace Chess.Models
         public ImageSource ImageOfPiece { get; set; }
         public bool White { get; set; }
     }
-}}
+}
