@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Chess.Models
 {
@@ -19,7 +14,6 @@ namespace Chess.Models
             Piece = piece;
             X = x;
             Y = y;
-
         }
 
         public Piece Piece
@@ -32,9 +26,9 @@ namespace Chess.Models
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -50,16 +44,5 @@ namespace Chess.Models
             set { y = value; }
         }
 
-
-        public bool _IsEven;
-
-        public bool IsEven
-        {
-            get { return _IsEven; }
-            set
-            {
-                _IsEven = value;
-            }
-        }
     }
 }

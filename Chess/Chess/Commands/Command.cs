@@ -1,38 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Chess.Commands
 {
-    public class Command:ICommand
+    public class Command : ICommand
     {
-        readonly Action<object> _execute;
-        readonly Predicate<object> _canExecute;
+        private readonly Predicate<object> _canExecute;
+        private readonly Action<object> _execute;
 
-        public Command(Action<object> execute, Predicate<object> canExecute)
+        public Command(Predicate<object> canExecute, Action<object> execute)
         {
-            if (execute == null)
-                throw new ArgumentNullException("execute");
-            _execute = execute;
             _canExecute = canExecute;
-        }
-        public Command(Action<object> execute) : this(execute, null)
-        {
-
+            _execute = execute;
         }
 
         public event EventHandler CanExecuteChanged
         {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
         }
 
         public bool CanExecute(object parameter)
         {
-            return _canExecute == null ? true : _canExecute(parameter);
+            return _canExecute(parameter);
         }
 
         public void Execute(object parameter)

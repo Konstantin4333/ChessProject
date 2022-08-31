@@ -8,32 +8,18 @@
              xmlns:st="clr-namespace:Chess.Models"
             
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="800">
+             Width="auto" Height="auto"  >
     <UserControl.DataContext>
         <vm:RowsAndColumnsViewModel/>
+
     </UserControl.DataContext>
 
-    <UserControl.Resources>
-  
-
-
-        <Style TargetType="ListViewItem">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding IsEven}" Value="false">
-                    <Setter Property="Background" Value="#423936" />
-                </DataTrigger>
-                <DataTrigger Binding="{Binding IsEven}" Value="true">
-                    <Setter Property="Background" Value="DarkGray" />
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
-
-    </UserControl.Resources>
 
     <Grid>
-        <ListView x:Name="Pieces" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">
-            <!--  <ListView x:Name="Pieces" AlternationCount="16" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">-->
+        <ListView BorderThickness="0" Background="Transparent" x:Name="Pieces" AlternationCount="16" ItemsSource="{Binding Squares}" SelectedValue="{Binding SelectedSquare}">
+                   
             <ListView.ItemTemplate>
+                
                 <DataTemplate>
                     <Image Source="{Binding Piece.ImageOfPiece}" Height="75" Width="50" Margin="18.75,0,18.75,0"></Image>
                 </DataTemplate>
@@ -41,18 +27,63 @@
             </ListView.ItemTemplate>
             <ListView.ItemsPanel >
                 <ItemsPanelTemplate>
-                    <WrapPanel  Width="700" Height="700"  Orientation="Horizontal" ItemHeight="87.5" ItemWidth="87.5" Background="Transparent">
-
+                    <WrapPanel  Background="#423936" Width="700" Height="700"  Orientation="Horizontal"  ItemHeight="87.5" ItemWidth="87.5" >
                     </WrapPanel>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
-        </ListView> 
+        </ListView>
 
-        
+        <!--#endregion-->
+        <!--#region BORDER-->
+        <!--#region Rectangle-->
+        <Rectangle StrokeDashArray="1 2" Height="50"   VerticalAlignment="Top" MinWidth="800" HorizontalAlignment="Left" Style="{StaticResource borderImg}"  />
+        <Rectangle Width="50" MinHeight="800"  HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource borderImg}" Margin="0,0,0,0" />
+        <Rectangle Height="50" MinWidth="800"  StrokeDashArray="1 2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource borderImg}" />
+        <Rectangle Width="50" MinHeight="800" HorizontalAlignment="Right" VerticalAlignment="Bottom" Style="{StaticResource borderImg}" />
+        <!--#endregion-->
+        <!--#region TextBlock and Buttons-->
+        <TextBlock Text="8" Style="{StaticResource TbStyle}"  Margin="15,70,0,0"/>
+        <TextBlock Text="7"  Style="{StaticResource TbStyle}"  Margin="15,170,0,0" />
+        <TextBlock Text="6"  Style="{StaticResource TbStyle}"  Margin="15,250,0,0" />
+        <TextBlock Text="5"  Style="{StaticResource TbStyle}"  Margin="15,340,0,0" />
+        <TextBlock Text="4"  Style="{StaticResource TbStyle}"  Margin="15,430,0,0"/>
+        <TextBlock Text="3"  Style="{StaticResource TbStyle}"  Margin="15,510,0,0"/>
+        <TextBlock Text="2"  Style="{StaticResource TbStyle}"  Margin="15,600,0,0"/>
+        <TextBlock Text="1"  Style="{StaticResource TbStyle}"  Margin="15,700,0,0"/>
+        <TextBlock Text="A"  Style="{StaticResource TbStyle2}"  Margin="70,762,0,0"/>
+        <TextBlock Text="B"  Style="{StaticResource TbStyle2}"  Margin="170,762,0,0" />
+        <TextBlock Text="C"  Style="{StaticResource TbStyle2}"  Margin="250,762,0,0" />
+        <TextBlock Text="D"  Style="{StaticResource TbStyle2}" Margin="340,762,0,0" />
+        <TextBlock Text="E"  Style="{StaticResource TbStyle2}" Margin="430,762,0,0" />
+        <TextBlock Text="F"  Style="{StaticResource TbStyle2}"  Margin="510,762,0,0" />
+        <TextBlock Text="G"  Style="{StaticResource TbStyle2}"  Margin="600,762,0,0" />
+        <TextBlock Text="H"  Style="{StaticResource TbStyle2}"  Margin="700,762,0,0" />
 
-         
+        <Button Content="X" Foreground="White" FontSize="14" Canvas.Left="766" Height="22" Width="34" HorizontalAlignment="Right" VerticalAlignment="Top" Background="Transparent"  Command="{Binding CloseApp}" />
+        <Button  Foreground="White" FontSize="14" Canvas.Left="732" Height="22" Width="34" Background="Transparent"  HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding Resize}" Margin="0,0,34,0">
+            <Rectangle Width="10" Height="10" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="White" />
+        </Button>
+        <Button Content="___" Foreground="White" FontSize="14"  Height="22" Width="34" Background="Transparent"  HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding Minimize}" Margin="0,0,68,0"/>
+        <Button Content="Death" Foreground="White" FontSize="14" Canvas.Left="700" Height="22" Width="100" Background="Transparent"  HorizontalAlignment="Right" VerticalAlignment="Top" Canvas.Top="22" CommandParameter="DeathZone"  Visibility="Visible" Margin="0,22,0,0"  />
 
-        
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" Background="{x:Null}">
+                <MenuItem Header="_File"  FontSize="14" FontWeight="Bold" Foreground="White" BorderBrush="#FF0C0B0B" >
+                    <MenuItem Header="_Reset" Foreground="#FF0A0909" FontWeight="Normal" Command="{Binding ResetApp}" >
+                        <MenuItem.Icon>
+                            <Image Source="/Pictures/restart.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Exit" Foreground="Black" FontWeight="Normal" Command="{Binding CloseApp}">
+                        <MenuItem.Icon>
+                            <Image Source="/Pictures/close.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
 
+        <!--#endregion-->
+        <!--#endregion-->
     </Grid>
 </UserControl>

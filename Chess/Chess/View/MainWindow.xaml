@@ -7,7 +7,7 @@
         xmlns:locals="clr-namespace:Chess"
         xmlns:vm="clr-namespace:Chess.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="800"  AllowsTransparency="False" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" WindowState="Normal">
+        Title="MainWindow" Height="800px" Width="800px" MinHeight= " 600" MinWidth="600" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" WindowStyle="None" WindowState="Normal">
 
     <Window.DataContext>
         <vm:MainViewModel/>
@@ -19,16 +19,16 @@
         <SolidColorBrush Opacity="0.5" Color="Transparent"/>
     </Window.Background>
 
-    <Grid >
+    <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/chess2.jpg"/>
         </Grid.Background>
         <Grid  MouseDown=" Grid_MouseDown" HorizontalAlignment="Center" VerticalAlignment="Center" >
 
 
-            <Frame x:Name="Rows" />
-            <Frame x:Name="testss" />
-            <Frame x:Name="Border"/>
+            <Frame x:Name="Rows" Width="auto" Height="auto" />
+            
+            
 
         </Grid>
     </Grid>

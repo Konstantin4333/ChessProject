@@ -1,26 +1,9 @@
-﻿using Chess.Models;
-using Prism.Commands;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows;
 
 namespace Chess.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
-       
-        private DeathZonePiecesViewModel otherVM;
-        private MainViewModel homeVM;
-
-        public DelegateCommand<string> NavigationCommand { get; private set; }
-
         
         private static void transparency()
         {
@@ -32,11 +15,5 @@ namespace Chess.ViewModel
                 App.Current.Windows[0].AllowsTransparency = false;
             }
         }
-
-       
-
-
     }
-
-    
 }
