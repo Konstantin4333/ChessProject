@@ -55,9 +55,16 @@ namespace Chess.ViewModel
         #region Methods
         public void setAvailableSquares()
         {
-            foreach(Square sq in _availableMoves)
+            foreach(Square sq in AvailableMoves)
             {
                 sq.IsAvailable=true;
+            }
+        }
+        public void clearAvailableSquares()
+        {
+            foreach (Square sq in AvailableMoves)
+            {
+                sq.IsAvailable = false;
             }
         }
         private void Shutdown()
@@ -224,9 +231,11 @@ namespace Chess.ViewModel
                     SelectedSquare.Piece = SPiece;
                     PrevSquare.Piece = null;
                 }
+                clearAvailableSquares();
                 _availableMoves = null;
                 SPiece = null;
                 _square = null;
+                
             }
         }
         #endregion
