@@ -271,7 +271,7 @@ namespace Chess.ViewModel
             else
             {
                 if (_availableMoves.Contains(SelectedSquare))
-                {   round = !round;
+                {   
                     
                     round = !round;
                     SelectedSquare.Piece = SPiece;
