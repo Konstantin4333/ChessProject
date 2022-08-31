@@ -1,9 +1,6 @@
 ﻿using Chess.Commands;
 using Chess.Helper;
 using Chess.Models;
-using Chess.View;
-
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -151,14 +148,22 @@ namespace Chess.ViewModel
             int PieceY = AvailableMoves[i].Y;
             PieceX += primary;
             PieceY += secondary;
+            Square pawn;
             while (PieceX >= 0 && PieceY >= 0 && PieceX < 8 && PieceY < 8)
             {
                 Square currentSquare = squares[PieceX * 8 + PieceY];
                 if (currentSquare.Piece != null && currentSquare.Piece.White == King.White) break;
                 else if (currentSquare.Piece != null && currentSquare.Piece.White != King.White)
                 {
-                    enemyMoves = currentSquare.Piece.SelectPath(squares, currentSquare);
+                   if (currentSquare.Piece.GetType() == typeof(Pawn))
+                    {
+                        enemyMoves = PawnChecker(squares, enemyMoves, currentSquare);
 
+                    }
+                    else
+                    {
+                        enemyMoves =MoveCommand.SelectPieceMovement(squares,currentSquare.Piece,currentSquare);
+                   }
                     for (int k = 0; k < AvailableMoves.Count; k++)
                     {
                         if (enemyMoves.Contains(AvailableMoves[k])) { AvailableMoves.RemoveAt(k); k--; }
@@ -180,23 +185,64 @@ namespace Chess.ViewModel
             int PieceY = AvailableMoves[i].Y;
             PieceX += primary;
             PieceY += secondary;
+            Square pawn;
             if (PieceX >= 0 && PieceY >= 0 && PieceX < 8 && PieceY < 8)
             {
                 Square currentSquareKnight = squares[PieceX * 8 + PieceY];
                 if (currentSquareKnight.Piece != null && currentSquareKnight.Piece.White != King.White)
                 {
-                    enemyMoves = currentSquareKnight.Piece.SelectPath(squares, currentSquareKnight);
-
-                    for (int k = 0; k < AvailableMoves.Count; k++)
+                    if (currentSquareKnight.Piece.GetType() == typeof(Pawn))
                     {
-                        if (enemyMoves.Contains(AvailableMoves[k])) { AvailableMoves.RemoveAt(k); k--; }
+                        enemyMoves = PawnChecker(squares, enemyMoves, currentSquareKnight);
                     }
+                    else
+                    {
+                        enemyMoves = MoveCommand.SelectPieceMovement(squares, currentSquareKnight.Piece, currentSquareKnight);
+                    }
+                        for (int k = 0; k < AvailableMoves.Count; k++)
+                        {
+                            if (enemyMoves.Contains(AvailableMoves[k])) { AvailableMoves.RemoveAt(k); k--; }
+                        }
+                    
                 }
             }
 
 
+
         }
 
+        private static List<Square> PawnChecker(List<Square> squares, List<Square> enemyMoves, Square currentSquare)
+        {
+            enemyMoves.Clear();
+            Square pawnAttack;
+            int c = 1;
+            if (currentSquare.Piece.White == true) c = -1;
+            if (currentSquare.X + c < 8 && currentSquare.X + c >= 0 && currentSquare.Y + 1 < 8)
+            {
+
+                pawnAttack = squares[(currentSquare.X + c) * 8 + (currentSquare.Y + 1)];
+                if (pawnAttack.Piece == null)
+                    enemyMoves.Add(pawnAttack);
+            }
+            if (currentSquare.X + c < 8 && currentSquare.X + c >= 0 && currentSquare.Y - 1 >= 0)
+            {
+                pawnAttack = squares[(currentSquare.X + c) * 8 + (currentSquare.Y - 1)];
+                if (pawnAttack.Piece == null)
+                    enemyMoves.Add(pawnAttack);
+            }
+
+            return enemyMoves;
+        }
+        public bool Checkmate(List<Square> availableMoves, Piece attackingPiece)
+        {
+            bool checkmate = false;
+            for(int i=0;i<availableMoves.Count; i++)
+            {
+                if (availableMoves[i].Piece!=null && availableMoves[i].Piece.GetType() == typeof(King) && availableMoves[i].Piece.White != attackingPiece.White) checkmate=true;
+            }
+            return checkmate;
+        }
+    
         public void Move()
         {
 
@@ -207,29 +253,30 @@ namespace Chess.ViewModel
 
                 PrevSquare = SelectedSquare;
                 _availableMoves = new List<Square>();
-                if (SPiece != null && SPiece.White && round == true)
+               if (SPiece != null && SPiece.White && round == true)
                 {
-
-                    _availableMoves = SPiece.SelectPath(Squares, PrevSquare);
-                    if (SPiece.GetType() == typeof(King)) { KingChecker(Squares, _availableMoves, SPiece); }
+                _availableMoves = MoveCommand.SelectPieceMovement(Squares,SPiece,PrevSquare);
                     
-                }
-                if (SPiece != null && !SPiece.White && round == false)
-                {
-
-                    _availableMoves = SPiece.SelectPath(Squares, PrevSquare);
-                    if (SPiece.GetType() == typeof(King)) { KingChecker(Squares, _availableMoves, SPiece); }
-                }
+               if (SPiece.GetType() == typeof(King)) { KingChecker(Squares, _availableMoves, SPiece); }
+                 }
+                      if (SPiece != null && !SPiece.White && round == false)
+                      {
+                       _availableMoves = MoveCommand.SelectPieceMovement(Squares, SPiece, PrevSquare);
+                   
+                   if (SPiece.GetType() == typeof(King)) { KingChecker(Squares, _availableMoves, SPiece); }
+                   }
                 setAvailableSquares();
                 _square = null;
             }
             else
             {
                 if (_availableMoves.Contains(SelectedSquare))
-                {
+                {   round = !round;
+                    
                     round = !round;
                     SelectedSquare.Piece = SPiece;
                     PrevSquare.Piece = null;
+                    
                 }
                 clearAvailableSquares();
                 _availableMoves = null;
@@ -276,7 +323,6 @@ namespace Chess.ViewModel
 
             }
         }
-
         public List<Square> Squares
         {
             get { return _squares; }
