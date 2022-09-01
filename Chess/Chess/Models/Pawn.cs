@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
+
 
 namespace Chess.Models
 {
@@ -7,9 +9,8 @@ namespace Chess.Models
 
         public Pawn(bool white) : base(white)
         {
+         
         }
-      
-
-      
     }
 }
+

@@ -1,6 +1,7 @@
 ﻿  using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+
 using System.Windows.Media.Imaging;
 
 namespace Chess.Models
@@ -9,10 +10,6 @@ namespace Chess.Models
     {
         public Rook(bool white) : base(white)
         {
-          
-        }
-        
-
-     
-    }
+		}
+	}
 }

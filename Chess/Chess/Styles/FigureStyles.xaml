@@ -115,6 +115,13 @@
                 <Setter Property="Background" Value="DarkGray" />
                 <Setter Property="BorderThickness" Value="0"/>
             </Trigger>
+            <DataTrigger
+                 Binding="{Binding IsAvailable}" 
+                 Value="True">
+                <Setter 
+                     Property="Background" 
+                     Value="#2feb05"/>
+            </DataTrigger>
         </Style.Triggers>
     </Style>
 
