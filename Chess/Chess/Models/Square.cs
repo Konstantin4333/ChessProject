@@ -1,5 +1,8 @@
-﻿using System.ComponentModel;
+﻿
+using System.ComponentModel;
+
 using System.Runtime.CompilerServices;
+
 
 namespace Chess.Models
 {
@@ -8,12 +11,20 @@ namespace Chess.Models
         private Piece? _piece;
         private int x;
         private int y;
-
+        private bool _isAvailable;
+        public bool IsAvailable
+        {
+            get { return _isAvailable; }
+            set
+            { _isAvailable = value; OnPropertyChanged("IsAvailable"); }
+        }
         public Square(int x, int y, Piece piece)
         {
             Piece = piece;
             X = x;
             Y = y;
+            IsAvailable = false;
+          
         }
 
         public Piece Piece

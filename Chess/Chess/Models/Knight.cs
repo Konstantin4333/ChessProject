@@ -9,9 +9,8 @@ namespace Chess.Models
     {
         public Knight(bool white) : base(white)
         {
-            
         }
-       
-
     }
 }
+
+        
