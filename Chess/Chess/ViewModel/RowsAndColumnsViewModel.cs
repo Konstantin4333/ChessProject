@@ -392,7 +392,7 @@ namespace Chess.ViewModel
         {
             Board = new Board();
             Squares = new List<Square>(Board.Squares);
-            MoveCommand.AttachImage(Squares);
+            FiguresSetter.AttachImage(Squares);
         }
     }
 

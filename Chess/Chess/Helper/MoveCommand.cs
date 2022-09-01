@@ -9,34 +9,7 @@ namespace Chess.Helper
 {
     public static class MoveCommand 
     {
-        public static void AttachImage(List<Square> p)
-        {
-            
-            foreach (var sq in p)
-            {
-               
-                if (sq.Piece != null)
-                {
-                    string type = sq.Piece.GetType().Name.ToString();
-
-                    string color = "";
-                    if (sq.Piece.White)
-                    {
-                         color = "white";
-                    }
-                    else
-                    {
-                         color = "black";
-                    }
-                    string str = $"/Pictures/chess_piece_{color}_{type.ToLower()}.png";
-
-                    sq.Piece.ImageOfPiece = new BitmapImage(new Uri(str, UriKind.Relative));
-
-                }
-
-            }
-            
-        }
+        
         private static void MoveFiller(List<Square> squares, Square start, List<Square> result, int primary, int secondary)
         {
             int PieceX = start.X;
