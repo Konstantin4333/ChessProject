@@ -19,7 +19,7 @@ namespace Chess.ViewModel
         private List<Square> _squares;
         private Square _prevSquare;
         private List<Square> _availableMoves;
-        private bool round = true;
+       
         private ICommand _closeApp;
         private ICommand _resetApp;
         private ICommand _resize;
@@ -86,8 +86,7 @@ namespace Chess.ViewModel
 
                 App.Current.Windows[0].WindowState = WindowState.Maximized;
                 Button button = new Button();
-                // Visibility.Visible = false;
-
+               
 
             }
             else
@@ -245,7 +244,7 @@ namespace Chess.ViewModel
     
         public void Move()
         {
-
+            
 
             if (SPiece == null)
             {
@@ -253,13 +252,13 @@ namespace Chess.ViewModel
 
                 PrevSquare = SelectedSquare;
                 _availableMoves = new List<Square>();
-               if (SPiece != null && SPiece.White && round == true)
+               if (SPiece != null && SPiece.White && Round == true)
                 {
                 _availableMoves = MoveCommand.SelectPieceMovement(Squares,SPiece,PrevSquare);
                     
                if (SPiece.GetType() == typeof(King)) { KingChecker(Squares, _availableMoves, SPiece); }
                  }
-                      if (SPiece != null && !SPiece.White && round == false)
+                      if (SPiece != null && !SPiece.White && Round == false)
                       {
                        _availableMoves = MoveCommand.SelectPieceMovement(Squares, SPiece, PrevSquare);
                    
@@ -267,13 +266,14 @@ namespace Chess.ViewModel
                    }
                 setAvailableSquares();
                 _square = null;
+                
             }
             else
             {
                 if (_availableMoves.Contains(SelectedSquare))
-                {   
-                    
-                    round = !round;
+                {
+
+                    Round = !Round;
                     SelectedSquare.Piece = SPiece;
                     PrevSquare.Piece = null;
                     
@@ -282,8 +282,10 @@ namespace Chess.ViewModel
                 _availableMoves = null;
                 SPiece = null;
                 _square = null;
-                
+               
+
             }
+           
         }
         #endregion
         #region public Fields
@@ -354,6 +356,38 @@ namespace Chess.ViewModel
             }
         }
         #endregion
+
+        private bool isResize;
+        public bool IsResize
+        {
+            get { return isResize; }
+            set { isResize = value; 
+            OnPropertyChanged("IsResize");}
+        }
+        private int roundCount = 0;
+        public int RoundCount
+        {
+            get { return roundCount; }
+            set
+            {
+                roundCount = value;
+                
+                OnPropertyChanged("RoundCount");
+            }
+        }
+
+        private bool round = true;
+        public bool Round
+        {
+            get { return round; }
+            set
+            {
+                round = value;
+                RoundCount++;
+                OnPropertyChanged("Round");
+            }
+        }
+
         public RowsAndColumnsViewModel()
         {
             Board = new Board();

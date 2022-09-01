@@ -12,6 +12,7 @@ namespace Chess.Models
         private int x;
         private int y;
         private bool _isAvailable;
+        
         public bool IsAvailable
         {
             get { return _isAvailable; }
