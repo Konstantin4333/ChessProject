@@ -9,6 +9,8 @@
 
   <ItemGroup>
 	  <None Remove="Pictures\chess2.jpg" />
+	  <None Remove="Pictures\ChessIcon.png" />
+	  <None Remove="Pictures\ChessIcon.png.jpeg" />
 	  <None Remove="Pictures\chess_piece_black_rook.png" />
 	  <None Remove="Pictures\chess_piece_black_bishop.png" />
 	  <None Remove="Pictures\chess_piece_black_king.png" />
@@ -31,6 +33,8 @@
 
   <ItemGroup>
 	  <Resource Include="Pictures\chess2.jpg" />
+	  <Resource Include="Pictures\ChessIcon.png" />
+	  <Resource Include="Pictures\ChessIcon.png.jpeg" />
 	  <Resource Include="Pictures\chess_piece_black_bishop.png" />
 	  <Resource Include="Pictures\chess_piece_black_king.png" />
 	  <Resource Include="Pictures\chess_piece_black_rook.png" />

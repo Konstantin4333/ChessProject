@@ -7,13 +7,24 @@
         xmlns:locals="clr-namespace:Chess"
         xmlns:vm="clr-namespace:Chess.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800px" Width="800px" MinHeight= " 600" MinWidth="600" AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" WindowStyle="None" WindowState="Normal">
+        
+        Icon="/Pictures/ChessIcon.png.jpeg"
+        Title="MainWindow"
+        Height="600" Width="600"
+        MinHeight= " 600" MinWidth="600" 
+       
+       
+        AllowsTransparency="True" 
+        WindowStartupLocation="CenterScreen" 
+        ResizeMode="CanResizeWithGrip"
+        WindowStyle="None" 
+        WindowState="Normal">
 
     <Window.DataContext>
-        <vm:MainViewModel/>
+        <vm:RowsAndColumnsViewModel/>
     </Window.DataContext>
-    
-    
+
+
 
     <Window.Background>
         <SolidColorBrush Opacity="0.5" Color="Transparent"/>
@@ -23,17 +34,51 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Pictures/chess2.jpg"/>
         </Grid.Background>
-        <Grid  MouseDown=" Grid_MouseDown" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Grid  MouseDown=" Grid_MouseDown" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+            <Button Content="X"
+                    Foreground="White"
+                    FontSize="14"
+                    Height="22"
+                    Width="34"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Background="Transparent"
+                    Command="{Binding CloseApp}" Margin="0,0,0,0" />
+            <Button  Foreground="White"
+                     FontSize="14" 
+                     Height="22"
+                     Width="34" 
+                     Background="Transparent"
+                     HorizontalAlignment="Right"
+                     VerticalAlignment="Top"
+                     Command="{Binding Resize}"
+                     Margin="0,0,34,0">
+                <Rectangle Width="10"
+                           Height="10" 
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Stroke="White" />
+            </Button>
+            <Button Content="___"
+                    Foreground="White" 
+                    FontSize="14" 
+                    Height="22"
+                    Width="34" 
+                    Background="Transparent"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Command="{Binding Minimize}"
+                    Margin="0,0,68,0"/>
 
 
             <Frame x:Name="Rows" Width="auto" Height="auto" />
-            
-            
+
+
 
         </Grid>
     </Grid>
     <!--  <Frame x:Name="Rows"/>
         <Frame x:Name="testss"/>
         <Frame x:Name="Border"/> -->
-  
+
 </Window>

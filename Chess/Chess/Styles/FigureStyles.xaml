@@ -7,7 +7,7 @@
     <!--#region Border TextBlock Triggers-->
     <Style x:Key="TbStyle" TargetType="TextBlock">
         <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="TextBlock.TextAlignment" Value="center"/>
         <Setter Property="TextBlock.Foreground" Value="White"/>
         <Setter Property="TextBlock.FontSize" Value="20"/>
@@ -19,7 +19,7 @@
     </Style>
 
     <Style x:Key="TbStyle2" TargetType="TextBlock">
-        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="TextBlock.TextAlignment" Value="center"/>
         <Setter Property="TextBlock.Foreground" Value="White"/>
@@ -27,7 +27,7 @@
         <Setter Property="TextBlock.Width" Value="20"/>
         <Setter Property="TextBlock.Height" Value="25"/>
 
-        <Setter Property="Margin" Value="0,762,0,0"/>
+        
 
     </Style>
     <!--#endregion-->
@@ -35,7 +35,7 @@
 
     <Style  TargetType="{x:Type WrapPanel}" x:Key="trt">
         <Style.Triggers>
-            <DataTrigger Binding="{Binding  Board.IsEven }" Value="True">
+            <DataTrigger Binding="{Binding IsEven }" Value="True">
                 <Setter Property="Background" Value="#FFA29494" />
                 <Setter Property="Width" Value="700"/>
                 <Setter Property="Height" Value="700"/>
@@ -43,7 +43,7 @@
                 <Setter Property="ItemWidth" Value="87.5"/>
                 <Setter Property="Orientation" Value="Horizontal"/>
             </DataTrigger>
-            <DataTrigger Binding="{Binding Board.IsEven}" Value="False">
+            <DataTrigger Binding="{Binding IsEven}" Value="False">
                 <Setter Property="Background" Value="green"/>
                 <Setter Property="Width" Value="700"/>
                 <Setter Property="Height" Value="700"/>
@@ -72,7 +72,7 @@
     <!--#endregion-->
     <!--#region Board Trigger-->
 
-    <Style  TargetType="{x:Type ListViewItem}" >
+ <Style  TargetType="{x:Type ListViewItem}" >
 
         <Style.Triggers>
             <Trigger Property="ItemsControl.AlternationIndex" Value="0">
@@ -120,10 +120,102 @@
                  Value="True">
                 <Setter 
                      Property="Background" 
-                     Value="#2feb05"/>
+                     Value="#FF7FF365"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>  
+
+    <!--#endregion-->
+
+
+ <!-- <Style  TargetType="{x:Type ListViewItem}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsEven }" Value="True">
+                <Setter Property="Background" Value="#FFA29494" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsEven}" Value="False">
+                <Setter Property="Background" Value="#423936"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style> -->
+
+    <Style  TargetType="{x:Type Grid}" x:Key="szz">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsResize }" Value="True">
+                <Setter Property="Width" Value="600"/>
+                <Setter Property="Height" Value="600"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsResize}" Value="False">
+                <Setter Property="Width" Value="1000"/>
+                <Setter Property="Height" Value="1000"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="tbk" TargetType="TextBlock">
+        <Style.Triggers>
+           
+            <MultiDataTrigger>
+            <MultiDataTrigger.Conditions>
+                <Condition Binding="{Binding Round}" Value="True" />
+                <Condition Binding="{Binding IsResize }" Value="False" />
+            </MultiDataTrigger.Conditions>
+                <Setter Property="Text" Value="Белите са на ход"/>
+                <Setter Property="TextBlock.FontSize" Value="16"/>
+                <Setter Property="Foreground" Value="white"/>
+            </MultiDataTrigger>
+           
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Round}" Value="False" />
+                    <Condition Binding="{Binding IsResize }" Value="False" />
+                </MultiDataTrigger.Conditions>
+                <Setter Property="Text" Value="Черните са на ход"/>
+                <Setter Property="TextBlock.FontSize" Value="16"/>
+                <Setter Property="TextBlock.Foreground" Value="White"/>
+            </MultiDataTrigger>
+            
+          
+
+            <DataTrigger Binding="{Binding IsResize }" Value="False">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextBlock.Foreground" Value="white"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsResize }" Value="True">
+                <Setter Property="TextBlock.FontSize" Value="24"/>
+                <Setter Property="TextBlock.Foreground" Value="White"/>
+            </DataTrigger>
+
+        </Style.Triggers>
+    </Style>
+
+    <Style  TargetType="{x:Type Grid}" x:Key="Imgs">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsResize }" Value="True">
+                <Setter Property="Width" Value="75"/>
+                <Setter Property="Height" Value="50"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsResize}" Value="False">
+                <Setter Property="Width" Value="50"/>
+                <Setter Property="Height" Value="50"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
             </DataTrigger>
         </Style.Triggers>
     </Style>
 
-    <!--#endregion-->
+    <Style  TargetType="{x:Type Button}" x:Key="ButtonVisible">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsResize }" Value="True">
+                <Setter Property="Visibility" Value="Hidden"/>
+                <Setter Property="Foreground" Value="Transparent"/>
+                <Setter Property="Content" Value=""/>
+
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsResize}" Value="False">
+                <Setter Property="Visibility" Value="Visible"/>
+              
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>
