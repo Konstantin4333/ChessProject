@@ -16,7 +16,9 @@ namespace Chess.Models
         {
             get { return _isAvailable; }
             set
-            { _isAvailable = value; OnPropertyChanged("IsAvailable"); }
+            { 
+                _isAvailable = value; 
+                OnPropertyChanged("IsAvailable"); }
         }
         public Square(int x, int y, Piece piece)
         {

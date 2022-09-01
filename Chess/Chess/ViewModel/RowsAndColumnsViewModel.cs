@@ -360,7 +360,6 @@ namespace Chess.ViewModel
             Squares = new List<Square>(Board.Squares);
             MoveCommand.AttachImage(Squares);
         }
-
     }
 
 }

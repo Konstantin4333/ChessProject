@@ -4,7 +4,6 @@ namespace Chess.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
-        
         private static void transparency()
         {
             if (App.Current.Windows[0].WindowState == WindowState.Normal)
