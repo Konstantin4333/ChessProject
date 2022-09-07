@@ -6,10 +6,13 @@ using System.Windows.Media.Imaging;
 
 namespace Chess.Models
 {
+
     public class Rook : Piece
     {
+        public bool castlingDone { get; set; }
         public Rook(bool white) : base(white)
         {
-		}
+            castlingDone = false;
+        }
 	}
 }

@@ -2,13 +2,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Media.Imaging;
-
+using System.Windows.Xps.Serialization;
 
 namespace Chess.Helper
 {
     public static class PiecesMovement 
     {
+       
         public static void AttachImage(List<Square> p)
         {
             
@@ -158,12 +160,15 @@ namespace Chess.Helper
             string variable;
             variable = CurrentPiece.GetType().Name.ToString();
             List<Square> AvailableMoves = new List<Square>();
+            Rook rook;
+            King king;
             switch (variable)
             {
                 case "King":
                     {
                         SelectPathKing(Squares, AvailableMoves, start);
-                      
+                       
+                        
                     }
                     break;
                 case "Queen":
@@ -181,6 +186,7 @@ namespace Chess.Helper
                 case "Rook":
                     {
                         SelectPathRook(Squares, AvailableMoves, start);
+                        
                     }
                     break;
                 case "Pawn":
@@ -283,6 +289,7 @@ namespace Chess.Helper
                     }
                 }
             }
+            
             
         }
 
